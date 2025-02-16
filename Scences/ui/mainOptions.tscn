@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://gs6m1287pssm"]
+
+[ext_resource type="Script" path="res://Scences/ui/menuControl.gd" id="1_mingl"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="1_wr43e"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+theme_override_constants/separation = 25
+script = ExtResource("1_mingl")
+
+[node name="BtnPlay" parent="." instance=ExtResource("1_wr43e")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnExit")
+focus_neighbor_bottom = NodePath("../BtnOptions")
+btn_text = "Play"
+to_scene = "res://Scences/game.tscn"
+
+[node name="BtnOptions" parent="." instance=ExtResource("1_wr43e")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnPlay")
+focus_neighbor_bottom = NodePath("../BtnCredits")
+btn_text = "Options"
+to_scene = "res://Scences/ui/btnMenu.tscn"
+
+[node name="BtnCredits" parent="." instance=ExtResource("1_wr43e")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnOptions")
+focus_neighbor_bottom = NodePath("../BtnExit")
+btn_text = "Credits"
+
+[node name="BtnExit" parent="." instance=ExtResource("1_wr43e")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnCredits")
+focus_neighbor_bottom = NodePath("../BtnPlay")
+btn_text = "Exit"

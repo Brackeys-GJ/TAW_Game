@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://crhbyl47lm06"]
+
+[ext_resource type="Script" path="res://Scripts/ui/BtnLogic.gd" id="1_b54ys"]
+[ext_resource type="AudioStream" uid="uid://druxclw4seqoc" path="res://Assets/sfx/ph_hover.wav" id="2_pxvlx"]
+[ext_resource type="AudioStream" uid="uid://bcwfqm7xq1ysr" path="res://Assets/sfx/ph_click.wav" id="3_5f8lv"]
+
+[sub_resource type="Curve" id="Curve_esc37"]
+_data = [Vector2(0.20229, 0.230189), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BtnMenu" type="TextureButton"]
+custom_minimum_size = Vector2(150, 30)
+offset_right = 150.0
+offset_bottom = 30.0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_b54ys")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+modulate = Color(0, 0.843137, 0.219608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="TxtButton" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+bbcode_enabled = true
+text = "BtnText"
+scroll_active = false
+
+[node name="PtcHover" type="CPUParticles2D" parent="MarginContainer"]
+self_modulate = Color(0, 0.843137, 0.219608, 0.454902)
+show_behind_parent = true
+position = Vector2(76, 13)
+emitting = false
+amount = 70
+lifetime = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(78, 11)
+gravity = Vector2(0, 0)
+angle_min = -100.0
+angle_max = 100.0
+scale_amount_min = 15.0
+scale_amount_max = 15.0
+scale_amount_curve = SubResource("Curve_esc37")
+
+[node name="SndHover" type="AudioStreamPlayer2D" parent="MarginContainer"]
+stream = ExtResource("2_pxvlx")
+
+[node name="SndClick" type="AudioStreamPlayer2D" parent="MarginContainer"]
+stream = ExtResource("3_5f8lv")
+
+[node name="SndNothing" type="AudioStreamPlayer2D" parent="MarginContainer"]
+
+[node name="PtcArrow" type="CPUParticles2D" parent="MarginContainer"]
+position = Vector2(11, 13)
+emitting = false
+lifetime = 0.2
+emission_shape = 4
+emission_points = PackedVector2Array(0, 0, -3, 3, -3, -3, -6, 6, -6, -6)
+emission_colors = PackedColorArray()
+gravity = Vector2(0, 0)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

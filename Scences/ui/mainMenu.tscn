@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm8bhrand4ms5"]
+
+[ext_resource type="PackedScene" uid="uid://gs6m1287pssm" path="res://Scences/ui/mainOptions.tscn" id="1_0sped"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanComputer" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 90.0
+offset_right = 742.0
+offset_bottom = 585.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanComputer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PanScreen" type="Panel" parent="PanComputer/MarginContainer"]
+layout_mode = 2
+
+[node name="SplitContainer" type="SplitContainer" parent="PanComputer/MarginContainer/PanScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 100
+dragger_visibility = 2
+vertical = true
+
+[node name="GameTitle" type="Panel" parent="PanComputer/MarginContainer/PanScreen/SplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/GameTitle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/GameTitle/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/GameTitle/MarginContainer/VBoxContainer"]
+self_modulate = Color(0, 0.843137, 0.219608, 1)
+custom_minimum_size = Vector2(0, 53.34)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[shake rate=8.5 level=10 connected=1]WeWatchYou OS[/shake]"
+scroll_active = false
+tab_size = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/GameTitle/MarginContainer/VBoxContainer"]
+self_modulate = Color(0, 0.843137, 0.219608, 1)
+custom_minimum_size = Vector2(0, 53.34)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[shake rate=8.5 level=10 connected=1]Alien Linux[/shake]"
+scroll_active = false
+tab_size = 1
+
+[node name="Buttons" type="Panel" parent="PanComputer/MarginContainer/PanScreen/SplitContainer"]
+layout_mode = 2
+
+[node name="MrgButtons" type="MarginContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 65
+
+[node name="MainOptions" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("1_0sped")]
+layout_mode = 2
