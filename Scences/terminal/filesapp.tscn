@@ -25,10 +25,40 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(1150, 90)
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
-color = Color(0.485703, 0.485704, 0.485703, 1)
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.552941, 0.501961, 0.592157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.52549, 0.52549, 0.52549, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(980, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.552941, 0.501961, 0.592157, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(1150, 50)
+layout_mode = 2
+color = Color(0.525101, 0.525102, 0.525101, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(1150, 32)
+layout_mode = 2
+color = Color(0.691357, 0.691357, 0.691356, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(1150, 100)
@@ -61,6 +91,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "🏠   Home"
+flat = true
 alignment = 0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
@@ -90,22 +121,98 @@ text = "x"
 flat = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(225, 0)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+size_flags_vertical = 0
+text = "←"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "→"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "↑"
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "↻"
+flat = true
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(625, 40)
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="TextEdit2" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+flat = true
+selected = 0
+item_count = 3
+popup/item_0/text = "+ New"
+popup/item_1/text = "Folder"
+popup/item_1/id = 1
+popup/item_2/text = "Text Document"
+popup/item_2/id = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(2, 25)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.54902, 0.54902, 0.54902, 1)
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "✂️"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "📋"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "✏️"
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "➤"
+flat = true
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "🗑️"
+flat = true
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -128,17 +235,41 @@ size_flags_vertical = 4
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(125, 25)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "🏠 Home"
+flat = true
+alignment = 0
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(125, 25)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "🟦 Gallery"
+flat = true
+alignment = 0
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(125, 25)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "☁️ Personal"
+flat = true
+alignment = 0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
-custom_minimum_size = Vector2(0, 2)
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0.548962, 0.548963, 0.548962, 1)
@@ -213,7 +344,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer"]
