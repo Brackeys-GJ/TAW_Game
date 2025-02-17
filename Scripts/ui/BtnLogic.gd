@@ -14,9 +14,9 @@ func _ready() -> void:
 	txt_button.text = btn_text
 
 func _on_pressed() -> void:
-	
 	snd_click.play()
-	get_tree().change_scene_to_file(to_scene)
+	if to_scene != "path://":
+		get_tree().change_scene_to_file(to_scene)
 
 func _on_mouse_entered() -> void:
 	hoverBtn(snd_hover, true, "[shake rate=8.5 level=10 connected=1]%s[/shake]" % btn_text)

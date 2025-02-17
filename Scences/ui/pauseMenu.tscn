@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://b23sx7nhjo03m"]
+
+[ext_resource type="Script" path="res://Scripts/ui/pauseMenu.gd" id="1_i6ga3"]
+[ext_resource type="Script" path="res://Scripts/ui/menuControl.gd" id="2_0sl1q"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="3_eqffk"]
+[ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="4_ylal2"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i6ga3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 100
+
+[node name="PanScreen" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SplitContainer" type="SplitContainer" parent="MarginContainer/PanScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 100
+dragger_visibility = 2
+vertical = true
+
+[node name="GameTitle" type="Panel" parent="MarginContainer/PanScreen/SplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanScreen/SplitContainer/GameTitle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanScreen/SplitContainer/GameTitle/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanScreen/SplitContainer/GameTitle/MarginContainer/VBoxContainer"]
+self_modulate = Color(0, 0.843137, 0.219608, 1)
+custom_minimum_size = Vector2(0, 53.34)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[shake rate=8.5 level=10 connected=1]Pause[/shake]"
+scroll_active = false
+tab_size = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/PanScreen/SplitContainer/GameTitle/MarginContainer/VBoxContainer"]
+self_modulate = Color(0, 0.843137, 0.219608, 1)
+custom_minimum_size = Vector2(0, 53.34)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[shake rate=8.5 level=10 connected=1]aaaaaaa[/shake]"
+scroll_active = false
+tab_size = 1
+
+[node name="Buttons" type="Panel" parent="MarginContainer/PanScreen/SplitContainer"]
+layout_mode = 2
+
+[node name="MrgButtons" type="MarginContainer" parent="MarginContainer/PanScreen/SplitContainer/Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 65
+theme_override_constants/margin_bottom = 70
+
+[node name="MainOptions" type="VBoxContainer" parent="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons"]
+layout_mode = 2
+theme_override_constants/separation = 25
+script = ExtResource("2_0sl1q")
+
+[node name="BtnResume" parent="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" instance=ExtResource("3_eqffk")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnMainMenu")
+focus_neighbor_bottom = NodePath("../BtnOptions")
+btn_text = "Resume"
+
+[node name="BtnOptions" parent="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" instance=ExtResource("3_eqffk")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnResume")
+focus_neighbor_bottom = NodePath("../BtnItems")
+btn_text = "Options"
+
+[node name="BtnItems" parent="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" instance=ExtResource("3_eqffk")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnOptions")
+focus_neighbor_bottom = NodePath("../BtnMainMenu")
+btn_text = "Items?"
+
+[node name="BtnMainMenu" parent="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" instance=ExtResource("3_eqffk")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnItems")
+focus_neighbor_bottom = NodePath("../BtnResume")
+btn_text = "Main menu"
+
+[node name="Settings" parent="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("4_ylal2")]
+visible = false
+layout_mode = 2
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="focus_entered" from="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions/BtnResume" to="." method="_on_btn_resume_focus_entered"]
+[connection signal="pressed" from="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions/BtnResume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions/BtnOptions" to="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" method="_on_btn_options_pressed"]
+[connection signal="focus_entered" from="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions/BtnMainMenu" to="." method="_on_btn_main_menu_focus_entered"]
+
+[editable path="MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/Settings"]
