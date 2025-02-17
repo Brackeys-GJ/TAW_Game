@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://himfrr02ascd"]
+[gd_scene load_steps=6 format=3 uid="uid://c5iovws7svgus"]
 
 [ext_resource type="PackedScene" uid="uid://cst57lkhl3wwl" path="res://Scences/topdown/map.tscn" id="1_3sdqf"]
 [ext_resource type="PackedScene" uid="uid://cjvkklthvteba" path="res://Scences/topdown/player.tscn" id="1_ndjgn"]
+[ext_resource type="PackedScene" uid="uid://b23sx7nhjo03m" path="res://Scences/ui/pauseMenu.tscn" id="3_kl4uv"]
+[ext_resource type="AudioStream" uid="uid://druxclw4seqoc" path="res://Assets/sfx/ph_hover.wav" id="4_hscdy"]
+[ext_resource type="AudioStream" uid="uid://dj3oob6qvqgjs" path="res://Assets/music/menuMusic.wav" id="5_5nkqc"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_3sdqf")]
 
 [node name="Player" parent="." instance=ExtResource("1_ndjgn")]
+
+[node name="CanvasUi" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasUi" instance=ExtResource("3_kl4uv")]
+
+[node name="SndSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hscdy")
+bus = &"sfx"
+
+[node name="SndMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5nkqc")
+autoplay = true
+bus = &"music"

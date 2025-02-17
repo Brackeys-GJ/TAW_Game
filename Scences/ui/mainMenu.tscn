@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm8bhrand4ms5"]
 
-[ext_resource type="PackedScene" uid="uid://gs6m1287pssm" path="res://Scences/ui/mainOptions.tscn" id="1_0sped"]
+[ext_resource type="PackedScene" uid="uid://gs6m1287pssm" path="res://Scences/ui/mainOptions.tscn" id="1_m0brc"]
 [ext_resource type="AudioStream" uid="uid://dj3oob6qvqgjs" path="res://Assets/music/menuMusic.wav" id="2_jehe1"]
-[ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="3_1sx80"]
+[ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="2_ughuv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -96,10 +96,13 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 65
 theme_override_constants/margin_bottom = 70
 
-[node name="MainOptions" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("1_0sped")]
+[node name="MainOptions" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("1_m0brc")]
 layout_mode = 2
 
-[node name="VBoxContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("3_1sx80")]
+[node name="BtnPlay" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" index="0"]
+to_scene = "res://Scences/topdown/game.tscn"
+
+[node name="Settings" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("2_ughuv")]
 visible = false
 layout_mode = 2
 
@@ -107,3 +110,8 @@ layout_mode = 2
 stream = ExtResource("2_jehe1")
 autoplay = true
 bus = &"music"
+
+[connection signal="pressed" from="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions/BtnOptions" to="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" method="_on_btn_options_pressed"]
+
+[editable path="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions"]
+[editable path="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/Settings"]

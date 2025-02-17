@@ -19,7 +19,6 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../BtnPlay")
 focus_neighbor_bottom = NodePath("../BtnCredits")
 btn_text = "Options"
-to_scene = "res://Scences/ui/mainSettings.tscn"
 
 [node name="BtnCredits" parent="." instance=ExtResource("1_wr43e")]
 layout_mode = 2
