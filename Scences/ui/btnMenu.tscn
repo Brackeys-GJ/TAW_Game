@@ -51,15 +51,19 @@ scale_amount_curve = SubResource("Curve_esc37")
 
 [node name="SndHover" type="AudioStreamPlayer2D" parent="MarginContainer"]
 stream = ExtResource("2_pxvlx")
+bus = &"sfx"
 
 [node name="SndClick" type="AudioStreamPlayer2D" parent="MarginContainer"]
 stream = ExtResource("3_5f8lv")
+bus = &"sfx"
 
 [node name="SndNothing" type="AudioStreamPlayer2D" parent="MarginContainer"]
+bus = &"sfx"
 
 [node name="PtcArrow" type="CPUParticles2D" parent="MarginContainer"]
 position = Vector2(11, 13)
 emitting = false
+amount = 12
 lifetime = 0.2
 emission_shape = 4
 emission_points = PackedVector2Array(0, 0, -3, 3, -3, -3, -6, 6, -6, -6)

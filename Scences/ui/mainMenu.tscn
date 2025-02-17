@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm8bhrand4ms5"]
+[gd_scene load_steps=4 format=3 uid="uid://dm8bhrand4ms5"]
 
 [ext_resource type="PackedScene" uid="uid://gs6m1287pssm" path="res://Scences/ui/mainOptions.tscn" id="1_0sped"]
+[ext_resource type="AudioStream" uid="uid://dj3oob6qvqgjs" path="res://Assets/music/menuMusic.wav" id="2_jehe1"]
+[ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="3_1sx80"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,10 +14,11 @@ grow_vertical = 2
 
 [node name="PanComputer" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 90.0
-offset_right = 742.0
-offset_bottom = 585.0
+offset_left = 77.0
+offset_top = 96.0
+offset_right = 726.0
+offset_bottom = 591.0
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanComputer"]
 layout_mode = 1
@@ -91,6 +94,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 65
+theme_override_constants/margin_bottom = 70
 
 [node name="MainOptions" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("1_0sped")]
 layout_mode = 2
+
+[node name="VBoxContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("3_1sx80")]
+visible = false
+layout_mode = 2
+
+[node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jehe1")
+autoplay = true
+bus = &"music"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://gs6m1287pssm"]
 
-[ext_resource type="Script" path="res://Scences/ui/menuControl.gd" id="1_mingl"]
+[ext_resource type="Script" path="res://Scripts/ui/menuControl.gd" id="1_mingl"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="1_wr43e"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
@@ -19,7 +19,7 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../BtnPlay")
 focus_neighbor_bottom = NodePath("../BtnCredits")
 btn_text = "Options"
-to_scene = "res://Scences/ui/btnMenu.tscn"
+to_scene = "res://Scences/ui/mainSettings.tscn"
 
 [node name="BtnCredits" parent="." instance=ExtResource("1_wr43e")]
 layout_mode = 2
