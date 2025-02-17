@@ -1,33 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=5 format=3 uid="uid://dr8ft8t5e34hc"]
 
 [ext_resource type="Texture2D" uid="uid://ywco7502ani4" path="res://Assets/images/BGJ-Terminal.png" id="1_gbpeg"]
 [ext_resource type="Texture2D" uid="uid://bx04xgjhyrvce" path="res://Assets/images/BGJ-PC-Background-placeholder.png" id="1_j07fl"]
+[ext_resource type="Script" path="res://Scripts/desktopApp.gd" id="1_x75ri"]
+[ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="3_nrpe7"]
 
-[node name="Terminal" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1_x75ri")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = 59.0
+offset_right = 942.0
+offset_bottom = 548.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_j07fl")
 
 [node name="Pc" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 1155.0
+offset_bottom = 649.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_gbpeg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="DesktopApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
+position = Vector2(203, 190)
+inCamera = NodePath("../Camera2D")
+
+[node name="DesktopApp2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
+position = Vector2(203, 302)
+inCamera = NodePath("../Camera2D")
