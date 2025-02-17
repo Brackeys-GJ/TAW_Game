@@ -9,11 +9,11 @@ size = Vector2(84, 102)
 [node name="DesktopApp" type="Node2D"]
 script = ExtResource("1_tjhhh")
 
-[node name="PhFolder" type="Sprite2D" parent="."]
+[node name="ImgApp" type="Sprite2D" parent="."]
 scale = Vector2(0.103516, 0.103516)
 texture = ExtResource("2_ykt47")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="TxtApp" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 23.405)
 offset_left = -41.0
 offset_top = 26.0
@@ -24,12 +24,12 @@ text = "[center]AppName[/center]"
 scroll_active = false
 tab_size = 0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AreaApp" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="ClsnApp" type="CollisionShape2D" parent="AreaApp"]
 position = Vector2(-1, 22)
 shape = SubResource("RectangleShape2D_bmwgq")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="ready" from="Area2D" to="." method="_on_area_2d_ready"]
+[connection signal="input_event" from="AreaApp" to="." method="_on_area_2d_input_event"]
+[connection signal="ready" from="AreaApp" to="." method="_on_area_2d_ready"]
