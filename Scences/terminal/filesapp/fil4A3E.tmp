@@ -1,0 +1,366 @@
+[gd_scene load_steps=2 format=3 uid="uid://3nef7l3fswvt"]
+
+[ext_resource type="Script" path="res://Scripts/terminal/filesapp.gd" id="1_qooum"]
+
+[node name="Filesapp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qooum")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 574.0
+offset_bottom = 326.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.552941, 0.501961, 0.592157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.52549, 0.52549, 0.52549, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(980, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.552941, 0.501961, 0.592157, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(1150, 50)
+layout_mode = 2
+color = Color(0.525101, 0.525102, 0.525101, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(1150, 32)
+layout_mode = 2
+color = Color(0.691357, 0.691357, 0.691356, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(1150, 100)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.834614, 0.834614, 0.834614, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.5
+offset_top = -322.5
+offset_right = 566.5
+offset_bottom = 322.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "🏠   Home"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(875, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "‒"
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "◻"
+flat = true
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "x"
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "←"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "→"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "↑"
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "↻"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(625, 40)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextEdit2" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(325, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "+ New"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(2, 25)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.54902, 0.54902, 0.54902, 1)
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "✂️"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "📋"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "✏️"
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "➤"
+flat = true
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "🗑️"
+flat = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(125, 25)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "🏠 Home"
+flat = true
+alignment = 0
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(125, 25)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "🟦 Gallery"
+flat = true
+alignment = 0
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(125, 25)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "☁️ Personal"
+flat = true
+alignment = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.548962, 0.548963, 0.548962, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="FolderBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+columns = 5
+
+[node name="Desktop" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "📁   Desktop
+"
+flat = true
+alignment = 0
+
+[node name="Downloads" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "📁   Downloads"
+flat = true
+alignment = 0
+
+[node name="Documents" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "📁   Documents"
+flat = true
+alignment = 0
+
+[node name="Pictures" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "📁   Pictures"
+flat = true
+alignment = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="FileBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 30

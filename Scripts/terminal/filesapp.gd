@@ -14,15 +14,18 @@ var FileTypes = {
 
 func _ready() -> void:
 	for I in range(1,4):
+		make_file("placeholder", "02/18/2025", I)
+
+func make_file(FileName: String, FileDate: String, Filetype: int):
 		#Getting File Instance
 		var Instance = FILESTEMPLATE.instantiate()
 		#Getting File Info As Vars
-		var FileName = Instance.get_child(0).get_child(0).get_child(0)
-		var FileDate = Instance.get_child(0).get_child(0).get_child(1)
-		var Filetype = Instance.get_child(0).get_child(0).get_child(2)
+		var FileNameLabel = Instance.get_child(0).get_child(0).get_child(0)
+		var FileDateLabel = Instance.get_child(0).get_child(0).get_child(1)
+		var FiletypeLabel = Instance.get_child(0).get_child(0).get_child(2)
 		#Setting File Info
-		FileName.text = str(I)
-		FileDate.text = str(I)
-		Filetype.text = FileTypes[I]
+		FileNameLabel.text = FileName
+		FileDateLabel.text = FileDate
+		FiletypeLabel.text = FileTypes[Filetype]
 		#Adding As child of FileBox
 		FileBox.add_child(Instance)
