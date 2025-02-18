@@ -11,13 +11,16 @@ var FileTypes = {
 	2: "Image",
 	3: "Application",
 	}
-	
+
 var StartingFiles = {
-	#FORMAT: Key: ["Name", "Date", Filetype],
-	1: ["📁  Files","02/18/2025",3],
-	2: ["📄  Work Notes","12/18/2025",1],
-	3: ["📄  Passwords","03/18/2025",1],
+	#FORMAT: Key: ["Name", "Date", Filetype, Folder(Not needed)],
+	1: ["📁  Files","01/03/2059",3,1],
+	2: ["📄  Work Notes","11/18/2062",1,3],
+	3: ["📄  Passwords","03/18/2059",1,3],
+	4: ["💿  Command Prompt","01/03/2059",1],
 	}
+
+var StartingFilesAmount = len(StartingFiles)
 
 var StartingFolders = {
 	#FORMAT: Key: "Name",
@@ -28,7 +31,7 @@ var StartingFolders = {
 	}
 
 func _ready() -> void:
-	for I in range(1,4):
+	for I in range(1,StartingFilesAmount + 1):
 		make_file(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2])
 	for I in range(1,5):
 		make_folder(StartingFolders[I])

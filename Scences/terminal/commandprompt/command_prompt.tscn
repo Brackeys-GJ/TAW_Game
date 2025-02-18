@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2v6byneyqkdc"]
+[gd_scene load_steps=5 format=3 uid="uid://d2v6byneyqkdc"]
+
+[ext_resource type="Script" path="res://Scripts/terminal/command_prompt.gd" id="1_e3erw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_comd0"]
 bg_color = Color(0.223103, 0.223103, 0.223103, 1)
@@ -22,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_e3erw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -68,9 +71,11 @@ size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_1suoo")
 
 [node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "💿Command Prompt"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Panel/HBoxContainer"]
 custom_minimum_size = Vector2(700, 0)
@@ -106,3 +111,5 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_50w7t")
 wrap_mode = 1
 indent_wrapped_lines = true
+
+[connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
