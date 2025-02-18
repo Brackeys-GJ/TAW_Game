@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3nef7l3fswvt"]
+[gd_scene load_steps=2 format=3 uid="uid://3nef7l3fswvt"]
 
-[ext_resource type="PackedScene" uid="uid://3twk5a0cpypr" path="res://Scences/terminal/filesapp/filestemplate.tscn" id="1_4gk0n"]
-[ext_resource type="PackedScene" uid="uid://bfmmbq652js35" path="res://Scences/terminal/filesapp/foldertemplate.tscn" id="1_n0mpd"]
+[ext_resource type="Script" path="res://Scripts/terminal/filesapp.gd" id="1_qooum"]
 
 [node name="Filesapp" type="Control"]
 layout_mode = 3
@@ -10,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qooum")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -277,14 +277,12 @@ size_flags_horizontal = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/ScrollContainer"]
+[node name="FolderBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 theme_override_constants/separation = 30
-
-[node name="Foldertemplate" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer" instance=ExtResource("1_n0mpd")]
-layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -361,10 +359,8 @@ size_flags_horizontal = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer2/ScrollContainer"]
+[node name="FileBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 30
-
-[node name="Filestemplate" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer2/ScrollContainer/VBoxContainer" instance=ExtResource("1_4gk0n")]
-layout_mode = 2
