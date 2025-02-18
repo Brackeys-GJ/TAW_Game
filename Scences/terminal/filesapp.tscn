@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://3nef7l3fswvt"]
+[gd_scene load_steps=2 format=3 uid="uid://3nef7l3fswvt"]
+
+[ext_resource type="Script" path="res://Scripts/terminal/window.gd" id="1_jjb45"]
 
 [node name="Window" type="Window"]
 position = Vector2i(0, 36)
 size = Vector2i(1155, 650)
+script = ExtResource("1_jjb45")
 
 [node name="FilesApp" type="Control" parent="."]
 layout_mode = 3
