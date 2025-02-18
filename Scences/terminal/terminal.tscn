@@ -9,15 +9,19 @@
 script = ExtResource("1_7qjie")
 window_scene = ExtResource("2_saptr")
 
-[node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
-position = Vector2(165, 164)
-inCamera = NodePath("../Camera2D")
-txtFinalApp = "Files"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="TerminalUI" parent="CanvasLayer" instance=ExtResource("4_pvwub")]
+offset_left = 19.0
+offset_top = -3.0
+offset_right = 19.0
+offset_bottom = -3.0
+
+[node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
+position = Vector2(165, 164)
+inCamera = NodePath("../Camera2D")
+txtFinalApp = "Files"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
