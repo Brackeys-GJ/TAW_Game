@@ -1,47 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=5 format=3 uid="uid://dr8ft8t5e34hc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_7qjie"]
-[ext_resource type="Texture2D" uid="uid://ywco7502ani4" path="res://Assets/images/BGJ-Terminal.png" id="1_gbpeg"]
-[ext_resource type="Texture2D" uid="uid://bx04xgjhyrvce" path="res://Assets/images/BGJ-PC-Background-placeholder.png" id="1_j07fl"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp.tscn" id="2_saptr"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="3_nrpe7"]
-[ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="6_tr4tp"]
+[ext_resource type="PackedScene" uid="uid://822k37mdjjuh" path="res://Scences/terminal/terminal_ui.tscn" id="4_pvwub"]
 
 [node name="Terminal" type="Node2D"]
 script = ExtResource("1_7qjie")
 window_scene = ExtResource("2_saptr")
 
-[node name="Background" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 73.0
-offset_top = 59.0
-offset_right = 942.0
-offset_bottom = 548.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_j07fl")
-
-[node name="Pc" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 1.0
-offset_right = 1155.0
-offset_bottom = 649.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_gbpeg")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
-position = Vector2(175, 160)
+position = Vector2(165, 164)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 
-[node name="Taskbar" parent="." instance=ExtResource("6_tr4tp")]
-position = Vector2(69, 526)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TerminalUI" parent="CanvasLayer" instance=ExtResource("4_pvwub")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

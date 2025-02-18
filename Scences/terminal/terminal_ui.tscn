@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://822k37mdjjuh"]
+
+[ext_resource type="Texture2D" uid="uid://bx04xgjhyrvce" path="res://Assets/images/BGJ-PC-Background-placeholder.png" id="1_6eqo1"]
+[ext_resource type="Texture2D" uid="uid://ywco7502ani4" path="res://Assets/images/BGJ-Terminal.png" id="2_2jgl6"]
+[ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_jhv7u"]
+
+[node name="TerminalUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6eqo1")
+
+[node name="Pc" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2jgl6")
+
+[node name="taskbar" parent="." instance=ExtResource("3_jhv7u")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_top = 0.819
+anchor_right = 0.33
+anchor_bottom = 0.819
+offset_left = -0.160004
+offset_top = 0.287964
+offset_right = -0.160004
+offset_bottom = 0.287964
