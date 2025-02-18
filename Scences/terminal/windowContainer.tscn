@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://cwgldyyjus6k4"]
-
-[node name="Control" type="Window"]
-position = Vector2i(520, 335)

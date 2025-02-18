@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=6 format=3 uid="uid://dr8ft8t5e34hc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_7qjie"]
 [ext_resource type="Texture2D" uid="uid://ywco7502ani4" path="res://Assets/images/BGJ-Terminal.png" id="1_gbpeg"]
 [ext_resource type="Texture2D" uid="uid://bx04xgjhyrvce" path="res://Assets/images/BGJ-PC-Background-placeholder.png" id="1_j07fl"]
-[ext_resource type="PackedScene" uid="uid://cwgldyyjus6k4" path="res://Scences/terminal/windowContainer.tscn" id="2_0at65"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp.tscn" id="2_saptr"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="3_nrpe7"]
 
@@ -42,4 +41,3 @@ anchor_mode = 0
 position = Vector2(175, 160)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
-windowScene = ExtResource("2_0at65")

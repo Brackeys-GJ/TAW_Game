@@ -14,9 +14,9 @@ func _on_app_double_clicked(app_node: Node):
 	add_child(new_window)
 	
 	#Position window at center of camera view
-	if app_node.camera:
-		var viewport_size = app_node.camera.get_viewport_rect().size
-		new_window.global_position = app_node.camera.global_position + viewport_size/2 - new_window.size/2
+	#if app_node.camera:
+		#var viewport_size = app_node.camera.get_viewport_rect().size
+		#new_window.global_position = app_node.camera.global_position + viewport_size/2 - new_window.size/2
 	
 	# Configure window (example)
 	if new_window.has_method("set_title"):
