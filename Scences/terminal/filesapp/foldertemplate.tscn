@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bfmmbq652js35"]
+
+[node name="Foldertemplate" type="Control"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(125, 25)
+layout_mode = 1
+offset_right = 125.0
+offset_bottom = 31.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "FolderName"
+flat = true
