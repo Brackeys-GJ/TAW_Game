@@ -3,11 +3,10 @@ extends Node
 @export var terminal: Node # Conect terminal and taskbar
 
 @onready var window_buttons: HBoxContainer = $HBoxContainer/WindowButtons # Taskbar icons container
-@onready var start_button = $Panel/HBoxContainer/StartButton # For the start button (bottom left)
 
 func _ready():
 	#Recieves the signal from the terminal
-	terminal.open_windows_updated.connect(_update_taskbar)
+	terminal.open_windows_updated.connect(_update_taskbar) 
 
 func _update_taskbar():
 	# Clear existing buttons

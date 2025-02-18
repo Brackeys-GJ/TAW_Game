@@ -11,10 +11,27 @@ var FileTypes = {
 	2: "Image",
 	3: "Application",
 	}
+	
+var StartingFiles = {
+	#FORMAT: Key: ["Name", "Date", Filetype],
+	1: ["📁  Files","02/18/2025",3],
+	2: ["📄  Work Notes","12/18/2025",1],
+	3: ["📄  Passwords","03/18/2025",1],
+	}
+
+var StartingFolders = {
+	#FORMAT: Key: "Name",
+	1: "Desktop",
+	2: "Downloads",
+	3: "Documents",
+	4: "Gallery"
+	}
 
 func _ready() -> void:
 	for I in range(1,4):
-		make_file("placeholder", "02/18/2025", I)
+		make_file(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2])
+	for I in range(1,5):
+		make_folder(StartingFolders[I])
 
 func make_file(FileName: String, FileDate: String, Filetype: int):
 		#Getting File Instance
@@ -29,3 +46,13 @@ func make_file(FileName: String, FileDate: String, Filetype: int):
 		FiletypeLabel.text = FileTypes[Filetype]
 		#Adding As child of FileBox
 		FileBox.add_child(Instance)
+
+func make_folder(FolderName: String):
+	#Getting Folder Instance
+	var Instance = FOLDERTEMPLATE.instantiate()
+	#Getting Folder Info As Vars
+	var FolderNameText = Instance.get_child(0)
+	#Setting Folder Info
+	FolderNameText.text = "📁  " + FolderName
+	#Adding As child of FolderBox
+	FolderBox.add_child(Instance)
