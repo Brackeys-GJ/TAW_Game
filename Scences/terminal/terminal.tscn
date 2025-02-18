@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="3_nrpe7"]
 [ext_resource type="PackedScene" uid="uid://822k37mdjjuh" path="res://Scences/terminal/terminal_ui.tscn" id="4_pvwub"]
 
-[node name="Terminal" type="Node2D"]
+[node name="Terminal" type="Node2D" node_paths=PackedStringArray("taskbar")]
 script = ExtResource("1_7qjie")
 window_scene = ExtResource("2_saptr")
+taskbar = NodePath("CanvasLayer/TerminalUI/taskbar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -18,10 +19,26 @@ offset_top = -3.0
 offset_right = 19.0
 offset_bottom = -3.0
 
+[node name="taskbar" parent="CanvasLayer/TerminalUI" index="2" node_paths=PackedStringArray("terminal")]
+terminal = NodePath("../../..")
+
 [node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
-position = Vector2(165, 164)
+position = Vector2(247, 440)
+inCamera = NodePath("../Camera2D")
+txtFinalApp = "Files"
+
+[node name="IconFilesApp2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
+position = Vector2(402, 440)
+inCamera = NodePath("../Camera2D")
+txtFinalApp = "Files"
+
+[node name="IconFilesApp3" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
+position = Vector2(528, 419)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[editable path="CanvasLayer/TerminalUI"]
+[editable path="CanvasLayer/TerminalUI/taskbar"]

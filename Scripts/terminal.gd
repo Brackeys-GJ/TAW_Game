@@ -1,7 +1,10 @@
 extends Node
 
 @export var window_scene: PackedScene # Window scene
+@export var taskbar: Control
 var open_windows = []
+
+signal open_windows_updated
 
 func _ready() -> void:
 	# connect signals for all the desktop apps
@@ -23,6 +26,9 @@ func _on_app_double_clicked(app_node: Node):
 		new_window.set_title(app_node.txtFinalApp)
 	
 	open_windows.append(new_window)
+	open_windows_updated.emit()
 
-func _on_area_app_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	pass  # Keep this if you need it for other interactions
+func _on_window_closed(window):
+	#open_windows.erase(window)
+	open_windows_updated.emit()
+	#window.queue_free()
