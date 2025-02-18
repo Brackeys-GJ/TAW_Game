@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2v6byneyqkdc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_comd0"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1suoo"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50w7t"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CommandPrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -56.5
+offset_right = 576.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1152, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_comd0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 165.0
+offset_bottom = 11.5
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Panel/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_1suoo")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "💿Command Prompt"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Button" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "‒"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "◻"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "⤫"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1152, 606)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_50w7t")
+wrap_mode = 1
+indent_wrapped_lines = true
