@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://822k37mdjjuh"]
+[gd_scene load_steps=28 format=3 uid="uid://822k37mdjjuh"]
 
 [ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
-[ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_jhv7u"]
 [ext_resource type="Texture2D" uid="uid://bddvto7n7xe8m" path="res://Assets/images/terminal/Sliders.PNG" id="4_rbbrg"]
 [ext_resource type="Texture2D" uid="uid://gnaf7gouxk0y" path="res://Assets/images/terminal/Screen.PNG" id="5_7b3cr"]
 [ext_resource type="Texture2D" uid="uid://c1dsodwr7s688" path="res://Assets/images/terminal/Pin Board.PNG" id="6_q5mhk"]
@@ -14,9 +13,9 @@
 [ext_resource type="VideoStream" path="res://Assets/images/terminal/alb_tvn0411_1080p.ogv" id="9_itpl4"]
 [ext_resource type="AudioStream" uid="uid://n1adtd8rilhp" path="res://Assets/sfx/terminal/switch_off.wav" id="11_lb172"]
 [ext_resource type="AudioStream" uid="uid://bpnm013ujvgmm" path="res://Assets/sfx/terminal/switch_on.wav" id="12_7bkut"]
-[ext_resource type="Texture2D" uid="uid://bllnvwtdthjph" path="res://Assets/eye/Water_Filter.png" id="15_x4lhm"]
-[ext_resource type="Texture2D" uid="uid://cvu7clop5s88h" path="res://Assets/eye/Water_Tank.png" id="16_g8rbf"]
-[ext_resource type="Texture2D" uid="uid://pk8ktuyyyvnw" path="res://Assets/eye/Eye.png" id="17_iko2l"]
+[ext_resource type="Texture2D" uid="uid://bllnvwtdthjph" path="res://Assets/images/eye/Water_Filter.png" id="15_x4lhm"]
+[ext_resource type="Texture2D" uid="uid://cvu7clop5s88h" path="res://Assets/images/eye/Water_Tank.png" id="16_g8rbf"]
+[ext_resource type="Texture2D" uid="uid://pk8ktuyyyvnw" path="res://Assets/images/eye/Eye.png" id="17_iko2l"]
 
 [sub_resource type="GDScript" id="GDScript_20uny"]
 script/source = "extends Control
@@ -77,19 +76,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = SubResource("GDScript_20uny")
-
-[node name="taskbar" parent="." instance=ExtResource("3_jhv7u")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.33
-anchor_top = 0.819
-anchor_right = 0.33
-anchor_bottom = 0.819
-offset_left = -16.16
-offset_top = -168.712
-offset_right = -16.16
-offset_bottom = -168.712
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

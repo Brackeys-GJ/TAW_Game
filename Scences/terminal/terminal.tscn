@@ -1,8 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=9 format=3 uid="uid://dr8ft8t5e34hc"]
 
-[ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_7qjie"]
-[ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="2_saptr"]
-[ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="3_nrpe7"]
 [ext_resource type="PackedScene" uid="uid://822k37mdjjuh" path="res://Scences/terminal/terminal_ui.tscn" id="4_pvwub"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_x3dlf"]
@@ -20,18 +17,12 @@
 [sub_resource type="ButtonGroup" id="ButtonGroup_h73sb"]
 allow_unpress = true
 
-[node name="Terminal" type="Node2D" node_paths=PackedStringArray("taskbar")]
-script = ExtResource("1_7qjie")
-window_scene = ExtResource("2_saptr")
-taskbar = NodePath("CanvasLayer/TerminalUI/taskbar")
+[node name="Terminal" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="TerminalUI" parent="CanvasLayer" instance=ExtResource("4_pvwub")]
-
-[node name="taskbar" parent="CanvasLayer/TerminalUI" index="0" node_paths=PackedStringArray("terminal")]
-terminal = NodePath("../../..")
 
 [node name="VSlider" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/Sliders" index="0"]
 layout_mode = 1
@@ -92,26 +83,7 @@ button_group = SubResource("ButtonGroup_h73sb")
 [node name="Switch5" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="4"]
 button_group = SubResource("ButtonGroup_h73sb")
 
-[node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
-visible = false
-position = Vector2(292, 149)
-inCamera = NodePath("../Camera2D")
-txtFinalApp = "Files"
-
-[node name="IconFilesApp2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
-visible = false
-position = Vector2(410, 176)
-inCamera = NodePath("../Camera2D")
-txtFinalApp = "Files"
-
-[node name="IconFilesApp3" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
-visible = false
-position = Vector2(506, 160)
-inCamera = NodePath("../Camera2D")
-txtFinalApp = "Files"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576.015, 323.585)
 
 [editable path="CanvasLayer/TerminalUI"]
-[editable path="CanvasLayer/TerminalUI/taskbar"]
