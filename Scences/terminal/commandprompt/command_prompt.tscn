@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2v6byneyqkdc"]
 
-[ext_resource type="Script" path="res://Scripts/terminal/command_prompt.gd" id="1_e3erw"]
+[ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_e3erw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blpba"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)

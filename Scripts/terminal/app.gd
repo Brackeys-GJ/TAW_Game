@@ -1,9 +1,11 @@
 extends Control
 
-@onready var text_edit: TextEdit = $VBoxContainer/TextEdit
-@onready var line_edit: LineEdit = $VBoxContainer/LineEdit
+@onready var text_edit: TextEdit
+@onready var line_edit: LineEdit
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
+	text_edit = $VBoxContainer/TextEdit
+	line_edit = $VBoxContainer/LineEdit
 	text_edit.text = text_edit.text + "\n" + "> Processing..."
 	if new_text == "1244":
 		text_edit.text = text_edit.text + "\n" + "> Success"

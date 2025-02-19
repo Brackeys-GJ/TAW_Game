@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://822k37mdjjuh"]
+[gd_scene load_steps=19 format=3 uid="uid://822k37mdjjuh"]
 
 [ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_jhv7u"]
@@ -27,9 +27,6 @@ func _on_button_toggled(toggled_on: bool) -> void:
 		print(\"Toggled off\")
 		$SfxSwitchOff.play()
 "
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_q20ud"]
-allow_unpress = true
 
 [sub_resource type="Animation" id="Animation_f615v"]
 length = 0.001
@@ -179,7 +176,6 @@ alignment = 1
 layout_mode = 2
 mouse_default_cursor_shape = 2
 toggle_mode = true
-button_group = SubResource("ButtonGroup_q20ud")
 texture_normal = ExtResource("7_ipx85")
 texture_pressed = ExtResource("7_i6a6m")
 
@@ -187,7 +183,6 @@ texture_pressed = ExtResource("7_i6a6m")
 layout_mode = 2
 mouse_default_cursor_shape = 2
 toggle_mode = true
-button_group = SubResource("ButtonGroup_q20ud")
 texture_normal = ExtResource("7_ipx85")
 texture_pressed = ExtResource("7_i6a6m")
 
@@ -195,7 +190,6 @@ texture_pressed = ExtResource("7_i6a6m")
 layout_mode = 2
 mouse_default_cursor_shape = 2
 toggle_mode = true
-button_group = SubResource("ButtonGroup_q20ud")
 texture_normal = ExtResource("7_ipx85")
 texture_pressed = ExtResource("7_i6a6m")
 
@@ -203,7 +197,6 @@ texture_pressed = ExtResource("7_i6a6m")
 layout_mode = 2
 mouse_default_cursor_shape = 2
 toggle_mode = true
-button_group = SubResource("ButtonGroup_q20ud")
 texture_normal = ExtResource("7_ipx85")
 texture_pressed = ExtResource("7_i6a6m")
 
@@ -211,7 +204,6 @@ texture_pressed = ExtResource("7_i6a6m")
 layout_mode = 2
 mouse_default_cursor_shape = 2
 toggle_mode = true
-button_group = SubResource("ButtonGroup_q20ud")
 texture_normal = ExtResource("7_ipx85")
 texture_pressed = ExtResource("7_i6a6m")
 
