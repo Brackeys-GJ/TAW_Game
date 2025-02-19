@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://822k37mdjjuh"]
+[gd_scene load_steps=29 format=3 uid="uid://822k37mdjjuh"]
 
 [ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_jhv7u"]
@@ -14,6 +14,9 @@
 [ext_resource type="VideoStream" path="res://Assets/images/terminal/alb_tvn0411_1080p.ogv" id="9_itpl4"]
 [ext_resource type="AudioStream" uid="uid://n1adtd8rilhp" path="res://Assets/sfx/terminal/switch_off.wav" id="11_lb172"]
 [ext_resource type="AudioStream" uid="uid://bpnm013ujvgmm" path="res://Assets/sfx/terminal/switch_on.wav" id="12_7bkut"]
+[ext_resource type="Texture2D" uid="uid://bllnvwtdthjph" path="res://Assets/eye/Water_Filter.png" id="15_x4lhm"]
+[ext_resource type="Texture2D" uid="uid://cvu7clop5s88h" path="res://Assets/eye/Water_Tank.png" id="16_g8rbf"]
+[ext_resource type="Texture2D" uid="uid://pk8ktuyyyvnw" path="res://Assets/eye/Eye.png" id="17_iko2l"]
 
 [sub_resource type="GDScript" id="GDScript_20uny"]
 script/source = "extends Control
@@ -76,6 +79,7 @@ mouse_filter = 2
 script = SubResource("GDScript_20uny")
 
 [node name="taskbar" parent="." instance=ExtResource("3_jhv7u")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33
@@ -94,9 +98,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -476.0
+offset_left = -465.0
 offset_top = -264.0
-offset_right = 476.0
+offset_right = 487.0
 offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -294,9 +298,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -500.0
+offset_left = -489.0
 offset_top = -325.0
-offset_right = 500.0
+offset_right = 511.0
 offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -318,11 +322,39 @@ bus = &"sfx"
 stream = ExtResource("12_7bkut")
 bus = &"sfx"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="areaScreen" type="Area2D" parent="."]
+position = Vector2(11, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaScreen"]
 position = Vector2(440.5, 208)
 shape = SubResource("RectangleShape2D_sikb7")
+
+[node name="WaterFilter" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 46.0
+offset_right = 904.0
+offset_bottom = 691.0
+texture = ExtResource("15_x4lhm")
+expand_mode = 1
+
+[node name="WaterTank" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 46.0
+offset_right = 904.0
+offset_bottom = 691.0
+texture = ExtResource("16_g8rbf")
+expand_mode = 1
+
+[node name="Eye" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 227.0
+offset_right = 209.0
+offset_bottom = 330.0
+texture = ExtResource("17_iko2l")
+expand_mode = 1
 
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Sliders/VSlider" to="VBoxContainer/HBoxContainer2/Sliders/VSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Sliders/VSlider2" to="VBoxContainer/HBoxContainer2/Sliders/VSlider2" method="_on_value_changed"]
@@ -333,4 +365,4 @@ shape = SubResource("RectangleShape2D_sikb7")
 [connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch4" to="." method="_on_button_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch5" to="." method="_on_button_toggled"]
 [connection signal="ready" from="TextureRect" to="." method="_on_texture_rect_ready"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="areaScreen" to="." method="_on_area_2d_input_event"]
