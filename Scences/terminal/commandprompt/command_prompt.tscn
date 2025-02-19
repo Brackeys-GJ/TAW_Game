@@ -1,131 +1,128 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2v6byneyqkdc"]
+[gd_scene load_steps=6 format=3 uid="uid://d2v6byneyqkdc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/command_prompt.gd" id="1_e3erw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_comd0"]
-bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blpba"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1suoo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhol2"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffxlf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iedey"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55enl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnwyh"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ar1k"]
-bg_color = Color(0, 0, 0, 1)
-border_width_top = 10
 border_color = Color(0, 0, 0, 1)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+shadow_color = Color(0, 0, 0, 0)
 
 [node name="CommandPrompt" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e3erw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -56.5
-offset_right = 576.0
-offset_bottom = 56.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1152, 42)
+z_index = -1
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_comd0")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blpba")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 14
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 165.0
-offset_bottom = 11.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-theme_override_constants/margin_left = 15
-
-[node name="Panel" type="Panel" parent="VBoxContainer/Panel/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(300, 38)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_1suoo")
-
-[node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-text = "💿Command Prompt"
-horizontal_alignment = 1
+theme_override_constants/separation = 0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(15, 40)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Button" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+[node name="Panel" type="Panel" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhol2")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "  💿 Command Prompt
+"
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(810, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Button" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
 text = "‒"
 flat = true
 
 [node name="Button2" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_horizontal = 4
 text = "◻"
 flat = true
 
 [node name="Button3" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_horizontal = 4
 text = "⤫"
 flat = true
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1152, 575)
+custom_minimum_size = Vector2(1150, 550)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_ffxlf")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_55enl")
+size_flags_vertical = 3
+theme_override_styles/read_only = SubResource("StyleBoxFlat_iedey")
 editable = false
-wrap_mode = 1
-indent_wrapped_lines = true
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(1150, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3ar1k")
-max_length = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnwyh")
 
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
 [connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
