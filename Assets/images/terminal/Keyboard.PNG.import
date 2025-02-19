@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx04xgjhyrvce"
-path="res://.godot/imported/BGJ-PC-Background-placeholder.png-177dec712132a20da9949c5b89371c11.ctex"
+uid="uid://kpfhm7w0h8rk"
+path="res://.godot/imported/Keyboard.PNG-88b0dc828721f2d5c5bf7782290826f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/BGJ-PC-Background-placeholder.png"
-dest_files=["res://.godot/imported/BGJ-PC-Background-placeholder.png-177dec712132a20da9949c5b89371c11.ctex"]
+source_file="res://Assets/images/terminal/Keyboard.PNG"
+dest_files=["res://.godot/imported/Keyboard.PNG-88b0dc828721f2d5c5bf7782290826f1.ctex"]
 
 [params]
 

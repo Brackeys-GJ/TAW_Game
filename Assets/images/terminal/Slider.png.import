@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ywco7502ani4"
-path="res://.godot/imported/BGJ-Terminal.png-58d93dc43baeae653cf287ad55736d4e.ctex"
+uid="uid://cp56r0yvqhary"
+path="res://.godot/imported/Slider.png-81c727692b0901abf3cd26ae4fe0f0cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/BGJ-Terminal.png"
-dest_files=["res://.godot/imported/BGJ-Terminal.png-58d93dc43baeae653cf287ad55736d4e.ctex"]
+source_file="res://Assets/images/terminal/Slider.png"
+dest_files=["res://.godot/imported/Slider.png-81c727692b0901abf3cd26ae4fe0f0cb.ctex"]
 
 [params]
 

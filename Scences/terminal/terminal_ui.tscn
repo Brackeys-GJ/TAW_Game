@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://822k37mdjjuh"]
+[gd_scene load_steps=12 format=3 uid="uid://822k37mdjjuh"]
 
-[ext_resource type="Texture2D" uid="uid://bx04xgjhyrvce" path="res://Assets/images/BGJ-PC-Background-placeholder.png" id="1_6eqo1"]
-[ext_resource type="Texture2D" uid="uid://ywco7502ani4" path="res://Assets/images/BGJ-Terminal.png" id="2_2jgl6"]
+[ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_jhv7u"]
+[ext_resource type="Texture2D" uid="uid://bddvto7n7xe8m" path="res://Assets/images/terminal/Sliders.PNG" id="4_rbbrg"]
+[ext_resource type="Texture2D" uid="uid://gnaf7gouxk0y" path="res://Assets/images/terminal/Screen.PNG" id="5_7b3cr"]
+[ext_resource type="Texture2D" uid="uid://cw4wurlbrfjnf" path="res://Assets/images/terminal/SwitchOff.png" id="5_vr3jy"]
+[ext_resource type="Texture2D" uid="uid://c1dsodwr7s688" path="res://Assets/images/terminal/Pin Board.PNG" id="6_q5mhk"]
+[ext_resource type="Texture2D" uid="uid://bbmppenmy5ws0" path="res://Assets/images/terminal/Knobs Panel.PNG" id="7_k4q42"]
+[ext_resource type="Texture2D" uid="uid://kpfhm7w0h8rk" path="res://Assets/images/terminal/Keyboard.PNG" id="8_yxidh"]
+[ext_resource type="VideoStream" path="res://Assets/images/terminal/alb_tvn0411_1080p.ogv" id="9_itpl4"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhycb"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_q20ud"]
+allow_unpress = true
 
 [node name="TerminalUI" type="Control"]
 layout_mode = 3
@@ -13,33 +24,221 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Background" type="TextureRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_6eqo1")
-
-[node name="Pc" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_2jgl6")
-
 [node name="taskbar" parent="." instance=ExtResource("3_jhv7u")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33
 anchor_top = 0.819
 anchor_right = 0.33
 anchor_bottom = 0.819
-offset_left = -0.160004
-offset_top = 0.287964
-offset_right = -0.160004
-offset_bottom = 0.287964
+offset_left = -16.16
+offset_top = -168.712
+offset_right = -16.16
+offset_bottom = -168.712
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jhycb")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Screen" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+texture = ExtResource("5_7b3cr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VBoxContainer/HBoxContainer/Screen"]
+z_index = -1
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("9_itpl4")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="PinBoard" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+texture = ExtResource("6_q5mhk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Sliders" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = ExtResource("4_rbbrg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("5_vr3jy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_q20ud")
+flat = true
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("5_vr3jy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_q20ud")
+flat = true
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("5_vr3jy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_q20ud")
+flat = true
+
+[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("5_vr3jy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_q20ud")
+flat = true
+
+[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("5_vr3jy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_q20ud")
+flat = true
+
+[node name="Keyboard" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture = ExtResource("8_yxidh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="KnobsPlanel" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+texture = ExtResource("7_k4q42")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(1000, 650)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fo5ya")
+expand_mode = 1
+stretch_mode = 5
