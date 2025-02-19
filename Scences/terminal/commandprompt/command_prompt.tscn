@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2v6byneyqkdc"]
+[gd_scene load_steps=7 format=3 uid="uid://d2v6byneyqkdc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/command_prompt.gd" id="1_e3erw"]
 
@@ -12,8 +12,16 @@ bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50w7t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffxlf"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55enl"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ar1k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 10
+border_color = Color(0, 0, 0, 1)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
@@ -104,12 +112,20 @@ text = "⤫"
 flat = true
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1152, 606)
+custom_minimum_size = Vector2(1152, 575)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_50w7t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ffxlf")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_55enl")
+editable = false
 wrap_mode = 1
 indent_wrapped_lines = true
 
-[connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ar1k")
+max_length = 150
+
+[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

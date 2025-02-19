@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brackeys GJ Game"
-run/main_scene="res://Scences/terminal/terminal.tscn"
+run/main_scene="res://Scences/terminal/commandprompt/command_prompt.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
