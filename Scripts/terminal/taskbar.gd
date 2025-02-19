@@ -6,8 +6,8 @@ extends Node
 
 func _ready():
 	#Recieves the signal from the terminal
-	#terminal.open_windows_updated.connect(_update_taskbar)
-	pass
+	terminal.open_windows_updated.connect(_update_taskbar)
+	#pass
 
 func _update_taskbar():
 	# Clear existing buttons
