@@ -4,18 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_jhv7u"]
 [ext_resource type="Texture2D" uid="uid://bddvto7n7xe8m" path="res://Assets/images/terminal/Sliders.PNG" id="4_rbbrg"]
 [ext_resource type="Texture2D" uid="uid://gnaf7gouxk0y" path="res://Assets/images/terminal/Screen.PNG" id="5_7b3cr"]
-[ext_resource type="Texture2D" uid="uid://cw4wurlbrfjnf" path="res://Assets/images/terminal/SwitchOff.png" id="5_vr3jy"]
 [ext_resource type="Texture2D" uid="uid://c1dsodwr7s688" path="res://Assets/images/terminal/Pin Board.PNG" id="6_q5mhk"]
+[ext_resource type="Texture2D" uid="uid://bnlvgplnpqo7n" path="res://Assets/images/terminal/SwitchOn_2.png" id="7_i6a6m"]
+[ext_resource type="Texture2D" uid="uid://dhmhcjvf8xa33" path="res://Assets/images/terminal/SwitchOff_2.png" id="7_ipx85"]
 [ext_resource type="Texture2D" uid="uid://bbmppenmy5ws0" path="res://Assets/images/terminal/Knobs Panel.PNG" id="7_k4q42"]
 [ext_resource type="Texture2D" uid="uid://kpfhm7w0h8rk" path="res://Assets/images/terminal/Keyboard.PNG" id="8_yxidh"]
 [ext_resource type="VideoStream" path="res://Assets/images/terminal/alb_tvn0411_1080p.ogv" id="9_itpl4"]
-[ext_resource type="Texture2D" uid="uid://bkqftexa4pjvu" path="res://Assets/images/terminal/SwitchOn.png" id="11_u5dv6"]
 
 [sub_resource type="GDScript" id="GDScript_20uny"]
 script/source = "extends Control
 
 func _on_button_toggled(toggled_on: bool) -> void:
-	print(\"HELLO\")
+	if toggled_on:
+		print(\"Toggled on\")
+	else:
+		print(\"Toggled off\")
 "
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_q20ud"]
@@ -23,34 +26,10 @@ allow_unpress = true
 
 [sub_resource type="Animation" id="Animation_f615v"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect4:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_vr3jy")]
-}
 
 [sub_resource type="Animation" id="Animation_xoktw"]
 resource_name = "Switch"
 step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect4:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("5_vr3jy"), ExtResource("11_u5dv6")]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jhycb"]
 _data = {
@@ -69,7 +48,6 @@ mouse_filter = 2
 script = SubResource("GDScript_20uny")
 
 [node name="taskbar" parent="." instance=ExtResource("3_jhv7u")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33
@@ -147,6 +125,7 @@ custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
@@ -168,98 +147,49 @@ size_flags_vertical = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="Switch1" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_vr3jy")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_q20ud")
-flat = true
+texture_normal = ExtResource("7_ipx85")
+texture_pressed = ExtResource("7_i6a6m")
 
-[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="Switch2" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_vr3jy")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_q20ud")
-flat = true
+texture_normal = ExtResource("7_ipx85")
+texture_pressed = ExtResource("7_i6a6m")
 
-[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="Switch3" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_vr3jy")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_q20ud")
-flat = true
+texture_normal = ExtResource("7_ipx85")
+texture_pressed = ExtResource("7_i6a6m")
 
-[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="Switch4" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_vr3jy")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_q20ud")
-flat = true
+texture_normal = ExtResource("7_ipx85")
+texture_pressed = ExtResource("7_i6a6m")
 
-[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="Switch5" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_vr3jy")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_q20ud")
-flat = true
+texture_normal = ExtResource("7_ipx85")
+texture_pressed = ExtResource("7_i6a6m")
 
 [node name="Keyboard" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -290,6 +220,7 @@ offset_right = 500.0
 offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_fo5ya")
 expand_mode = 1
 stretch_mode = 5
@@ -298,3 +229,9 @@ stretch_mode = 5
 libraries = {
 "": SubResource("AnimationLibrary_jhycb")
 }
+
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch1" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch2" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch3" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch4" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch5" to="." method="_on_button_toggled"]

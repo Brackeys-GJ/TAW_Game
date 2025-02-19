@@ -1,11 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=10 format=3 uid="uid://dr8ft8t5e34hc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_7qjie"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="2_saptr"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="3_nrpe7"]
 [ext_resource type="PackedScene" uid="uid://822k37mdjjuh" path="res://Scences/terminal/terminal_ui.tscn" id="4_pvwub"]
+[ext_resource type="Texture2D" uid="uid://cp56r0yvqhary" path="res://Assets/images/terminal/Slider.png" id="5_8ppoq"]
+[ext_resource type="Texture2D" uid="uid://cw4wurlbrfjnf" path="res://Assets/images/terminal/SwitchOff.png" id="6_nthsi"]
+[ext_resource type="Texture2D" uid="uid://bkqftexa4pjvu" path="res://Assets/images/terminal/SwitchOn.png" id="7_ldur6"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_dqjqk"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_14x4i"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_qtkp6"]
 allow_unpress = true
 
 [node name="Terminal" type="Node2D" node_paths=PackedStringArray("taskbar")]
@@ -25,40 +31,53 @@ offset_bottom = -3.0
 [node name="taskbar" parent="CanvasLayer/TerminalUI" index="0" node_paths=PackedStringArray("terminal")]
 terminal = NodePath("../../..")
 
-[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect4" index="0"]
-button_group = SubResource("ButtonGroup_dqjqk")
+[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="0"]
+button_group = SubResource("ButtonGroup_14x4i")
 
-[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect5" index="0"]
-button_group = SubResource("ButtonGroup_dqjqk")
+[node name="Button2" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="1"]
+button_group = SubResource("ButtonGroup_qtkp6")
 
-[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect6" index="0"]
-button_group = SubResource("ButtonGroup_dqjqk")
+[node name="Button3" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="2"]
+button_group = SubResource("ButtonGroup_qtkp6")
 
-[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect7" index="0"]
-button_group = SubResource("ButtonGroup_dqjqk")
+[node name="Button4" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="3"]
+button_group = SubResource("ButtonGroup_qtkp6")
 
-[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/TextureRect8" index="0"]
-button_group = SubResource("ButtonGroup_dqjqk")
+[node name="Button5" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="4"]
+button_group = SubResource("ButtonGroup_qtkp6")
 
 [node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
 visible = false
-position = Vector2(247, 440)
+position = Vector2(292, 149)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 
 [node name="IconFilesApp2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
 visible = false
-position = Vector2(402, 440)
+position = Vector2(410, 176)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 
 [node name="IconFilesApp3" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
 visible = false
-position = Vector2(528, 419)
+position = Vector2(506, 160)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 326)
+
+[node name="Slider" type="Sprite2D" parent="."]
+position = Vector2(1320, 361)
+texture = ExtResource("5_8ppoq")
+
+[node name="SwitchOff" type="Sprite2D" parent="."]
+position = Vector2(1282, 472)
+texture = ExtResource("6_nthsi")
+
+[node name="SwitchOn" type="Sprite2D" parent="."]
+position = Vector2(1380, 464)
+texture = ExtResource("7_ldur6")
 
 [editable path="CanvasLayer/TerminalUI"]
 [editable path="CanvasLayer/TerminalUI/taskbar"]
