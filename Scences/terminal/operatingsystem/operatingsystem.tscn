@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=6 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="2_cehln"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_nam1c"]
+[ext_resource type="Texture2D" uid="uid://pk8ktuyyyvnw" path="res://Assets/images/eye/Eye.png" id="5_55blc"]
 
 [node name="Operatingsystem" type="Node2D" node_paths=PackedStringArray("taskbar")]
 script = ExtResource("1_wjwii")
@@ -23,12 +24,12 @@ mouse_filter = 2
 position = Vector2(575, 323)
 
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(62, 75)
+position = Vector2(1074, 46)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 
 [node name="AppCommandPrompt" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(70, 208)
+position = Vector2(1068, 187)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Command prompt"
 
@@ -38,3 +39,11 @@ offset_top = 629.0
 offset_right = 576.9
 offset_bottom = 629.0
 terminal = NodePath("..")
+
+[node name="Eye" type="TextureRect" parent="taskbar"]
+offset_left = -555.0
+offset_top = -609.0
+offset_right = -480.0
+offset_bottom = -531.0
+texture = ExtResource("5_55blc")
+expand_mode = 1

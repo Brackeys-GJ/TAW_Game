@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bs8ijel5ljf14" path="res://Assets/images/ph_folder.png" id="2_ap51x"]
 
 [node name="PrisonerSortingSystem" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

@@ -100,7 +100,7 @@ theme_override_constants/margin_bottom = 70
 layout_mode = 2
 
 [node name="BtnPlay" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" index="0"]
-to_scene = "res://Scences/topdown/game.tscn"
+to_scene = "res://Scences/terminal/terminal.tscn"
 
 [node name="Settings" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("2_ughuv")]
 visible = false

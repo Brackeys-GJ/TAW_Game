@@ -36,7 +36,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			# Open desktop
 			if event.pressed:
 				print(\"aaa\")
-				get_tree().change_scene_to_file(\"res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn\")
+				get_tree().change_scene_to_file(\"res://Scences/terminal/operatingsystem/operatingsystem.tscn\")
 "
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3j0fo"]
@@ -321,6 +321,7 @@ offset_left = 17.0
 offset_top = 46.0
 offset_right = 904.0
 offset_bottom = 691.0
+mouse_filter = 2
 texture = ExtResource("15_x4lhm")
 expand_mode = 1
 
@@ -330,6 +331,7 @@ offset_left = 17.0
 offset_top = 46.0
 offset_right = 904.0
 offset_bottom = 691.0
+mouse_filter = 2
 texture = ExtResource("16_g8rbf")
 expand_mode = 1
 
