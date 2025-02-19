@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=9 format=3 uid="uid://dr8ft8t5e34hc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_7qjie"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="2_saptr"]
@@ -8,10 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cw4wurlbrfjnf" path="res://Assets/images/terminal/SwitchOff.png" id="6_nthsi"]
 [ext_resource type="Texture2D" uid="uid://bkqftexa4pjvu" path="res://Assets/images/terminal/SwitchOn.png" id="7_ldur6"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_14x4i"]
-allow_unpress = true
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_qtkp6"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_h73sb"]
 allow_unpress = true
 
 [node name="Terminal" type="Node2D" node_paths=PackedStringArray("taskbar")]
@@ -31,20 +28,20 @@ offset_bottom = -3.0
 [node name="taskbar" parent="CanvasLayer/TerminalUI" index="0" node_paths=PackedStringArray("terminal")]
 terminal = NodePath("../../..")
 
-[node name="Button" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="0"]
-button_group = SubResource("ButtonGroup_14x4i")
+[node name="Switch1" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="0"]
+button_group = SubResource("ButtonGroup_h73sb")
 
-[node name="Button2" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="1"]
-button_group = SubResource("ButtonGroup_qtkp6")
+[node name="Switch2" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="1"]
+button_group = SubResource("ButtonGroup_h73sb")
 
-[node name="Button3" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="2"]
-button_group = SubResource("ButtonGroup_qtkp6")
+[node name="Switch3" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="2"]
+button_group = SubResource("ButtonGroup_h73sb")
 
-[node name="Button4" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="3"]
-button_group = SubResource("ButtonGroup_qtkp6")
+[node name="Switch4" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="3"]
+button_group = SubResource("ButtonGroup_h73sb")
 
-[node name="Button5" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="4"]
-button_group = SubResource("ButtonGroup_qtkp6")
+[node name="Switch5" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="4"]
+button_group = SubResource("ButtonGroup_h73sb")
 
 [node name="IconFilesApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("3_nrpe7")]
 visible = false
