@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://3ukbw0mrh3o0"]
+[gd_scene load_steps=22 format=3 uid="uid://3ukbw0mrh3o0"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_8ydbw"]
 [ext_resource type="Texture2D" uid="uid://b8noi2je5vwqv" path="res://Assets/images/prisoners/Picture Background.png" id="2_mf8lc"]
@@ -18,6 +18,41 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ejx8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qj8s"]
+bg_color = Color(0.996078, 1, 0.87451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ranpd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb2sf"]
+bg_color = Color(0.6, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf8fj"]
+bg_color = Color(0.326883, 3.39923e-07, 1.20327e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0yb7"]
+bg_color = Color(0, 0.666667, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4wni"]
 bg_color = Color(0.996078, 1, 0.87451, 1)
 border_width_left = 2
@@ -31,6 +66,22 @@ bg_color = Color(0.996078, 1, 0.87451, 1)
 border_width_left = 1
 border_width_top = 2
 border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va7p4"]
+bg_color = Color(0.996078, 1, 0.87451, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esh1u"]
+bg_color = Color(0.996078, 1, 0.87451, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
@@ -276,6 +327,95 @@ layout_mode = 2
 size_flags_vertical = 8
 color = Color(0, 0, 0, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Facility"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1qj8s")
+item_count = 8
+popup/item_1/text = "}: ADX Florence"
+popup/item_1/id = 1
+popup/item_2/text = "}: Fort Leavenworth"
+popup/item_2/id = 2
+popup/item_3/text = "}: USP Atlanta"
+popup/item_3/id = 3
+popup/item_4/text = "}: Sing Sing"
+popup/item_4/id = 4
+popup/item_5/text = "}: Camp X-Ray"
+popup/item_5/id = 5
+popup/item_6/text = "}: Manzanar"
+popup/item_6/id = 5
+popup/item_7/text = "}: Marion Penitentiary"
+popup/item_7/id = 6
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_group = SubResource("ButtonGroup_ranpd")
+text = "Adult"
+alignment = 1
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_group = SubResource("ButtonGroup_ranpd")
+text = "Juvie"
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_xb2sf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qf8fj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0yb7")
+text = "SUBMIT"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(800, 140)
 layout_mode = 2
@@ -335,25 +475,25 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
-text = "}: Mama"
+text = "}: Vaklrm"
 
 [node name="DOB" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo1"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo1/DOB"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "DOB"
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo1/DOB"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
-text = "}: 02.30.1969"
+text = "}: 02.30.2036"
 
 [node name="Accusation" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo1"]
 custom_minimum_size = Vector2(250, 0)
@@ -388,7 +528,7 @@ text = "ID"
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_va7p4")
 text = "}: 2223
 "
 
@@ -404,95 +544,114 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Firstname" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
+[node name="Citizenship" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Firstname"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Citizenship"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "First Name"
+text = "Citizenship"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Firstname"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Citizenship"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_x4wni")
-text = "}: Joe"
+text = "}: US"
 
-[node name="Surname" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
+[node name="Age" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Surname"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Age"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Surname"
+text = "Age"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Surname"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Age"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
-text = "}: Mama"
+text = "}: 24"
 
-[node name="DOB" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
+[node name="Height" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Height"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Height"
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Height"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
+text = "}: 6' 02\""
+
+[node name="Weight" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/DOB"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Weight"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "DOB"
+text = "Weight"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/DOB"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Weight"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
-text = "}: 02.30.1969"
+text = "}: 170 Lbs"
 
-[node name="Accusation" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
-custom_minimum_size = Vector2(250, 0)
+[node name="Faces" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
+custom_minimum_size = Vector2(105, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Accusation"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Accusation"
-
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Accusation"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
-text = "}: Disrupting public order"
-
-[node name="ID" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/ID"]
-custom_minimum_size = Vector2(75, 0)
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Faces"]
+custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "ID"
+text = "Faces"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/ID"]
-custom_minimum_size = Vector2(75, 0)
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Faces"]
+custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_jpamg")
-text = "}: 2223
+text = "}: 365 Days
+"
+
+[node name="PartOfResistance" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/UnchangableInfo2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/PartOfResistance"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resistance"
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/PartOfResistance"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_esh1u")
+text = "}: Yes
 "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
