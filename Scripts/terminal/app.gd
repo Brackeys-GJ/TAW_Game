@@ -37,4 +37,4 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 2:
 		pass
 	elif BtnFunc == 3:
-		queue_free()
+		pass

@@ -127,16 +127,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fnwyh")
 
 [node name="Creeper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_t2dof")
+bus = &"sfx"
 
 [node name="Link" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_v7ukf")
+bus = &"sfx"
 
 [node name="MouseLink" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_v7ukf")
 pitch_scale = 1.5
+bus = &"sfx"
 
 [node name="AudioFile#1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_25ixu")
+bus = &"sfx"
 
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]

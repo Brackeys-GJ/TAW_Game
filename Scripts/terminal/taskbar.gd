@@ -12,6 +12,7 @@ func _ready():
 func _update_taskbar():
 	# Clear existing buttons
 	for child in window_buttons.get_children():
+		print("HELLo")
 		child.queue_free()
 	
 	# Create new buttons for each window

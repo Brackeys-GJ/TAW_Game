@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1unsts1g83il"
-path="res://.godot/imported/Water_Filter.png-0f360ae8b792959b18119234f70915b8.ctex"
+uid="uid://ca6aajs66rbep"
+path="res://.godot/imported/Head 2.PNG-587df42f4805a9a26d3d807751e6ce06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/eye/Water_Filter.png"
-dest_files=["res://.godot/imported/Water_Filter.png-0f360ae8b792959b18119234f70915b8.ctex"]
+source_file="res://Assets/images/prisoners/Face Parts/Head 2.PNG"
+dest_files=["res://.godot/imported/Head 2.PNG-587df42f4805a9a26d3d807751e6ce06.ctex"]
 
 [params]
 

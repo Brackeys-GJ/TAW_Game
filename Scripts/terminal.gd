@@ -13,6 +13,7 @@ func _ready() -> void:
 			child.app_double_clicked.connect(_on_app_double_clicked.bind(child))
 
 func _on_app_double_clicked(app_node: Node):
+	print(open_windows)
 	var new_window = window_scene.instantiate()
 	add_child(new_window)
 	

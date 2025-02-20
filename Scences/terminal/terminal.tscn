@@ -49,7 +49,6 @@ offset_left = 300.0
 offset_top = 404.975
 offset_right = -784.2
 offset_bottom = -118.7
-rotation = 0.453786
 theme_override_icons/tick = SubResource("ViewportTexture_sd713")
 theme_override_styles/slider = SubResource("StyleBoxEmpty_m18ws")
 
