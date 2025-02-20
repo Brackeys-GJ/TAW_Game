@@ -51,17 +51,16 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyad5"]
 
-[sub_resource type="Animation" id="Animation_f615v"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ib28q"]
+resource_name = "EyeFloating"
 
-[sub_resource type="Animation" id="Animation_xoktw"]
-resource_name = "Switch"
-step = 0.1
+[sub_resource type="Animation" id="Animation_wof6q"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jhycb"]
 _data = {
-"RESET": SubResource("Animation_f615v"),
-"Switch": SubResource("Animation_xoktw")
+"EyeFloating": SubResource("Animation_ib28q"),
+"RESET": SubResource("Animation_wof6q")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sikb7"]

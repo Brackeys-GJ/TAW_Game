@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2v6byneyqkdc"]
+[gd_scene load_steps=9 format=3 uid="uid://d2v6byneyqkdc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_e3erw"]
+[ext_resource type="AudioStream" uid="uid://c13thiidcu64c" path="res://Assets/sfx/creeper.mp3" id="2_t2dof"]
+[ext_resource type="AudioStream" uid="uid://dgebklisfsgb2" path="res://Assets/sfx/link-scream-made-with-Voicemod.mp3" id="3_v7ukf"]
+[ext_resource type="AudioStream" uid="uid://bdg8ln5j7y3o4" path="res://Assets/sfx/AudioFile#1.mp3" id="4_25ixu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blpba"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)
@@ -121,6 +124,19 @@ editable = false
 custom_minimum_size = Vector2(1150, 60)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnwyh")
+
+[node name="Creeper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t2dof")
+
+[node name="Link" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v7ukf")
+
+[node name="MouseLink" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v7ukf")
+pitch_scale = 1.5
+
+[node name="AudioFile#1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_25ixu")
 
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
