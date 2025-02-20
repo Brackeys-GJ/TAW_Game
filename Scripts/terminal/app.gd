@@ -3,6 +3,15 @@ extends Control
 @onready var text_edit: TextEdit
 @onready var line_edit: LineEdit
 
+var drag_offset = Vector2.ZERO
+var dragging = false
+var window_title := "New Window"
+
+signal close_requested
+
+#func _ready():
+	#line_edit.text_submitted.connect(_on_line_edit_text_submitted)
+
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	text_edit = $VBoxContainer/TextEdit
 	line_edit = $VBoxContainer/LineEdit
@@ -37,4 +46,22 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 2:
 		pass
 	elif BtnFunc == 3:
-		pass
+		queue_free()
+
+# Dragging window
+func _on_h_box_container_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		dragging = event.pressed
+		drag_offset = get_global_mouse_position() - position
+	elif event is InputEventMouseMotion and dragging:
+		position = get_global_mouse_position() - drag_offset
+		
+
+func set_title(title: String):
+	window_title = title
+	# Update title label if exists
+	if has_node("$VBoxContainer/HBoxContainer/Label"):
+		$TitleBar/Label.text = title
+
+func _on_close_button_pressed():
+	emit_signal("close_requested")

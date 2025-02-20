@@ -1,22 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=7 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
-[ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/desktopApp.tscn" id="2_cehln"]
-[ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/taskbar.tscn" id="3_nam1c"]
+[ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/operatingsystem/desktopApp.tscn" id="2_cehln"]
+[ext_resource type="PackedScene" uid="uid://b3eoj35iheth8" path="res://Scences/terminal/operatingsystem/window_logic.tscn" id="2_txqcy"]
+[ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="3_nam1c"]
+[ext_resource type="PackedScene" uid="uid://d2v6byneyqkdc" path="res://Scences/terminal/commandprompt/command_prompt.tscn" id="6_dq2ql"]
 
 [node name="Operatingsystem" type="Node2D" node_paths=PackedStringArray("taskbar")]
 script = ExtResource("1_wjwii")
-window_scene = ExtResource("2_0c7uf")
 taskbar = NodePath("taskbar")
 metadata/_edit_vertical_guides_ = [-63.0]
 
-[node name="taskbar" parent="." node_paths=PackedStringArray("terminal") instance=ExtResource("3_nam1c")]
+[node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
+
+[node name="taskbar" parent="." node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
 offset_left = 576.9
 offset_top = 629.0
 offset_right = 576.9
 offset_bottom = 629.0
-terminal = NodePath("..")
+operating_system = NodePath("..")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0.509804, 0.509804, 1)
@@ -33,8 +36,12 @@ position = Vector2(575, 323)
 position = Vector2(1074, 46)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
+window_content_scene = ExtResource("2_0c7uf")
 
 [node name="AppCommandPrompt" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
 position = Vector2(1068, 187)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Command prompt"
+window_content_scene = ExtResource("6_dq2ql")
+
+[editable path="WindowLogic"]

@@ -5,11 +5,12 @@ var camera = inCamera
 
 @export var inCamera: Camera2D # Asign the camera in the desktop
 @export var txtFinalApp:String # Asign text to the app
+@export var window_content_scene: PackedScene
 
 @onready var txt_app: RichTextLabel = $TxtApp
 @onready var area_app: Area2D = $AreaApp
 
-signal app_double_clicked # To send signals to the terminal
+signal app_double_clicked(content_scene: PackedScene, app_name: String)
 
 func _on_ready() -> void:
 	txt_app.text = "[center]%s[/center]" % txtFinalApp # Update text
@@ -27,7 +28,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			# Open app logic
 			if event.pressed and event.double_click:
-				emit_signal("app_double_clicked")
+				emit_signal("app_double_clicked", window_content_scene, txtFinalApp)
 				get_viewport().set_input_as_handled()
 			# Move app logic
 			elif event.pressed:

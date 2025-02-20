@@ -688,6 +688,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lo6wx")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed" binds= [1]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_pressed"]

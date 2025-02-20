@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b3eoj35iheth8"]
+
+[node name="WindowLogic" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
