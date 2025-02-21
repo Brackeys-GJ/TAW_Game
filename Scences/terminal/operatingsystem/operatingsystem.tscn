@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=12 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/operatingsystem/desktopApp.tscn" id="2_cehln"]
+[ext_resource type="Script" path="res://Scripts/terminal/cameraLogic.gd" id="2_es4tx"]
 [ext_resource type="PackedScene" uid="uid://b3eoj35iheth8" path="res://Scences/terminal/operatingsystem/window_logic.tscn" id="2_txqcy"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="3_nam1c"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="5_f8wm4"]
@@ -44,35 +45,11 @@ color = Color(0, 0.509804, 0.509804, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
-
-[node name="Container" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.5
-offset_top = -323.5
-offset_right = 575.5
-offset_bottom = 323.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+script = ExtResource("2_es4tx")
 
 [node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
 
-[node name="Control" parent="WindowLogic" index="0"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="taskbar" parent="." instance=ExtResource("3_nam1c")]
+[node name="taskbar" parent="." node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,9 +60,10 @@ offset_left = -570.5
 offset_top = 279.5
 offset_right = 571.5
 offset_bottom = 321.5
+operating_system = NodePath("..")
 
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1067, 71)
+position = Vector2(1070, 58)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 window_content_scene = ExtResource("5_f8wm4")
