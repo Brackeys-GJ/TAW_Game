@@ -95,6 +95,7 @@ size_flags_vertical = 4
 z_index = -1
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0nhbf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel"]
@@ -112,6 +113,7 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+mouse_filter = 2
 texture = ExtResource("2_lkmmu")
 expand_mode = 1
 
@@ -123,23 +125,24 @@ text = "Home"
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(855, 0)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnMin" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "‒"
 flat = true
 
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnMax" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "◻"
 flat = true
 
-[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnClose" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -392,3 +395,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 30
+
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClose" to="." method="_on_btn_close_pressed"]

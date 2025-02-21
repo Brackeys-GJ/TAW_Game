@@ -11,32 +11,81 @@
 [ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/apps/disc_icon.PNG" id="8_bxlec"]
 [ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/apps/Prisoner_App.webp" id="10_aikuq"]
 
-[node name="Operatingsystem" type="Node2D" node_paths=PackedStringArray("taskbar")]
+[node name="Operatingsystem" type="Control" node_paths=PackedStringArray("taskbar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+mouse_filter = 2
 script = ExtResource("1_wjwii")
 taskbar = NodePath("taskbar")
-
-[node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
-
-[node name="taskbar" parent="." node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
-offset_left = 576.9
-offset_top = 629.0
-offset_right = 576.9
-offset_bottom = 629.0
-operating_system = NodePath("..")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0, 0.509804, 0.509804, 1)
-show_behind_parent = true
-z_index = -10
-offset_right = 1156.0
-offset_bottom = 651.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -323.5
+offset_right = 575.5
+offset_bottom = 323.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+color = Color(0, 0.509804, 0.509804, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
 
+[node name="Container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -323.5
+offset_right = 575.5
+offset_bottom = 323.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
+
+[node name="Control" parent="WindowLogic" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="taskbar" parent="." instance=ExtResource("3_nam1c")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -570.5
+offset_top = 279.5
+offset_right = 571.5
+offset_bottom = 321.5
+
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1074, 46)
+position = Vector2(1067, 71)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 window_content_scene = ExtResource("5_f8wm4")

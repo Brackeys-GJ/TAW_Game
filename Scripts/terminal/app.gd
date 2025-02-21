@@ -3,16 +3,13 @@ extends Control
 @onready var text_edit: TextEdit
 @onready var line_edit: LineEdit
 
-#<<<<<<< HEAD
+# To drag window on OS
 var drag_offset = Vector2.ZERO
 var dragging = false
 var window_title := "New Window"
 
 signal close_requested
 
-#func _ready():
-	#line_edit.text_submitted.connect(_on_line_edit_text_submitted)
-#=======
 @export var App: int
 
 @onready var FirstnameChange: Label
@@ -267,7 +264,6 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 2:
 		pass
 	elif BtnFunc == 3:
-#<<<<<<< HEAD
 		queue_free()
 	elif BtnFunc == 4:
 		ChangePrisonerInfo()
@@ -299,3 +295,11 @@ func _on_close_button_pressed(BtnFunc):
 	if BtnFunc == 4:
 		print("info submitted")
 		ChangePrisonerInfo()
+
+
+func _on_button_3_pressed() -> void:
+	queue_free()
+
+
+func _on_btn_min_pressed() -> void:
+	visible = false

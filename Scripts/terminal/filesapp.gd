@@ -6,6 +6,10 @@ const FOLDERTEMPLATE = preload("res://Scences/terminal/filesapp/foldertemplate.t
 @onready var FileBox: VBoxContainer = %FileBox
 @onready var FolderBox: VBoxContainer = %FolderBox
 
+# To drag window on OS
+var drag_offset = Vector2.ZERO
+var dragging = false
+
 var FileTypes = {
 	1: "Text",
 	2: "Image",
@@ -59,3 +63,18 @@ func make_folder(FolderName: String):
 	FolderNameText.text = "📁  " + FolderName
 	#Adding As child of FolderBox
 	FolderBox.add_child(Instance)
+
+# Dragging window
+func _on_h_box_container_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		dragging = event.pressed
+		drag_offset = get_global_mouse_position() - position
+	elif event is InputEventMouseMotion and dragging:
+		position = get_global_mouse_position() - drag_offset
+	
+
+func _on_btn_min_pressed() -> void:
+	visible = false
+
+func _on_btn_close_pressed() -> void:
+	queue_free()
