@@ -155,6 +155,7 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 texture = ExtResource("2_856dp")
 expand_mode = 1
 
@@ -165,9 +166,10 @@ text = "Prisoner Sorting"
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(490, 0)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnMin" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 text = "‒"
@@ -757,7 +759,10 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lo6wx")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer2/Submit" to="." method="_on_button_pressed" binds= [4]]
