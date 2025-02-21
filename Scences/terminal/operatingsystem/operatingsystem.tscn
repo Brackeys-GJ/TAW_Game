@@ -30,24 +30,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
-<<<<<<< HEAD
-script = ExtResource("2_es4tx")
-
-[node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
-
-[node name="taskbar" parent="." node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -570.5
-offset_top = 279.5
-offset_right = 571.5
-offset_bottom = 321.5
-operating_system = NodePath("..")
-=======
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -68,7 +50,6 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
->>>>>>> f9b31183469034f370d1ae4724d0a494d9d40a2e
 
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
 position = Vector2(1070, 58)
