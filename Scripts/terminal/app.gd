@@ -108,11 +108,17 @@ var Nationalities = {
 @onready var FacesChange: Label
 @onready var PORChange: Label
 
-@onready var FacilityDropdown: OptionButton = %FacilityDropdown
-@onready var AdultCheck: CheckBox = %AdultCheck
-@onready var JuvieCheck: CheckBox = %JuvieCheck
-@onready var PrisonTermEdit: LineEdit = %PrisonTermEdit
-@onready var IDEdit: LineEdit = %IDEdit
+@onready var FacilityDropdown: OptionButton
+@onready var AdultCheck: CheckBox
+@onready var JuvieCheck: CheckBox
+@onready var PrisonTermEdit: LineEdit
+@onready var IDEdit: LineEdit
+#Prisoner Image Assets
+@onready var Head: TextureRect
+@onready var Hair: TextureRect
+@onready var Eyes: TextureRect
+@onready var Mouth: TextureRect
+@onready var Nose: TextureRect = %Nose
 
 func _ready() -> void:
 	if App == 1:
@@ -132,9 +138,41 @@ func _ready() -> void:
 		WeightChange = %WeightChange
 		FacesChange = %FacesChange
 		PORChange = %PORChange
+		FacilityDropdown  = %FacilityDropdown
+		AdultCheck = %AdultCheck
+		JuvieCheck = %JuvieCheck
+		PrisonTermEdit = %PrisonTermEdit
+		IDEdit = %IDEdit
+		Head = %Head
+		Hair = %Hair
+		Eyes = %Eyes
+		Mouth = %Mouth
+		Nose = %Nose
 		ChangePrisonerInfo()
 
 func ChangePrisonerInfo():
+	#Prisoner Image
+	var PNG = ".PNG"
+	var HeadPath = "res://Assets/images/prisoners/Face Parts/Head "
+	var HairPath = "res://Assets/images/prisoners/Face Parts/Hair "
+	var EyePath = "res://Assets/images/prisoners/Face Parts/Eyes "
+	var MouthPath = "res://Assets/images/prisoners/Face Parts/Mouth "
+	var NosePath = "res://Assets/images/prisoners/Face Parts/Nose "
+	
+	var Num = 0
+	
+	var ImageAccess = {
+		1: [Head,HeadPath],
+		2: [Hair,HairPath],
+		3: [Eyes,EyePath],
+		4: [Mouth,MouthPath],
+		5: [Nose,NosePath],
+	}
+
+	for I in range(1,6):
+		Num = randi_range(1,4)
+		ImageAccess[I][0].texture = load(ImageAccess[I][1] + str(Num) + PNG)
+	
 	#First Name
 	FirstnameChange.text = "}: " + FristNames.pick_random()
 	#Surname
@@ -163,12 +201,10 @@ func ChangePrisonerInfo():
 	#Accusation
 	AccusationChange.text = "}: " + Accusations.pick_random()
 	#ID
-	var Num = 0
 	var ID = ""
 	
 	for I in range(1,5):
-		Num = str(randi_range(1,9))
-		ID = ID + Num
+		ID = ID + str(randi_range(1,9))
 		
 	IDChange.text = "}: " + ID
 	#Nationality

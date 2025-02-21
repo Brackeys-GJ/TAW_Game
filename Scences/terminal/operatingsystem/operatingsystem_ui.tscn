@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8yj5hbpn0817"]
+
+[ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="1_q3rfe"]
+
+[node name="OperatingsystemUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="taskbar" parent="." instance=ExtResource("1_q3rfe")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0.509804, 0.509804, 1)
+show_behind_parent = true
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

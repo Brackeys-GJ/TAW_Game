@@ -10,7 +10,6 @@
 [node name="Operatingsystem" type="Node2D" node_paths=PackedStringArray("taskbar")]
 script = ExtResource("1_wjwii")
 taskbar = NodePath("taskbar")
-metadata/_edit_vertical_guides_ = [-63.0]
 
 [node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
 
