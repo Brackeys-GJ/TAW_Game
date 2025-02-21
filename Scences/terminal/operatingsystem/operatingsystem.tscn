@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=11 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/operatingsystem/desktopApp.tscn" id="2_cehln"]
-[ext_resource type="PackedScene" uid="uid://c8yj5hbpn0817" path="res://Scences/terminal/operatingsystem/operatingsystem_ui.tscn" id="2_ib2cw"]
 [ext_resource type="PackedScene" uid="uid://b3eoj35iheth8" path="res://Scences/terminal/operatingsystem/window_logic.tscn" id="2_txqcy"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="3_nam1c"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="5_f8wm4"]
@@ -24,7 +23,6 @@ grow_vertical = 2
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_wjwii")
-<<<<<<< HEAD
 taskbar = NodePath("taskbar")
 metadata/_edit_use_anchors_ = true
 
@@ -43,23 +41,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0.509804, 0.509804, 1)
-=======
-taskbar = NodePath("CanvasLayer/taskbar")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="OperatingsystemUI" parent="CanvasLayer" instance=ExtResource("2_ib2cw")]
-
-[node name="taskbar" parent="CanvasLayer" node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
-custom_minimum_size = Vector2(0, 40)
-anchors_preset = 12
-anchor_top = 1.0
-grow_vertical = 0
-operating_system = NodePath("../..")
-
-[node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
->>>>>>> b12c34895a7c5ba509a0fde572848662d1ca72f9
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
