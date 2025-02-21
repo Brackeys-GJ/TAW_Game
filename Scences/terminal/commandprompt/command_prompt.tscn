@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d2v6byneyqkdc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_e3erw"]
-[ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/apps/disc_icon.PNG" id="2_7x3ay"]
+[ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/icons/disc_icon.PNG" id="2_7x3ay"]
 [ext_resource type="AudioStream" uid="uid://c13thiidcu64c" path="res://Assets/sfx/creeper.mp3" id="2_t2dof"]
 [ext_resource type="AudioStream" uid="uid://dgebklisfsgb2" path="res://Assets/sfx/link-scream-made-with-Voicemod.mp3" id="3_v7ukf"]
 [ext_resource type="AudioStream" uid="uid://bdg8ln5j7y3o4" path="res://Assets/sfx/AudioFile#1.mp3" id="4_25ixu"]
@@ -50,7 +50,6 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
-z_index = -1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_filter = 2

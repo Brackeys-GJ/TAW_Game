@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddjvrtr6ual7p"
-path="res://.godot/imported/Prisoner_App.webp-05a04b101670ad83282e23715e82500e.ctex"
+uid="uid://coek5683in5p2"
+path="res://.godot/imported/file_blue_icon.png-619ddfe30513f37e3e09b276efade50b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/apps/Prisoner_App.webp"
-dest_files=["res://.godot/imported/Prisoner_App.webp-05a04b101670ad83282e23715e82500e.ctex"]
+source_file="res://Assets/images/icons/file_blue_icon.png"
+dest_files=["res://.godot/imported/file_blue_icon.png-619ddfe30513f37e3e09b276efade50b.ctex"]
 
 [params]
 

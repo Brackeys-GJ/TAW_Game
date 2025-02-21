@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="3_nam1c"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="5_f8wm4"]
 [ext_resource type="PackedScene" uid="uid://d2v6byneyqkdc" path="res://Scences/terminal/commandprompt/command_prompt.tscn" id="6_dq2ql"]
-[ext_resource type="Texture2D" uid="uid://coek5683in5p2" path="res://Assets/images/apps/file_blue_icon.png" id="6_v3rht"]
-[ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/apps/disc_icon.PNG" id="8_bxlec"]
-[ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/apps/Prisoner_App.webp" id="10_aikuq"]
+[ext_resource type="Texture2D" uid="uid://coek5683in5p2" path="res://Assets/images/icons/file_blue_icon.png" id="6_v3rht"]
+[ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/icons/disc_icon.PNG" id="8_bxlec"]
+[ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/icons/Prisoner_App.webp" id="10_aikuq"]
 
 [node name="Operatingsystem" type="Node2D" node_paths=PackedStringArray("taskbar")]
 script = ExtResource("1_wjwii")

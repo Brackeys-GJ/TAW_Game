@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbwk7si8p2615"
-path="res://.godot/imported/file_orange_icon.png-6fe1c758bf404277a084fc65fde55cca.ctex"
+uid="uid://d2uao2qswvn5a"
+path="res://.godot/imported/pencil_icon.png-fc6ed2869abc7d0a0b800eb2de741621.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/apps/file_orange_icon.png"
-dest_files=["res://.godot/imported/file_orange_icon.png-6fe1c758bf404277a084fc65fde55cca.ctex"]
+source_file="res://Assets/images/icons/pencil_icon.png"
+dest_files=["res://.godot/imported/pencil_icon.png-fc6ed2869abc7d0a0b800eb2de741621.ctex"]
 
 [params]
 
