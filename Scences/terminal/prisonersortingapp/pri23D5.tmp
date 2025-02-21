@@ -393,7 +393,6 @@ popup/item_6/text = "}: Marion Penitentiary"
 popup/item_6/id = 6
 
 [node name="AdultCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -407,7 +406,6 @@ text = "Adult"
 alignment = 1
 
 [node name="JuvieCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -451,7 +449,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_b5kfc")
-text = "}: "
+text = "}:"
 
 [node name="IDEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer2"]
 unique_name_in_owner = true
@@ -459,7 +457,7 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_b5kfc")
-text = "}: "
+text = "}:"
 
 [node name="Submit" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2

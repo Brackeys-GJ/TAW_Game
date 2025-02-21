@@ -103,6 +103,16 @@ var Nationalities = {
 	21: ["Welsh"],
 }
 @onready var AgeChange: Label
+@onready var HeightChange: Label
+@onready var WeightChange: Label
+@onready var FacesChange: Label
+@onready var PORChange: Label
+
+@onready var FacilityDropdown: OptionButton = %FacilityDropdown
+@onready var AdultCheck: CheckBox = %AdultCheck
+@onready var JuvieCheck: CheckBox = %JuvieCheck
+@onready var PrisonTermEdit: LineEdit = %PrisonTermEdit
+@onready var IDEdit: LineEdit = %IDEdit
 
 func _ready() -> void:
 	if App == 1:
@@ -118,6 +128,10 @@ func _ready() -> void:
 		IDChange = %IDChange
 		NationalityChange = %NationalityChange
 		AgeChange = %AgeChange
+		HeightChange = %HeightChange
+		WeightChange = %WeightChange
+		FacesChange = %FacesChange
+		PORChange = %PORChange
 		ChangePrisonerInfo()
 
 func ChangePrisonerInfo():
@@ -147,7 +161,7 @@ func ChangePrisonerInfo():
 	
 	DOBChange.text = "}: " + date
 	#Accusation
-	AccusationChange.text = Accusations.pick_random()
+	AccusationChange.text = "}: " + Accusations.pick_random()
 	#ID
 	var Num = 0
 	var ID = ""
@@ -156,13 +170,33 @@ func ChangePrisonerInfo():
 		Num = str(randi_range(1,9))
 		ID = ID + Num
 		
-	IDChange.text = ID
+	IDChange.text = "}: " + ID
 	#Nationality
 	var Alphabetized = Nationalities[randi_range(1,21)]
 	var Nationality = Alphabetized.pick_random()
-	NationalityChange.text = Nationality
+	NationalityChange.text = "}: " + Nationality
 	#Age
-	AgeChange.text = str(2060 - year)
+	AgeChange.text = "}: " + str(2060 - year)
+	#Height
+	var feet = randi_range(5,6)
+	var inches = 0
+	if feet == 5:
+		inches = randi_range(3,11)
+	else:
+		inches = randi_range(0,4)
+	var Height = str(feet) + " ft " + str(inches) + " in "
+	HeightChange.text = "}: " + Height
+	#Weight
+	WeightChange.text = "}: " + str(randi_range(160, 215))
+	#Faces
+	FacesChange.text = "}: " + str(randi_range(12, 1630)) + " Days"
+	#Resistance
+	var POR = randi_range(1, 100)
+	if POR >= 70:
+		POR = "No"
+	elif POR < 70:
+		POR = "Yes"
+	PORChange.text = "}: " + POR
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
@@ -199,6 +233,15 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 3:
 #<<<<<<< HEAD
 		queue_free()
+	elif BtnFunc == 4:
+		ChangePrisonerInfo()
+		FacilityDropdown.select(-1)
+		PrisonTermEdit.text = "}: "
+		IDEdit.text = "}: "
+		AdultCheck.toggle_mode = false
+		JuvieCheck.toggle_mode = false
+		AdultCheck.toggle_mode = true
+		JuvieCheck.toggle_mode = true
 
 # Dragging window
 func _on_h_box_container_gui_input(event: InputEvent) -> void:
