@@ -1,6 +1,6 @@
 extends Control
 
-@export var operating_system: Node2D # Conect terminal and taskbar
+@export var operating_system: Control # Conect terminal and taskbar
 
 @onready var window_buttons: HBoxContainer = $HBoxContainer/WindowButtons # Taskbar icons container
 

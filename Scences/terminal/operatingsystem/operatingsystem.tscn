@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=12 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/operatingsystem/desktopApp.tscn" id="2_cehln"]
 [ext_resource type="PackedScene" uid="uid://b3eoj35iheth8" path="res://Scences/terminal/operatingsystem/window_logic.tscn" id="2_txqcy"]
+[ext_resource type="PackedScene" uid="uid://c8yj5hbpn0817" path="res://Scences/terminal/operatingsystem/operatingsystem_ui.tscn" id="3_d1q8j"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="3_nam1c"]
 [ext_resource type="PackedScene" uid="uid://3nef7l3fswvt" path="res://Scences/terminal/filesapp/filesapp.tscn" id="5_f8wm4"]
 [ext_resource type="PackedScene" uid="uid://d2v6byneyqkdc" path="res://Scences/terminal/commandprompt/command_prompt.tscn" id="6_dq2ql"]
@@ -23,42 +24,19 @@ grow_vertical = 2
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_wjwii")
-taskbar = NodePath("taskbar")
+taskbar = NodePath("CanvasLayer/taskbar")
 metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.5
-offset_top = -323.5
-offset_right = 575.5
-offset_bottom = 323.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0.509804, 0.509804, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
 
-[node name="Container" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.5
-offset_top = -323.5
-offset_right = 575.5
-offset_bottom = 323.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="taskbar" parent="CanvasLayer" node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
+operating_system = NodePath("../..")
+
+[node name="OperatingsystemUI" parent="CanvasLayer" instance=ExtResource("3_d1q8j")]
 
 [node name="WindowLogic" parent="." instance=ExtResource("2_txqcy")]
 
@@ -71,18 +49,6 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="taskbar" parent="." instance=ExtResource("3_nam1c")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -570.5
-offset_top = 279.5
-offset_right = 571.5
-offset_bottom = 321.5
 
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
 position = Vector2(1067, 71)
