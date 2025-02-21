@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ksjgpm4tp2u"
-path="res://.godot/imported/photos_icon.png-7b16eb5f4f975c38cb4f4f7b61b4996f.ctex"
+uid="uid://bjuona313rhqo"
+path="res://.godot/imported/scissors_icon.png-193bbaf92d56c3afb62018def685087c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/apps/photos_icon.png"
-dest_files=["res://.godot/imported/photos_icon.png-7b16eb5f4f975c38cb4f4f7b61b4996f.ctex"]
+source_file="res://Assets/images/icons/scissors_icon.png"
+dest_files=["res://.godot/imported/scissors_icon.png-193bbaf92d56c3afb62018def685087c.ctex"]
 
 [params]
 

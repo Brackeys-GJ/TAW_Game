@@ -1,7 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://3nef7l3fswvt"]
+[gd_scene load_steps=15 format=3 uid="uid://3nef7l3fswvt"]
 
-[ext_resource type="Script" path="res://Scripts/terminal/filesapp.gd" id="1_qooum"]
-[ext_resource type="Texture2D" uid="uid://b7ry4citpy82d" path="res://Assets/images/apps/home_iconr.png" id="2_lkmmu"]
+[ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_trxlc"]
+[ext_resource type="Texture2D" uid="uid://b7ry4citpy82d" path="res://Assets/images/icons/home_iconr.png" id="2_lkmmu"]
+[ext_resource type="Texture2D" uid="uid://bjuona313rhqo" path="res://Assets/images/icons/scissors_icon.png" id="3_apyf5"]
+[ext_resource type="Texture2D" uid="uid://cwicxit1312dv" path="res://Assets/images/icons/clipboard_icon.png" id="4_r5iy4"]
+[ext_resource type="Texture2D" uid="uid://d2uao2qswvn5a" path="res://Assets/images/icons/pencil_icon.png" id="5_wwpb5"]
+[ext_resource type="Texture2D" uid="uid://c6ex48rnqm4gu" path="res://Assets/images/icons/arrow_icon.png" id="6_12ngc"]
+[ext_resource type="Texture2D" uid="uid://bsh34kwy8foo3" path="res://Assets/images/icons/trashcan_icon.png" id="7_h0nqv"]
+[ext_resource type="Texture2D" uid="uid://b7ksjgpm4tp2u" path="res://Assets/images/icons/photos_icon.png" id="8_jm7ph"]
+[ext_resource type="Texture2D" uid="uid://cml02865mhc55" path="res://Assets/images/icons/person_icon.png" id="9_kbebs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdi6l"]
 bg_color = Color(0.552941, 0.501961, 0.592157, 1)
@@ -33,7 +40,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qooum")
+script = ExtResource("1_trxlc")
+App = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 z_index = -1
@@ -194,6 +202,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
@@ -209,35 +218,65 @@ layout_mode = 2
 size_flags_vertical = 4
 color = Color(0.54902, 0.54902, 0.54902, 1)
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(30, 0)
+[node name="CutButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-text = "✂️"
-flat = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+texture_normal = ExtResource("3_apyf5")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(30, 0)
+[node name="CopyButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-text = "📋"
-flat = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+texture_normal = ExtResource("4_r5iy4")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(30, 0)
+[node name="EditButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-text = "✏️"
-flat = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+texture_normal = ExtResource("5_wwpb5")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(30, 0)
+[node name="SendButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-text = "➤"
-flat = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+texture_normal = ExtResource("6_12ngc")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(30, 0)
+[node name="TrashButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-text = "🗑️"
-flat = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+texture_normal = ExtResource("7_h0nqv")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -250,6 +289,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -264,9 +304,20 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "🏠 Home"
+text = "     Home"
 flat = true
 alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/Button"]
+modulate = Color(1, 0.133333, 0.0745098, 1)
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+offset_right = 25.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_lkmmu")
+expand_mode = 1
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(125, 25)
@@ -276,9 +327,24 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "🟦 Gallery"
+text = "     Gallery"
 flat = true
 alignment = 0
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/Button2"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 25.0
+offset_bottom = 12.5
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_jm7ph")
+expand_mode = 1
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(125, 25)
@@ -288,9 +354,19 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "☁️ Personal"
+text = "     Personal"
 flat = true
 alignment = 0
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/Button3"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+offset_right = 25.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_kbebs")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
