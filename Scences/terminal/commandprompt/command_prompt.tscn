@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2v6byneyqkdc"]
+[gd_scene load_steps=10 format=3 uid="uid://d2v6byneyqkdc"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_e3erw"]
+[ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/apps/disc_icon.PNG" id="2_7x3ay"]
 [ext_resource type="AudioStream" uid="uid://c13thiidcu64c" path="res://Assets/sfx/creeper.mp3" id="2_t2dof"]
 [ext_resource type="AudioStream" uid="uid://dgebklisfsgb2" path="res://Assets/sfx/link-scream-made-with-Voicemod.mp3" id="3_v7ukf"]
 [ext_resource type="AudioStream" uid="uid://bdg8ln5j7y3o4" path="res://Assets/sfx/AudioFile#1.mp3" id="4_25ixu"]
@@ -79,14 +80,27 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhol2")
 
-[node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "  💿 Command Prompt
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Panel/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel/HBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_7x3ay")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Command Prompt
 "
 vertical_alignment = 1
 

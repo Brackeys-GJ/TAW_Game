@@ -118,7 +118,7 @@ var Nationalities = {
 @onready var Hair: TextureRect
 @onready var Eyes: TextureRect
 @onready var Mouth: TextureRect
-@onready var Nose: TextureRect = %Nose
+@onready var Nose: TextureRect
 
 func _ready() -> void:
 	if App == 1:

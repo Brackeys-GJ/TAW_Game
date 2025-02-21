@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://3nef7l3fswvt"]
+[gd_scene load_steps=8 format=3 uid="uid://3nef7l3fswvt"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/filesapp.gd" id="1_qooum"]
+[ext_resource type="Texture2D" uid="uid://b7ry4citpy82d" path="res://Assets/images/apps/home_iconr.png" id="2_lkmmu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdi6l"]
+bg_color = Color(0.552941, 0.501961, 0.592157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enx3s"]
+bg_color = Color(0.52549, 0.52549, 0.52549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql77r"]
+bg_color = Color(0.690196, 0.690196, 0.690196, 1)
+border_width_bottom = 2
+border_color = Color(0.54902, 0.54902, 0.54902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t785"]
+bg_color = Color(0.835294, 0.835294, 0.835294, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nhbf"]
+bg_color = Color(0.52549, 0.52549, 0.52549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
 
 [node name="Filesapp" type="Control"]
 layout_mode = 3
@@ -12,6 +36,7 @@ grow_vertical = 2
 script = ExtResource("1_qooum")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,46 +51,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="Panel" type="Panel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdi6l")
 
-[node name="ColorRect3" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(10, 30)
+[node name="Panel2" type="Panel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-color = Color(0.552941, 0.501961, 0.592157, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_enx3s")
 
-[node name="ColorRect2" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(160, 30)
+[node name="Panel3" type="Panel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-size_flags_horizontal = 4
-color = Color(0.52549, 0.52549, 0.52549, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ql77r")
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(980, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-color = Color(0.552941, 0.501961, 0.592157, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(1150, 50)
-layout_mode = 2
-color = Color(0.525101, 0.525102, 0.525101, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(1150, 32)
-layout_mode = 2
-color = Color(0.691357, 0.691357, 0.691356, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(1150, 100)
+[node name="Panel4" type="Panel" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.834614, 0.834614, 0.834614, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_5t785")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -87,13 +91,37 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
+z_index = -1
+custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
-text = "🏠   Home"
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nhbf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Panel/HBoxContainer"]
+modulate = Color(1, 0.258824, 0.145098, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_lkmmu")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Home"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(875, 0)
+custom_minimum_size = Vector2(855, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 

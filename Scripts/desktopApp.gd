@@ -6,14 +6,17 @@ var camera = inCamera
 @export var inCamera: Camera2D # Asign the camera in the desktop
 @export var txtFinalApp:String # Asign text to the app
 @export var window_content_scene: PackedScene
+@export var app_icon: Texture2D
 
 @onready var txt_app: RichTextLabel = $TxtApp
 @onready var area_app: Area2D = $AreaApp
+@onready var img_app: Sprite2D = $ImgApp
 
 signal app_double_clicked(content_scene: PackedScene, app_name: String)
 
 func _on_ready() -> void:
 	txt_app.text = "[center]%s[/center]" % txtFinalApp # Update text
+	img_app.texture = app_icon
 	camera = get_viewport().get_camera_2d() # Gets camera viewport
 	area_app.input_pickable = true #  Pick area node
 
