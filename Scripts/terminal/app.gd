@@ -13,11 +13,11 @@ var FileTypes = {
 	}
 
 var StartingFiles = {
-	#FORMAT: Key: ["Name", "Date", Filetype, Folder(Not needed)],
-	1: ["📁  Files","01/03/2059",3,1],
-	2: ["📄  Work Notes","11/18/2062",1,3],
-	3: ["📄  Passwords","03/18/2059",1,3],
-	4: ["💿  Command Prompt","01/03/2059",1],
+	#FORMAT: Key: ["Name", "Date", Filetype, Folder(If none set: 0)],
+	1: ["📁  Files","01/03/2059",3, 1],
+	2: ["📄  Work Notes","11/18/2062",1, 3],
+	3: ["📄  Passwords","03/18/2059",1, 3],
+	4: ["💿  Command Prompt","01/03/2059",1, 1],
 	}
 
 var StartingFilesAmount = len(StartingFiles)
@@ -28,6 +28,10 @@ var StartingFolders = {
 	2: "Downloads",
 	3: "Documents",
 	4: "Gallery"
+	}
+
+var Folders = {
+	
 	}
 
 @onready var text_edit: TextEdit
@@ -64,7 +68,7 @@ var FristNames = [
 	"Nikolae",
 	"Oleg",
 	"Joe",
-]
+	]
 @onready var SurnameChange: Label
 var Surnames = [
 	"Volkov",
@@ -84,7 +88,7 @@ var Surnames = [
 	"Preda",
 	"Kozlov",
 	"Vaklrm",
-]
+	]
 @onready var DOBChange: Label
 @onready var AccusationChange: Label
 var Accusations = [
@@ -106,7 +110,7 @@ var Accusations = [
 	"Lack of discipline",
 	"Prohibited use of resources",
 	"Desertion",
-]
+	]
 @onready var IDChange: Label
 @onready var NationalityChange: Label
 var Nationalities = {
@@ -131,13 +135,19 @@ var Nationalities = {
 	19: ["Ukrainian"],
 	20: ["Vietnamese"],
 	21: ["Welsh"],
-}
+	}
 @onready var AgeChange: Label
 @onready var HeightChange: Label
 @onready var WeightChange: Label
 @onready var FacesChange: Label
 @onready var PORChange: Label
-
+#Files Buttons
+@onready var CutButton: TextureButton
+@onready var CopyButton: TextureButton
+@onready var EditButton: TextureButton
+@onready var SendButton: TextureButton
+@onready var TrashButton: TextureButton
+#Prisoner Info Fills
 @onready var FacilityDropdown: OptionButton
 @onready var AdultCheck: CheckBox
 @onready var JuvieCheck: CheckBox
@@ -149,15 +159,20 @@ var Nationalities = {
 @onready var Eyes: TextureRect
 @onready var Mouth: TextureRect
 @onready var Nose: TextureRect
-
+#On Ready
 func _ready() -> void:
 	if App == 1:
 		FileBox = %FileBox
 		FolderBox = %FolderBox
-		for I in range(1,StartingFilesAmount + 1):
-			make_file(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2])
+		CutButton = %CutButton
+		CopyButton = %CopyButton
+		EditButton = %EditButton
+		SendButton = %SendButton
+		TrashButton = %TrashButton
 		for I in range(1,5):
 			make_folder(StartingFolders[I])
+		for I in range(1,StartingFilesAmount + 1):
+			make_file(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2], StartingFiles[I][3])
 	elif App == 2:
 		text_edit = $VBoxContainer/TextEdit
 		line_edit = $VBoxContainer/LineEdit
@@ -185,7 +200,7 @@ func _ready() -> void:
 		Nose = %Nose
 		ChangePrisonerInfo()
 
-func make_file(FileName: String, FileDate: String, Filetype: int):
+func make_file(FileName: String, FileDate: String, Filetype: int, Folder: int):
 		#Getting File Instance
 		var Instance = FILESTEMPLATE.instantiate()
 		#Getting File Info As Vars
@@ -196,18 +211,29 @@ func make_file(FileName: String, FileDate: String, Filetype: int):
 		FileNameLabel.text = FileName
 		FileDateLabel.text = FileDate
 		FiletypeLabel.text = FileTypes[Filetype]
+		Instance.name = FileName
 		#Adding As child of FileBox
 		FileBox.add_child(Instance)
+		if Folder:
+			Folders[StartingFolders[Folder]].append(str(Instance.name))
+		else:
+			print("No folder")
+		print(Folders)
 
 func make_folder(FolderName: String):
+	var FolderAmount = len(Folders)
 	#Getting Folder Instance
 	var Instance = FOLDERTEMPLATE.instantiate()
 	#Getting Folder Info As Vars
 	var FolderNameText = Instance.get_child(0)
 	#Setting Folder Info
 	FolderNameText.text = "📁  " + FolderName
+	Instance.name = FolderName
 	#Adding As child of FolderBox
 	FolderBox.add_child(Instance)
+	#Adding Folder to Folder Arrey
+	Folders[Instance.name] = []
+	print(Folders)
 
 func ChangePrisonerInfo():
 	#Prisoner Image
