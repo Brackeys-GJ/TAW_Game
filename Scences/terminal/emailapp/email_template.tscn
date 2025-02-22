@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt5wjs2qnk6gt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6j1a"]
+bg_color = Color(0.16851, 0.665208, 0.777078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="EmailTemplate" type="Control"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6j1a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Button/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Button/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="ColorRect2" type="ColorRect" parent="Button/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Label2" type="Label" parent="Button/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "00/00/0000"
+
+[node name="ColorRect3" type="ColorRect" parent="Button/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Label3" type="Label" parent="Button/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Blank"
