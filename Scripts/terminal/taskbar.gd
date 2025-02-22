@@ -7,11 +7,13 @@ extends Control
 @onready var app_command_prompt: Node2D = $"../../AppCommandPrompt"
 @onready var app_prisoner_sorting: Node2D = $"../../AppPrisonerSorting"
 
+@onready var ClockUpdateTimer: Timer = $ClockUpdateTimer
 @onready var ClockLevel: Label = %ClockLevel
 @onready var Date: Label = %Date
 
 func _ready():
-	UpdateClock(ClockTimer.ClockLevel)
+	UpdateClock()
+	ClockUpdateTimer.start()
 	if operating_system:
 		operating_system.open_windows_updated.connect(open_windows_updated)
 		open_windows_updated()
@@ -50,5 +52,10 @@ func _on_window_button_pressed(event: InputEvent, window: Node):
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scences/terminal/terminal.tscn")
 
-func UpdateClock(NewTime):
-	ClockLevel.text = NewTime
+func UpdateClock():
+	ClockLevel.text = ClockTimer.ClockLevel
+	Date.text = ClockTimer.CurrentDate
+
+func _on_clock_update_timer_timeout() -> void:
+	UpdateClock()
+	ClockUpdateTimer.start()

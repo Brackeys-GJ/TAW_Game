@@ -163,13 +163,17 @@ var Nationalities = {
 @onready var Emails: VBoxContainer
 
 var PossibleEmails = {
-	#FORMAT: Key: ["Sender","Name","Body1","Body2","Body3"]
+	#FORMAT: Key: ["Name","Sender","Body1","Body2","Body3"]
 	1: ["Welcome to Burea-a-Corp!", "Watchers",
 	"Welcome to your new position at Burea-a-Corp! You will be tasked with ensuring that the United States of America runs ",
 	"at peak efficiency and safety in the age of our new rulers! These task may consist of: Management of military and civilian ",
 	"logistics, prisoner sorting, and many more! And always remember… They are always Watching…"],
-	2: [],
-	3: [],
+	2: ["Unica Spes", "Cipher",
+	"This is Cipher. I will be your contact from now on. You are insane for even considering doing this.",
+	"You have five days to send us as much intel as possible and disrupt Watcher logistics.",
+	"Hell if you can send some of the goods to us. Do whatever you can. Just don’t get yourself killed"],
+	3: ["Prisoner Duty","Watchers",
+	"The Oculus has round up some new prisoners. See that they are sorted properly"],
 	4: [],
 	5: [],
 	}
@@ -218,7 +222,7 @@ func _ready() -> void:
 		ChangePrisonerInfo()
 	elif App == 4:
 		Emails = %Emails
-		for I in range(1,2):
+		for I in range(1,len(GameManager.Emails) + 1):
 			MakeEmail(I)
 
 func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
@@ -341,6 +345,7 @@ func ChangePrisonerInfo():
 	PORChange.text = "}: " + POR
 
 func MakeEmail(EmailID: int):
+	print(GameManager.Emails)
 	var Instance = EMAILTEMPLATE.instantiate()
 	
 	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
@@ -348,14 +353,21 @@ func MakeEmail(EmailID: int):
 	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
 	var Items: MenuButton = Instance.get_child(0)
 	
-	EmailName.text = PossibleEmails[EmailID][0]
-	EmailDate.text = "6/5/2060"
-	EmailFrom.text = PossibleEmails[EmailID][1]
+	var EmailItems = GameManager.Emails
 	
-	Items.get_popup().add_item(PossibleEmails[EmailID][0], 0)
-	Items.get_popup().add_item("    " + PossibleEmails[EmailID][2], 1)
-	Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 3)
-	Items.get_popup().add_item("    " + PossibleEmails[EmailID][4], 4)
+	EmailName.text = EmailItems[EmailID][0]
+	EmailDate.text = ClockTimer.CurrentDate
+	EmailFrom.text = EmailItems[EmailID][1]
+	
+	Items.get_popup().add_item(EmailItems[EmailID][0], 0)
+	Items.get_popup().add_item("    " + EmailItems[EmailID][2], 1)
+	if len(EmailItems[EmailID]) == 5:
+		Items.get_popup().add_item("    " + EmailItems[EmailID][3], 2)
+		Items.get_popup().add_item("    " + EmailItems[EmailID][4], 3)
+	elif len(EmailItems[EmailID]) == 4:
+		Items.get_popup().add_item("    " + EmailItems[EmailID][3], 2)
+		
+	GameManager.Emails[EmailID] = PossibleEmails[EmailID]
 	
 	Emails.add_child(Instance)
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d

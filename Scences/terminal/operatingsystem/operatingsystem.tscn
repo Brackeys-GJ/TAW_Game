@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=23 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ttjsb552q6t" path="res://Assets/images/icons/inbox_icon.png" id="13_fkj6t"]
 [ext_resource type="PackedScene" uid="uid://c54hkskdjinny" path="res://Scences/terminal/emailapp/email_app.tscn" id="13_x2pk6"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="14_qbo4t"]
+[ext_resource type="AudioStream" uid="uid://b1ikd71nexohy" path="res://Assets/music/Computer.wav" id="15_drq8x"]
 [ext_resource type="Shader" path="res://Shaders/operatingsystem.gdshader" id="17_es2kf"]
 [ext_resource type="Texture2D" uid="uid://fflt3q5xu5p0" path="res://Assets/images/eye/Water_Tank.png" id="18_exkqy"]
 [ext_resource type="Texture2D" uid="uid://c1unsts1g83il" path="res://Assets/images/eye/Water_Filter.png" id="19_avh1t"]
@@ -91,6 +92,12 @@ inCamera = NodePath("../Camera2D")
 txtFinalApp = "Hackwave Emails"
 window_content_scene = ExtResource("13_x2pk6")
 app_icon = ExtResource("13_fkj6t")
+
+[node name="ComputerMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_drq8x")
+volume_db = -15.0
+autoplay = true
+bus = &"music"
 
 [node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_3pnd0")
