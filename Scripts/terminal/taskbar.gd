@@ -11,6 +11,7 @@ extends Control
 @onready var Date: Label = %Date
 
 func _ready():
+	UpdateClock(ClockTimer.ClockLevel)
 	if operating_system:
 		operating_system.open_windows_updated.connect(open_windows_updated)
 		open_windows_updated()
@@ -48,3 +49,6 @@ func _on_window_button_pressed(event: InputEvent, window: Node):
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scences/terminal/terminal.tscn")
+
+func UpdateClock(NewTime):
+	ClockLevel.text = NewTime
