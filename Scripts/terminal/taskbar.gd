@@ -18,6 +18,7 @@ var month = 4
 var day = 5
 var year = 2060
 
+
 func _ready():
 	#StartClock()
 	if operating_system:
@@ -63,7 +64,6 @@ func StartClock():
 	ClockTimer.start()
 
 func _on_timer_timeout() -> void:
-	print(1)
 	if Min == 59:
 		Hour = Hour + 1
 		Min = 0
