@@ -7,6 +7,8 @@ const EMAILTEMPLATE = preload("res://Scences/terminal/emailapp/email_template.ts
 @onready var FileBox: VBoxContainer
 @onready var FolderBox: VBoxContainer
 
+@export var app_icon: Texture2D
+
 var FileTypes = {
 	1: "Text",
 	2: "Image",
@@ -417,10 +419,28 @@ func _on_close_button_pressed(BtnFunc):
 		print("info submitted")
 		ChangePrisonerInfo()
 
-
-func _on_button_3_pressed() -> void:
-	queue_free()
-
-
 func _on_btn_min_pressed() -> void:
 	visible = false
+
+func _on_btn_close_pressed() -> void:
+	queue_free()
+
+func _on_btn_min_pris_pressed() -> void:
+	visible = false
+
+func _on_btn_close_pris_pressed() -> void:
+	queue_free()
+
+func _on_btn_min_email_pressed() -> void:
+	visible = false
+
+func _on_btn_close_email_pressed() -> void:
+	queue_free()
+
+# Email dragging
+func _on_h_box_container_3_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		dragging = event.pressed
+		drag_offset = get_global_mouse_position() - position
+	elif event is InputEventMouseMotion and dragging:
+		position = get_global_mouse_position() - drag_offset

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=19 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
 [ext_resource type="PackedScene" uid="uid://r5iujlj2lgob" path="res://Scences/terminal/operatingsystem/desktopApp.tscn" id="2_cehln"]
+[ext_resource type="Script" path="res://Scripts/terminal/cameraLogic.gd" id="2_qb6nq"]
 [ext_resource type="PackedScene" uid="uid://b3eoj35iheth8" path="res://Scences/terminal/operatingsystem/window_logic.tscn" id="2_txqcy"]
 [ext_resource type="PackedScene" uid="uid://c8yj5hbpn0817" path="res://Scences/terminal/operatingsystem/operatingsystem_ui.tscn" id="3_d1q8j"]
 [ext_resource type="PackedScene" uid="uid://ca3aw8fjwri11" path="res://Scences/terminal/operatingsystem/taskbar.tscn" id="3_nam1c"]
@@ -11,10 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://coek5683in5p2" path="res://Assets/images/icons/file_blue_icon.png" id="6_v3rht"]
 [ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/icons/disc_icon.PNG" id="8_bxlec"]
 [ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/icons/Prisoner_App.webp" id="10_aikuq"]
-[ext_resource type="PackedScene" uid="uid://c54hkskdjinny" path="res://Scences/terminal/emailapp/email_app.tscn" id="12_t04oj"]
-[ext_resource type="Texture2D" uid="uid://cml02865mhc55" path="res://Assets/images/icons/person_icon.png" id="13_7dmud"]
+[ext_resource type="AudioStream" uid="uid://brfcuvy4g3r1t" path="res://Assets/music/Os.wav" id="13_3pnd0"]
+[ext_resource type="Texture2D" uid="uid://b1ttjsb552q6t" path="res://Assets/images/icons/inbox_icon.png" id="13_fkj6t"]
+[ext_resource type="PackedScene" uid="uid://c54hkskdjinny" path="res://Scences/terminal/emailapp/email_app.tscn" id="13_x2pk6"]
+[ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="14_qbo4t"]
+[ext_resource type="Shader" path="res://Shaders/operatingsystem.gdshader" id="17_es2kf"]
 
-[node name="Operatingsystem" type="Control" node_paths=PackedStringArray("taskbar")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t8xc"]
+shader = ExtResource("17_es2kf")
+shader_parameter/SCREEN_HEIGHT = 648.0
+
+[node name="Operatingsystem" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,16 +34,17 @@ grow_vertical = 2
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_wjwii")
-taskbar = NodePath("CanvasLayer/taskbar")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
+script = ExtResource("2_qb6nq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="taskbar" parent="CanvasLayer" node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
+z_index = 200
 operating_system = NodePath("../..")
 
 [node name="OperatingsystemUI" parent="CanvasLayer" instance=ExtResource("3_d1q8j")]
@@ -73,11 +82,34 @@ txtFinalApp = "Prisoner Sorting"
 window_content_scene = ExtResource("2_0c7uf")
 app_icon = ExtResource("10_aikuq")
 
-[node name="DesktopApp" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1064, 455)
+[node name="AppPrisonerSorting2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
+position = Vector2(1075, 456)
 inCamera = NodePath("../Camera2D")
-txtFinalApp = "Hackwave Emails"
-window_content_scene = ExtResource("12_t04oj")
-app_icon = ExtResource("13_7dmud")
+txtFinalApp = "Email"
+window_content_scene = ExtResource("13_x2pk6")
+app_icon = ExtResource("13_fkj6t")
+
+[node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_3pnd0")
+volume_db = -6.667
+autoplay = true
+bus = &"music"
+
+[node name="SndClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_qbo4t")
+bus = &"sfx"
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0t8xc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.19553, 0.708333, 0.708333, 1)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 
 [editable path="WindowLogic"]

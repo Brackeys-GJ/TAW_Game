@@ -127,6 +127,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ydbw")
+app_icon = ExtResource("2_856dp")
 App = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -169,7 +170,7 @@ layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="BtnMin" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnMinPris" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 text = "‒"
@@ -181,7 +182,7 @@ layout_mode = 2
 text = "◻"
 flat = true
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnClosePris" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 text = "⤫"
@@ -760,6 +761,11 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lo6wx")
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pris_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_btn_close_pris_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer2/Submit" to="." method="_on_button_pressed" binds= [4]]
