@@ -40,6 +40,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_038ex")
 app_icon = ExtResource("4_v0n1m")
 App = 4
@@ -209,7 +210,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer3" to="." method="_on_h_box_container_3_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_email_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_btn_close_email_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_btn_close_email_pressed"]
