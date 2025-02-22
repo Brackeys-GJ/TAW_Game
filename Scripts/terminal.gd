@@ -22,9 +22,6 @@ func _on_app_double_clicked(content_scene: PackedScene, app_name: String):
 	elif new_window is Node2D:
 		new_window.z_index = 5
 	
-	if new_window.has_method("set_title"):
-		new_window.set_title(app_name)
-	
 	new_window.position = Vector2(500, 400) + Vector2(open_windows.size() * 10, open_windows.size() * 30)
 	open_windows.append(new_window)
 	open_windows_updated.emit()
