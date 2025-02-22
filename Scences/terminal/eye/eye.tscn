@@ -33,7 +33,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0j32b")
+"texture": ExtResource("4_yy1kt")
 }],
 "loop": true,
 "name": &"idle",
@@ -46,11 +46,19 @@ animations = [{
 "loop": true,
 "name": &"mad",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0j32b")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0gybs")
-animation = &"blink"
+animation = &"idle"
 script = ExtResource("5_lu3td")
 
 [node name="StateTimer" type="Timer" parent="."]
