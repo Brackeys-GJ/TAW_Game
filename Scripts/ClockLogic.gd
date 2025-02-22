@@ -11,7 +11,6 @@ var ClockLevel = ""
 var CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
 
 func StartClock():
-	print("TimerStart")
 	if Min < 10:
 		ClockLevel = str(Hour) + ":0" + str(Min)
 	else:
@@ -19,7 +18,6 @@ func StartClock():
 	ClockTimer.start()
 
 func _on_timer_timeout() -> void:
-	print("TimerStopped")
 	if Min == 59:
 		Hour = Hour + 1
 		Min = 0
