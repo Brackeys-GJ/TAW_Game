@@ -163,14 +163,11 @@ var Nationalities = {
 @onready var Emails: VBoxContainer
 
 var PossibleEmails = {
-	#FORMAT: Key: ["Sender","Name","Body"]
+	#FORMAT: Key: ["Sender","Name","Body1","Body2","Body3"]
 	1: ["Welcome to Burea-a-Corp!", "Watchers",
-	"Welcome to your new position at Burea-a-Corp! You will be tasked with ensuring
-	that the United States of America runs at peak efficiency and safety
-	in the age of our new rulers! These task may consist of:
-	Management of military and civilian logistics, prisoner sorting, and many more!
-	And always remember… They are always Watching…"],
-	
+	"Welcome to your new position at Burea-a-Corp! You will be tasked with ensuring that the United States of America runs ",
+	"at peak efficiency and safety in the age of our new rulers! These task may consist of: Management of military and civilian ",
+	"logistics, prisoner sorting, and many more! And always remember… They are always Watching…"],
 	2: [],
 	3: [],
 	4: [],
@@ -356,8 +353,9 @@ func MakeEmail(EmailID: int):
 	EmailFrom.text = PossibleEmails[EmailID][1]
 	
 	Items.get_popup().add_item(PossibleEmails[EmailID][0], 0)
-	Items.get_popup().add_item(PossibleEmails[EmailID][2], 1)
-	Items.get_popup().add_item(PossibleEmails[EmailID][1], 2)
+	Items.get_popup().add_item("    " + PossibleEmails[EmailID][2], 1)
+	Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 3)
+	Items.get_popup().add_item("    " + PossibleEmails[EmailID][4], 4)
 	
 	Emails.add_child(Instance)
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d

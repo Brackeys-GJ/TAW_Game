@@ -17,6 +17,7 @@ func _on_pressed() -> void:
 	snd_click.play()
 	if to_scene != "path://":
 		get_tree().change_scene_to_file(to_scene)
+		ClockTimer.start()
 
 func _on_mouse_entered() -> void:
 	hoverBtn(snd_hover, true, "[shake rate=8.5 level=10 connected=1]%s[/shake]" % btn_text)

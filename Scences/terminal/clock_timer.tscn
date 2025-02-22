@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkbnr3bi5euyt"]
+
+[ext_resource type="Script" path="res://Scripts/ClockLogic.gd" id="1_mv55k"]
+
+[node name="ClockTimer" type="Timer"]
+script = ExtResource("1_mv55k")
+
+[connection signal="timeout" from="." to="." method="_on_timer_timeout"]

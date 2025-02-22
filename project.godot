@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Brackeys GJ Game"
-run/main_scene="res://Scences/terminal/emailapp/email_app.tscn"
+run/main_scene="res://Scences/ui/mainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManger="*res://Scripts/GameManger.gd"
+ClockTimer="*res://Scences/terminal/clock_timer.tscn"
 EyeManager="*res://Scripts/global/eyeManager.gd"
 
 [input]

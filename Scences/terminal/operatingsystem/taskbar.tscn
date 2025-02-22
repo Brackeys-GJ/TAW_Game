@@ -85,7 +85,4 @@ custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="ClockTimer" type="Timer" parent="."]
-
 [connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="timeout" from="ClockTimer" to="." method="_on_timer_timeout"]
