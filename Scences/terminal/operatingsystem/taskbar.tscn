@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca3aw8fjwri11"]
+[gd_scene load_steps=5 format=3 uid="uid://ca3aw8fjwri11"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/taskbar.gd" id="1_rawuu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsnyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1rut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3oom"]
+content_margin_left = 14.0
+content_margin_right = 19.0
 
 [node name="taskbar" type="Control"]
 custom_minimum_size = Vector2(0, 40)
@@ -23,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.180392, 0.180392, 0.180392, 0.572549)
+color = Color(0.229167, 0.229167, 0.229167, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 40)
@@ -41,16 +49,15 @@ alignment = 1
 [node name="StartButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rsnyn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_p1rut")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o3oom")
 text = "Win"
 
 [node name="WindowButtons" type="HBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(528, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="HBoxContainer/WindowButtons"]
-layout_mode = 2
-text = "Icon"
 
 [node name="SystemTray" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2

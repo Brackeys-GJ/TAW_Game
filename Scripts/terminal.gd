@@ -1,6 +1,5 @@
 extends Control
 
-@export var taskbar: Control
 var open_windows = []
 
 signal open_windows_updated
@@ -17,8 +16,9 @@ func _on_app_double_clicked(content_scene: PackedScene, app_name: String):
 	
 	if new_window is Control:
 		new_window.move_to_front()
+		new_window.z_index = 5
 	elif new_window is Node2D:
-		new_window.z_index = 100
+		new_window.z_index = 5
 	
 	if new_window.has_method("set_title"):
 		new_window.set_title(app_name)
