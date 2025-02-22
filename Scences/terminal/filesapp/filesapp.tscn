@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://3nef7l3fswvt"]
+[gd_scene load_steps=20 format=3 uid="uid://3nef7l3fswvt"]
 
 [ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_trxlc"]
 [ext_resource type="Texture2D" uid="uid://coek5683in5p2" path="res://Assets/images/icons/file_blue_icon.png" id="2_5dik3"]
@@ -13,26 +13,85 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdi6l"]
 bg_color = Color(0.552941, 0.501961, 0.592157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enx3s"]
 bg_color = Color(0.52549, 0.52549, 0.52549, 1)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql77r"]
 bg_color = Color(0.690196, 0.690196, 0.690196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
 border_width_bottom = 2
-border_color = Color(0.54902, 0.54902, 0.54902, 1)
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t785"]
 bg_color = Color(0.835294, 0.835294, 0.835294, 1)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nhbf"]
 bg_color = Color(0.52549, 0.52549, 0.52549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acbpy"]
+bg_color = Color(0.470076, 0.470076, 0.470076, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvurw"]
+bg_color = Color(0.6, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfvmg"]
+bg_color = Color(0.326883, 3.39923e-07, 1.20327e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xudqi"]
+bg_color = Color(0, 0.666667, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="Filesapp" type="Control"]
 layout_mode = 3
@@ -85,7 +144,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5t785")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -106,9 +164,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
-z_index = -1
-custom_minimum_size = Vector2(150, 20)
+custom_minimum_size = Vector2(150, 25)
 layout_mode = 2
+size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0nhbf")
 
@@ -478,6 +536,93 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 30
 
+[node name="PopUpMenu" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_acbpy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopUpMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PopUpMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUpMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PopUpMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Filepath" type="Label" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "https://"
+
+[node name="ColorRect3" type="ColorRect" parent="PopUpMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PopUpMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 145)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Receiver:"
+
+[node name="OptionButton" type="OptionButton" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+item_count = 2
+popup/item_0/text = "Watchers"
+popup/item_1/text = "Unica Spes"
+popup/item_1/id = 1
+
+[node name="Submit" type="Button" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_pvurw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cfvmg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xudqi")
+text = "SUBMIT"
+
+[node name="ColorRect2" type="ColorRect" parent="PopUpMenu/HBoxContainer"]
+layout_mode = 2
+
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClose" to="." method="_on_btn_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/SendButton" to="." method="_on_send_button_pressed"]

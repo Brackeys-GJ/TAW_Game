@@ -6,6 +6,8 @@ const EMAILTEMPLATE = preload("res://Scences/terminal/emailapp/email_template.ts
 
 @onready var FileBox: VBoxContainer
 @onready var FolderBox: VBoxContainer
+@onready var PopUpMenu: Panel = %PopUpMenu
+@onready var Filepath: Label = %Filepath
 
 @export var app_icon: Texture2D
 
@@ -31,10 +33,6 @@ var StartingFolders = {
 	2: "Downloads",
 	3: "Documents",
 	4: "Gallery"
-	}
-
-var Folders = {
-	
 	}
 
 @onready var text_edit: TextEdit
@@ -177,6 +175,42 @@ var PossibleEmails = {
 	4: ["Prisoner Duty","Watchers",
 	"The Watchers have noticed some discrepancies in your sorting. For your sake lets ensure that this doesn’t happen with this batch."],
 	5: ["Mistake email", "Watchers", "#6512595-A"],
+	#Above Goal Emails
+	6: ["Unica Spes", "Cipher",
+	"The intel you sent saved a lot of lives. Thank you. We are still far from our goal, but just everyday we get closer to freedom"],
+	7: ["Unica Spes", "Cipher",
+	"We are starting to coordinate our moves against the watchers. You have freed many of us and caused some major blows to the",
+	"Watchers logistics. Remember to stay low, they are bound to get on to the fact that they have a rat on the inside."],
+	8: ["Unica Spes", "Cipher",
+	"I used to not think about it, but I am starting to remember life before the Watchers. Our offensive is starting to",
+	"take shape, and I can’t help thinking about the world as it was. This is all thanks to you",
+	"and your efforts. You are bound to be in the history books my friend"],
+	9: ["Unica Spes", "Cipher",
+	"The offensive is all planned out, we just need to rest of the resources and personnel to make it happen.",
+	"It is up to you today. Your place is our first stop. We are gonna break",
+	"you out along with of those the Watchers have enslaved"],
+	10: ["Unica Spes", "Cipher",
+	"You might as well pack up the desk, you won’t be doing much work today. Just make sure once you hear a few",
+	"bangs just duck down for us and we will take care of the rest. You will be debriefed once we secure the",
+	"building. You did some great work back there; you deserve some rest once this is all over"],
+	#Below Goal Emails
+	11: ["Unica Spes", "Cipher",
+	"Yesterday didn’t go as planned. We still have 4 days but everyday counts. Lets make today a good one"],
+	12: ["Unica Spes", "Cipher",
+	"There is a growing fear that the Watchers may be zeroing in on us. We are not nearly as strong as we",
+	"would like to be. Humanity needs you to really pull through these next few days. Don’t let us down"],
+	13: ["Unica Spes", "Cipher",
+	"Things are not looking good here. Our raids on Watcher positions have ended in disaster, it is like they are predicting our every",
+	"move. Look, I now risking your life doesn’t sound like the greatest thing to do, but when humanity is on the brink of permanent",
+	"enslavement. All I am saying is lets think a bit more about the big picture here"],
+	14: ["Unica Spes", "Anders Coleman",
+	"This is General Anders Coleman of the North American Resistance. Cipher is dead. The Watchers know where we are. It is only a",
+	"matter of time before they strike. It would take a miracle to save us. Today I need you to be a soldier. Many of my men have",
+	"died over the past week, maker sure it isn’t for nothing"],
+	15: ["Unica Spes", "Anders Coleman",
+	"They have breached the west wall. They are even in the tunnels. The courtyard is has been overrun and all exits are cut off.",
+	"We cannot get out.",
+	"They were always Watching…"],
 	}
 
 var EmailAmount = len(PossibleEmails)
@@ -234,21 +268,20 @@ func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
 		var FileNameLabel = Instance.get_child(0).get_child(0).get_child(0)
 		var FileDateLabel = Instance.get_child(0).get_child(0).get_child(1)
 		var FiletypeLabel = Instance.get_child(0).get_child(0).get_child(2)
+		
+		var FileButton: Button = Instance.get_child(0)
 		#Setting File Info
 		FileNameLabel.text = FileName
 		FileDateLabel.text = FileDate
 		FiletypeLabel.text = FileTypes[Filetype]
 		Instance.name = FileName
+		
+		FileButton.pressed.connect(Callable(_file_toggled).bind(Instance.name, StartingFolders[Folder]))
+		
 		#Adding As child of FileBox
 		FileBox.add_child(Instance)
-		if Folder:
-			Folders[StartingFolders[Folder]].append(str(Instance.name))
-		else:
-			print("No folder")
-		print(Folders)
 
 func MakeFolder(FolderName: String):
-	var FolderAmount = len(Folders)
 	#Getting Folder Instance
 	var Instance = FOLDERTEMPLATE.instantiate()
 	#Getting Folder Info As Vars
@@ -259,8 +292,6 @@ func MakeFolder(FolderName: String):
 	#Adding As child of FolderBox
 	FolderBox.add_child(Instance)
 	#Adding Folder to Folder Arrey
-	Folders[Instance.name] = []
-	print(Folders)
 
 func ChangePrisonerInfo():
 	#Prisoner Image
@@ -458,3 +489,23 @@ func _on_h_box_container_3_gui_input(event: InputEvent) -> void:
 		drag_offset = get_global_mouse_position() - position
 	elif event is InputEventMouseMotion and dragging:
 		position = get_global_mouse_position() - drag_offset
+
+var FileToggleOn = false
+
+func _file_toggled(Name, Folder):
+	FileToggleOn =! FileToggleOn
+	FilepathFolder = Folder
+	FilepathFile = Name
+	if FileToggleOn:
+		SendButton.modulate = Color(1,1,1)
+		SendButton.disabled = false
+	else:
+		SendButton.modulate = Color(0.65, 0.65, 0.65)
+		SendButton.disabled = true
+
+var FilepathFolder = ""
+var FilepathFile = ""
+
+func _on_send_button_pressed() -> void:
+	PopUpMenu.visible = true
+	Filepath.text = "https://" + FilepathFolder + FilepathFile
