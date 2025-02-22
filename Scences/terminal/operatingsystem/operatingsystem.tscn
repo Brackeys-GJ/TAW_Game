@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=22 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://c54hkskdjinny" path="res://Scences/terminal/emailapp/email_app.tscn" id="13_x2pk6"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="14_qbo4t"]
 [ext_resource type="Shader" path="res://Shaders/operatingsystem.gdshader" id="17_es2kf"]
+[ext_resource type="Texture2D" uid="uid://fflt3q5xu5p0" path="res://Assets/images/eye/Water_Tank.png" id="18_exkqy"]
+[ext_resource type="Texture2D" uid="uid://c1unsts1g83il" path="res://Assets/images/eye/Water_Filter.png" id="19_avh1t"]
+[ext_resource type="PackedScene" uid="uid://6at40f5y36oh" path="res://Scences/terminal/eye/eye.tscn" id="20_8ngqw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t8xc"]
 shader = ExtResource("17_es2kf")
@@ -62,21 +65,21 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1070, 58)
+position = Vector2(972, 62)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 window_content_scene = ExtResource("5_f8wm4")
 app_icon = ExtResource("6_v3rht")
 
 [node name="AppCommandPrompt" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1068, 187)
+position = Vector2(1080, 183)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Command Prompt"
 window_content_scene = ExtResource("6_dq2ql")
 app_icon = ExtResource("8_bxlec")
 
 [node name="AppPrisonerSorting" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1067, 320)
+position = Vector2(972, 184)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Prisoner Sorting"
 window_content_scene = ExtResource("2_0c7uf")
@@ -109,6 +112,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.19553, 0.708333, 0.708333, 1)
+metadata/_edit_lock_ = true
+
+[node name="WaterTank" type="Sprite2D" parent="."]
+position = Vector2(40, 347)
+scale = Vector2(0.544964, 0.544964)
+texture = ExtResource("18_exkqy")
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="WaterTank"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 90
+
+[node name="WaterFilter" type="Sprite2D" parent="WaterTank/MarginContainer"]
+self_modulate = Color(1, 1, 1, 0.556863)
+z_index = 1
+position = Vector2(-70.5, -160.5)
+texture = ExtResource("19_avh1t")
+
+[node name="Eye" parent="WaterTank/MarginContainer" instance=ExtResource("20_8ngqw")]
+position = Vector2(-67.5, -161.5)
+scale = Vector2(0.451667, 0.451667)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 
