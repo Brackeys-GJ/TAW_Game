@@ -173,9 +173,10 @@ var PossibleEmails = {
 	"You have five days to send us as much intel as possible and disrupt Watcher logistics.",
 	"Hell if you can send some of the goods to us. Do whatever you can. Just don’t get yourself killed"],
 	3: ["Prisoner Duty","Watchers",
-	"The Oculus has round up some new prisoners. See that they are sorted properly"],
-	4: [],
-	5: [],
+	"The Oculus has round up some new prisoners. See that they are sorted properly."],
+	4: ["Prisoner Duty","Watchers",
+	"The Watchers have noticed some discrepancies in your sorting. For your sake lets ensure that this doesn’t happen with this batch."],
+	5: ["Mistake email", "Watchers", "#6512595-A"],
 	}
 
 var EmailAmount = len(PossibleEmails)
@@ -223,6 +224,7 @@ func _ready() -> void:
 	elif App == 4:
 		Emails = %Emails
 		for I in range(1,len(GameManager.Emails) + 1):
+			GameManager.Emails[I] = PossibleEmails[I]
 			MakeEmail(I)
 
 func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
@@ -374,8 +376,9 @@ func MakeEmail(EmailID: int):
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	text_edit.text = text_edit.text + "\n" + "> Processing..."
-	if new_text == "1244":
+	if new_text == "#6512595-A":
 		text_edit.text = text_edit.text + "\n" + "> Success"
+		text_edit.text = text_edit.text + "\n" + "> Downloading..."
 	elif new_text == "Spoffy":
 		text_edit.text = text_edit.text + "\n" + "> :)"
 	elif new_text == "Creeper":

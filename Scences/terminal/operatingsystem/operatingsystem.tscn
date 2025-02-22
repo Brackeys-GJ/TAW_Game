@@ -49,11 +49,6 @@ layer = -1
 
 [node name="taskbar" parent="CanvasLayer" node_paths=PackedStringArray("operating_system") instance=ExtResource("3_nam1c")]
 z_index = 200
-anchors_preset = -1
-anchor_top = 0.5
-offset_top = 299.0
-offset_right = 1152.0
-offset_bottom = 25.0
 operating_system = NodePath("../..")
 
 [node name="OperatingsystemUI" parent="CanvasLayer" instance=ExtResource("3_d1q8j")]
