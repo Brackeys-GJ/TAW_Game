@@ -69,7 +69,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "12:00"
+text = "4/5/2060"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -77,7 +77,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "02/21/2060"
+text = "4/5/2060"
 horizontal_alignment = 2
 vertical_alignment = 1
 

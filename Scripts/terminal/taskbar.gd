@@ -8,8 +8,8 @@ extends Control
 @onready var time: Label = %Time
 @onready var date: Label = %Date
 
-var Hour = 12
-var Min = 00
+var Hour = 23
+var Min = 59
 
 var month = 4
 var day = 5
@@ -58,14 +58,15 @@ func StartClock():
 	clock_timer.start()
 
 func _on_date_timeout() -> void:
-	if Min == 60:
+	if Min == 59:
 		Hour = Hour + 1
 		Min = 0
 	else:
 		Min = Min + 1
 	if Hour == 24:
 		day = day + 1
+		var CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
+		date.text = CurrentDate
 		Min = 0
 		Hour = 1
-		date.text = str(month) + "/" + str(day) + "/" + str(year)
 	StartClock()
