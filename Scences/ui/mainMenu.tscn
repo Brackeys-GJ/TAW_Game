@@ -14,18 +14,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Invasion" type="Sprite2D" parent="."]
-position = Vector2(616, 288)
-scale = Vector2(0.618125, 0.618125)
+[node name="Invasion2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_aq8s7")
+expand_mode = 1
 
 [node name="PanComputer" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 77.0
-offset_top = 96.0
-offset_right = 726.0
-offset_bottom = 591.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -247.5
+offset_right = 649.0
+offset_bottom = 247.5
+grow_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanComputer"]
@@ -125,6 +133,7 @@ stream = ExtResource("4_vch0q")
 stream = ExtResource("4_o8uui")
 autoplay = true
 bus = &"music"
+parameters/looping = true
 
 [connection signal="pressed" from="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions/BtnOptions" to="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" method="_on_btn_options_pressed"]
 

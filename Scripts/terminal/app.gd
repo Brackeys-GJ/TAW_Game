@@ -348,8 +348,9 @@ func MakeEmail(sender: int):
 	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
 	var EmailDate = Instance.get_child(0).get_child(0).get_child(3)
 	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
-	
 	EmailName.text = PossibleEmailNames[sender].pick_random()
+	EmailDate.text = ""
+	EmailFrom.text = PossibleEmailSenders[sender].pick_random()
 	
 	Emails.add_child(Instance)
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d

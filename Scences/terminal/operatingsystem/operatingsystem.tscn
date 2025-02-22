@@ -74,7 +74,7 @@ app_icon = ExtResource("6_v3rht")
 [node name="AppCommandPrompt" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
 position = Vector2(1080, 183)
 inCamera = NodePath("../Camera2D")
-txtFinalApp = "Command prompt"
+txtFinalApp = "Command Prompt"
 window_content_scene = ExtResource("6_dq2ql")
 app_icon = ExtResource("8_bxlec")
 
@@ -85,10 +85,10 @@ txtFinalApp = "Prisoner Sorting"
 window_content_scene = ExtResource("2_0c7uf")
 app_icon = ExtResource("10_aikuq")
 
-[node name="AppPrisonerSorting2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1081, 60)
+[node name="AppEmail" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
+position = Vector2(1075, 456)
 inCamera = NodePath("../Camera2D")
-txtFinalApp = "Email"
+txtFinalApp = "Hackwave Emails"
 window_content_scene = ExtResource("13_x2pk6")
 app_icon = ExtResource("13_fkj6t")
 
