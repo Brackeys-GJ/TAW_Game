@@ -14,9 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://n1adtd8rilhp" path="res://Assets/sfx/terminal/switch_off.wav" id="11_lb172"]
 [ext_resource type="AudioStream" uid="uid://bpnm013ujvgmm" path="res://Assets/sfx/terminal/switch_on.wav" id="12_7bkut"]
 [ext_resource type="Texture2D" uid="uid://c1unsts1g83il" path="res://Assets/images/eye/Water_Filter.png" id="15_x4lhm"]
+[ext_resource type="PackedScene" uid="uid://6at40f5y36oh" path="res://Scences/terminal/eye/eye.tscn" id="16_35bgt"]
 [ext_resource type="Texture2D" uid="uid://fflt3q5xu5p0" path="res://Assets/images/eye/Water_Tank.png" id="16_g8rbf"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="17_1cryn"]
-[ext_resource type="Texture2D" uid="uid://b0e5xs1lifbp4" path="res://Assets/images/eye/Eye.png" id="17_iko2l"]
 [ext_resource type="AudioStream" uid="uid://hlhpvttriiwm" path="res://Assets/music/Terminal.mp3" id="18_1hyyt"]
 
 [sub_resource type="GDScript" id="GDScript_20uny"]
@@ -348,11 +348,9 @@ texture = ExtResource("15_x4lhm")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="Eye" type="TextureRect" parent="TextureRect/HBoxContainer/WaterTank/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("17_iko2l")
-stretch_mode = 5
+[node name="Eye" parent="TextureRect/HBoxContainer/WaterTank/MarginContainer" instance=ExtResource("16_35bgt")]
+position = Vector2(1.00001, -3.00002)
+scale = Vector2(0.451667, 0.451667)
 
 [node name="SndClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_1cryn")

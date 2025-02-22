@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=19 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://b1ttjsb552q6t" path="res://Assets/images/icons/inbox_icon.png" id="13_fkj6t"]
 [ext_resource type="PackedScene" uid="uid://c54hkskdjinny" path="res://Scences/terminal/emailapp/email_app.tscn" id="13_x2pk6"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="14_qbo4t"]
+[ext_resource type="Shader" path="res://Shaders/operatingsystem.gdshader" id="17_es2kf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t8xc"]
+shader = ExtResource("17_es2kf")
+shader_parameter/SCREEN_HEIGHT = 648.0
 
 [node name="Operatingsystem" type="Control"]
 layout_mode = 3
@@ -93,6 +98,17 @@ bus = &"music"
 [node name="SndClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_qbo4t")
 bus = &"sfx"
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0t8xc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.19553, 0.708333, 0.708333, 1)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 
