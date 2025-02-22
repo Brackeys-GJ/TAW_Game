@@ -105,14 +105,19 @@ bus = &"sfx"
 [node name="Shader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_0t8xc")
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -323.5
+offset_right = 575.5
+offset_bottom = 323.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.19553, 0.708333, 0.708333, 1)
-metadata/_edit_lock_ = true
 
 [node name="WaterTank" type="Sprite2D" parent="."]
 position = Vector2(40, 347)

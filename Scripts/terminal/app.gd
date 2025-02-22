@@ -394,7 +394,7 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 2:
 		pass
 	elif BtnFunc == 3:
-		queue_free()
+		emit_signal("close_requested")
 	elif BtnFunc == 4:
 		ChangePrisonerInfo()
 		FacilityDropdown.select(-1)
@@ -414,12 +414,6 @@ func _on_h_box_container_gui_input(event: InputEvent) -> void:
 		position = get_global_mouse_position() - drag_offset
 		
 
-func set_title(title: String):
-	window_title = title
-	# Update title label if exists
-	if has_node("$VBoxContainer/HBoxContainer/Label"):
-		$TitleBar/Label.text = title
-
 func _on_close_button_pressed(BtnFunc):
 	emit_signal("close_requested")
 	if BtnFunc == 4:
@@ -430,19 +424,19 @@ func _on_btn_min_pressed() -> void:
 	visible = false
 
 func _on_btn_close_pressed() -> void:
-	queue_free()
+	emit_signal("close_requested")
 
 func _on_btn_min_pris_pressed() -> void:
 	visible = false
 
 func _on_btn_close_pris_pressed() -> void:
-	queue_free()
+	emit_signal("close_requested")
 
 func _on_btn_min_email_pressed() -> void:
 	visible = false
 
 func _on_btn_close_email_pressed() -> void:
-	queue_free()
+	emit_signal("close_requested")
 
 # Email dragging
 func _on_h_box_container_3_gui_input(event: InputEvent) -> void:
