@@ -77,21 +77,21 @@ window_content_scene = ExtResource("5_f8wm4")
 app_icon = ExtResource("6_v3rht")
 
 [node name="AppCommandPrompt" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1098, 153)
+position = Vector2(1095, 114)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Command Prompt"
 window_content_scene = ExtResource("6_dq2ql")
 app_icon = ExtResource("8_bxlec")
 
 [node name="AppPrisonerSorting" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1098, 261)
+position = Vector2(1095, 194)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Prisoner Sorting"
 window_content_scene = ExtResource("2_0c7uf")
 app_icon = ExtResource("10_aikuq")
 
 [node name="AppEmail" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1097, 378)
+position = Vector2(1094, 275)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Hackwave Emails"
 window_content_scene = ExtResource("13_x2pk6")
