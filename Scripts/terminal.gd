@@ -2,6 +2,8 @@ extends Control
 
 var open_windows = []
 
+@onready var snd_click: AudioStreamPlayer2D = $SndClick
+
 signal open_windows_updated
 
 func _ready() -> void:
@@ -34,3 +36,7 @@ func _on_window_closed(window):
 	open_windows.erase(window)
 	open_windows_updated.emit()
 	window.queue_free()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	snd_click.play()

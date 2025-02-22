@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm8bhrand4ms5"]
+[gd_scene load_steps=6 format=3 uid="uid://dm8bhrand4ms5"]
 
+[ext_resource type="Texture2D" uid="uid://mbfbh6kqkdq5" path="res://Assets/images/backgrounds/invasion.jpg" id="1_aq8s7"]
 [ext_resource type="PackedScene" uid="uid://gs6m1287pssm" path="res://Scences/ui/mainOptions.tscn" id="1_m0brc"]
-[ext_resource type="AudioStream" uid="uid://dj3oob6qvqgjs" path="res://Assets/music/menuMusic.wav" id="2_jehe1"]
 [ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="2_ughuv"]
+[ext_resource type="AudioStream" uid="uid://cish4lfk8awnq" path="res://Assets/music/Hopeless_No Room For Error.mp3" id="4_o8uui"]
+[ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="4_vch0q"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,7 +14,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Invasion" type="Sprite2D" parent="."]
+position = Vector2(616, 288)
+scale = Vector2(0.618125, 0.618125)
+texture = ExtResource("1_aq8s7")
+
 [node name="PanComputer" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 77.0
 offset_top = 96.0
@@ -33,9 +41,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="PanScreen" type="Panel" parent="PanComputer/MarginContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="SplitContainer" type="SplitContainer" parent="PanComputer/MarginContainer/PanScreen"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +57,7 @@ dragger_visibility = 2
 vertical = true
 
 [node name="GameTitle" type="Panel" parent="PanComputer/MarginContainer/PanScreen/SplitContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/GameTitle"]
@@ -68,7 +79,7 @@ custom_minimum_size = Vector2(0, 53.34)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 41
 bbcode_enabled = true
-text = "[shake rate=8.5 level=10 connected=1]WeWatchYou OS[/shake]"
+text = "[shake rate=8.5 level=10 connected=1]They are watching[/shake]"
 scroll_active = false
 tab_size = 1
 
@@ -78,11 +89,12 @@ custom_minimum_size = Vector2(0, 53.34)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
-text = "[shake rate=8.5 level=10 connected=1]Alien Linux[/shake]"
+text = "[shake rate=8.5 level=10 connected=1]Group Name[/shake]"
 scroll_active = false
 tab_size = 1
 
 [node name="Buttons" type="Panel" parent="PanComputer/MarginContainer/PanScreen/SplitContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="MrgButtons" type="MarginContainer" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons"]
@@ -106,8 +118,11 @@ to_scene = "res://Scences/terminal/terminal.tscn"
 visible = false
 layout_mode = 2
 
+[node name="SndSfx" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/Settings" index="4"]
+stream = ExtResource("4_vch0q")
+
 [node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_jehe1")
+stream = ExtResource("4_o8uui")
 autoplay = true
 bus = &"music"
 

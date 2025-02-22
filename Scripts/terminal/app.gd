@@ -427,6 +427,19 @@ func _on_btn_close_pressed() -> void:
 func _on_btn_min_pris_pressed() -> void:
 	visible = false
 
-
 func _on_btn_close_pris_pressed() -> void:
 	queue_free()
+
+func _on_btn_min_email_pressed() -> void:
+	visible = false
+
+func _on_btn_close_email_pressed() -> void:
+	queue_free()
+
+# Email dragging
+func _on_h_box_container_3_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		dragging = event.pressed
+		drag_offset = get_global_mouse_position() - position
+	elif event is InputEventMouseMotion and dragging:
+		position = get_global_mouse_position() - drag_offset

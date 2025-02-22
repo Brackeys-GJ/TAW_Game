@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://822k37mdjjuh"]
+[gd_scene load_steps=30 format=3 uid="uid://822k37mdjjuh"]
 
 [ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
 [ext_resource type="Texture2D" uid="uid://bddvto7n7xe8m" path="res://Assets/images/terminal/Sliders.PNG" id="4_rbbrg"]
@@ -15,11 +15,14 @@
 [ext_resource type="AudioStream" uid="uid://bpnm013ujvgmm" path="res://Assets/sfx/terminal/switch_on.wav" id="12_7bkut"]
 [ext_resource type="Texture2D" uid="uid://c1unsts1g83il" path="res://Assets/images/eye/Water_Filter.png" id="15_x4lhm"]
 [ext_resource type="Texture2D" uid="uid://fflt3q5xu5p0" path="res://Assets/images/eye/Water_Tank.png" id="16_g8rbf"]
+[ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="17_1cryn"]
 [ext_resource type="Texture2D" uid="uid://b0e5xs1lifbp4" path="res://Assets/images/eye/Eye.png" id="17_iko2l"]
+[ext_resource type="AudioStream" uid="uid://hlhpvttriiwm" path="res://Assets/music/Terminal.mp3" id="18_1hyyt"]
 
 [sub_resource type="GDScript" id="GDScript_20uny"]
 script/source = "extends Control
 
+@onready var snd_click: AudioStreamPlayer2D = $SndClick
 
 func _on_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -35,7 +38,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			# Open desktop
 			if event.pressed:
-				print(\"aaa\")
+				snd_click.play()
 				get_tree().change_scene_to_file(\"res://Scences/terminal/operatingsystem/operatingsystem.tscn\")
 "
 
@@ -350,6 +353,15 @@ layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("17_iko2l")
 stretch_mode = 5
+
+[node name="SndClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_1cryn")
+bus = &"sfx"
+
+[node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_1hyyt")
+autoplay = true
+bus = &"music"
 
 [connection signal="input_event" from="VBoxContainer/HBoxContainer/Screen/areaScreen" to="." method="_on_area_2d_input_event"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Sliders/VSlider" to="VBoxContainer/HBoxContainer2/Sliders/VSlider" method="_on_value_changed"]

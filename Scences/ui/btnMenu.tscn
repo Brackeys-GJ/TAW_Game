@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://crhbyl47lm06"]
+[gd_scene load_steps=4 format=3 uid="uid://crhbyl47lm06"]
 
 [ext_resource type="Script" path="res://Scripts/ui/BtnLogic.gd" id="1_b54ys"]
-[ext_resource type="AudioStream" uid="uid://druxclw4seqoc" path="res://Assets/sfx/ph_hover.wav" id="2_pxvlx"]
-[ext_resource type="AudioStream" uid="uid://bcwfqm7xq1ysr" path="res://Assets/sfx/ph_click.wav" id="3_5f8lv"]
+[ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="2_ydv8g"]
 
 [sub_resource type="Curve" id="Curve_esc37"]
 _data = [Vector2(0.20229, 0.230189), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -50,11 +49,11 @@ scale_amount_max = 15.0
 scale_amount_curve = SubResource("Curve_esc37")
 
 [node name="SndHover" type="AudioStreamPlayer2D" parent="MarginContainer"]
-stream = ExtResource("2_pxvlx")
+stream = ExtResource("2_ydv8g")
 bus = &"sfx"
 
 [node name="SndClick" type="AudioStreamPlayer2D" parent="MarginContainer"]
-stream = ExtResource("3_5f8lv")
+stream = ExtResource("2_ydv8g")
 bus = &"sfx"
 
 [node name="SndNothing" type="AudioStreamPlayer2D" parent="MarginContainer"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkckkabbhcwfh"]
+[gd_scene load_steps=17 format=3 uid="uid://dkckkabbhcwfh"]
 
 [ext_resource type="Script" path="res://Scripts/terminal.gd" id="1_wjwii"]
 [ext_resource type="PackedScene" uid="uid://3ukbw0mrh3o0" path="res://Scences/terminal/prisonersortingapp/prisoner_sorting_system.tscn" id="2_0c7uf"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://coek5683in5p2" path="res://Assets/images/icons/file_blue_icon.png" id="6_v3rht"]
 [ext_resource type="Texture2D" uid="uid://blins73fpqmrw" path="res://Assets/images/icons/disc_icon.PNG" id="8_bxlec"]
 [ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/icons/Prisoner_App.webp" id="10_aikuq"]
+[ext_resource type="AudioStream" uid="uid://brfcuvy4g3r1t" path="res://Assets/music/Os.wav" id="13_3pnd0"]
+[ext_resource type="Texture2D" uid="uid://b1ttjsb552q6t" path="res://Assets/images/icons/inbox_icon.png" id="13_fkj6t"]
+[ext_resource type="PackedScene" uid="uid://c54hkskdjinny" path="res://Scences/terminal/emailapp/email_app.tscn" id="13_x2pk6"]
+[ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="14_qbo4t"]
 
 [node name="Operatingsystem" type="Control"]
 layout_mode = 3
@@ -72,5 +76,24 @@ inCamera = NodePath("../Camera2D")
 txtFinalApp = "Prisoner Sorting"
 window_content_scene = ExtResource("2_0c7uf")
 app_icon = ExtResource("10_aikuq")
+
+[node name="AppPrisonerSorting2" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
+position = Vector2(1075, 456)
+inCamera = NodePath("../Camera2D")
+txtFinalApp = "Email"
+window_content_scene = ExtResource("13_x2pk6")
+app_icon = ExtResource("13_fkj6t")
+
+[node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_3pnd0")
+volume_db = -6.667
+autoplay = true
+bus = &"music"
+
+[node name="SndClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_qbo4t")
+bus = &"sfx"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 
 [editable path="WindowLogic"]
