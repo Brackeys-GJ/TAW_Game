@@ -43,6 +43,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_038ex")
+App = 4
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -232,11 +233,12 @@ custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="Emails" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2/Emails"]
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMin" to="." method="_on_btn_min_pressed"]

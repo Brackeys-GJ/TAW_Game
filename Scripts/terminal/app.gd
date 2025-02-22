@@ -2,6 +2,7 @@ extends Control
 #Preloading Templates
 const FILESTEMPLATE = preload("res://Scences/terminal/filesapp/filestemplate.tscn")
 const FOLDERTEMPLATE = preload("res://Scences/terminal/filesapp/foldertemplate.tscn")
+const EMAILTEMPLATE = preload("res://Scences/terminal/emailapp/email_template.tscn")
 
 @onready var FileBox: VBoxContainer
 @onready var FolderBox: VBoxContainer
@@ -156,6 +157,20 @@ var Nationalities = {
 @onready var Eyes: TextureRect
 @onready var Mouth: TextureRect
 @onready var Nose: TextureRect
+#Emails
+@onready var Emails: VBoxContainer
+var PossibleEmailNames = {
+	1: ["Hi","Hello"],
+	2: ["Bye", "Die"],
+	}
+var PossibleEmailBodies = {
+	1: [],
+	2: [],
+	}
+var PossibleEmailSenders = {
+	1: ["Vallka Sash", "Kila Harha"],
+	2: ["Watchers", "Hark Bokca"]
+	}
 #On Ready
 func _ready() -> void:
 	if App == 1:
@@ -167,9 +182,9 @@ func _ready() -> void:
 		SendButton = %SendButton
 		TrashButton = %TrashButton
 		for I in range(1,5):
-			make_folder(StartingFolders[I])
+			MakeFolder(StartingFolders[I])
 		for I in range(1,StartingFilesAmount + 1):
-			make_file(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2], StartingFiles[I][3])
+			MakeFile(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2], StartingFiles[I][3])
 	elif App == 2:
 		text_edit = $VBoxContainer/TextEdit
 		line_edit = $VBoxContainer/LineEdit
@@ -196,8 +211,17 @@ func _ready() -> void:
 		Mouth = %Mouth
 		Nose = %Nose
 		ChangePrisonerInfo()
+	elif App == 4:
+		Emails = %Emails
+		for I in range(0,5):
+			var sender = randi_range(1,100)
+			if sender <= 70:
+				sender = 2
+			elif sender > 70:
+				sender = 1
+			MakeEmail(sender)
 
-func make_file(FileName: String, FileDate: String, Filetype: int, Folder: int):
+func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
 		#Getting File Instance
 		var Instance = FILESTEMPLATE.instantiate()
 		#Getting File Info As Vars
@@ -217,7 +241,7 @@ func make_file(FileName: String, FileDate: String, Filetype: int, Folder: int):
 			print("No folder")
 		print(Folders)
 
-func make_folder(FolderName: String):
+func MakeFolder(FolderName: String):
 	var FolderAmount = len(Folders)
 	#Getting Folder Instance
 	var Instance = FOLDERTEMPLATE.instantiate()
@@ -315,6 +339,17 @@ func ChangePrisonerInfo():
 	elif POR < 70:
 		POR = "Yes"
 	PORChange.text = "}: " + POR
+
+func MakeEmail(sender: int):
+	var Instance = EMAILTEMPLATE.instantiate()
+	
+	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
+	var EmailDate = Instance.get_child(0).get_child(0).get_child(3)
+	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
+	
+	EmailName.text = PossibleEmailNames[sender].pick_random()
+	
+	Emails.add_child(Instance)
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d
 
 func _on_line_edit_text_submitted(new_text: String) -> void:

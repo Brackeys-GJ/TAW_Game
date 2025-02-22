@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/terminal/taskbar.gd" id="1_rawuu"]
 
 [node name="taskbar" type="Control"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -15,7 +15,7 @@ size_flags_vertical = 8
 script = ExtResource("1_rawuu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -38,24 +38,54 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="StartButton" type="Button" parent="HBoxContainer"]
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+color = Color(1, 1, 1, 0)
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Win"
 
 [node name="WindowButtons" type="HBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(528, 0)
+custom_minimum_size = Vector2(528, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Button" type="Button" parent="HBoxContainer/WindowButtons"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Icon"
 
-[node name="SystemTray" type="HBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
 
-[node name="ClockLavel" type="Label" parent="HBoxContainer/SystemTray"]
+[node name="Time" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "12:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Date" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "02/21/2060"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ClockTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ClockTimer" to="." method="_on_date_timeout"]
