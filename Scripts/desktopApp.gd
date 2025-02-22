@@ -10,7 +10,7 @@ var camera = inCamera
 
 @onready var txt_app: RichTextLabel = $TxtApp
 @onready var area_app: Area2D = $AreaApp
-@onready var img_app: Sprite2D = $ImgApp
+@onready var img_app: TextureRect = $ImgApp
 
 signal app_double_clicked(content_scene: PackedScene, app_name: String)
 
