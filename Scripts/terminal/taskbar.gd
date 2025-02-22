@@ -8,7 +8,19 @@ extends Control
 @onready var app_prisoner_sorting: Node2D = $"../../AppPrisonerSorting"
 
 
+@onready var clock_timer: Timer = $ClockTimer
+@onready var time: Label = %Time
+@onready var date: Label = %Date
+
+var Hour = 12
+var Min = 00
+
+var month = 4
+var day = 5
+var year = 2060
+
 func _ready():
+	#StartClock()
 	if operating_system:
 		operating_system.open_windows_updated.connect(_update_taskbar)
 		_update_taskbar()
@@ -43,3 +55,23 @@ func _on_window_button_pressed(event: InputEvent, window: Node):
 			# Close window completely
 			operating_system.remove_window(window)
 			window.queue_free()
+
+#func StartClock():
+	#if Min < 10:
+		#time.text = str(Hour) + ":0" + str(Min)
+	#else:
+		#time.text = str(Hour) + ":" + str(Min)
+	#clock_timer.start()
+
+func _on_date_timeout() -> void:
+	if Min == 60:
+		Hour = Hour + 1
+		Min = 0
+	else:
+		Min = Min + 1
+	if Hour == 24:
+		day = day + 1
+		Min = 0
+		Hour = 1
+		date.text = str(month) + "/" + str(day) + "/" + str(year)
+	#StartClock()
