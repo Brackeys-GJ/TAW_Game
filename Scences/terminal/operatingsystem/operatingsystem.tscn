@@ -65,7 +65,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="AppFiles" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(972, 62)
+position = Vector2(1083, 64)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Files"
 window_content_scene = ExtResource("5_f8wm4")
@@ -79,14 +79,14 @@ window_content_scene = ExtResource("6_dq2ql")
 app_icon = ExtResource("8_bxlec")
 
 [node name="AppPrisonerSorting" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(972, 184)
+position = Vector2(1080, 315)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Prisoner Sorting"
 window_content_scene = ExtResource("2_0c7uf")
 app_icon = ExtResource("10_aikuq")
 
 [node name="AppEmail" parent="." node_paths=PackedStringArray("inCamera") instance=ExtResource("2_cehln")]
-position = Vector2(1075, 456)
+position = Vector2(1081, 435)
 inCamera = NodePath("../Camera2D")
 txtFinalApp = "Hackwave Emails"
 window_content_scene = ExtResource("13_x2pk6")

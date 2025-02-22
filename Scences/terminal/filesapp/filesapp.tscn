@@ -48,7 +48,6 @@ app_icon = ExtResource("2_5dik3")
 App = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-z_index = -1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,6 +65,7 @@ theme_override_constants/separation = 0
 [node name="Panel" type="Panel" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qdi6l")
 
 [node name="Panel2" type="Panel" parent="VBoxContainer2"]
@@ -84,6 +84,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5t785")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

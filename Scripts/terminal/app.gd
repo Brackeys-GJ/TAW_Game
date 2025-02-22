@@ -161,18 +161,24 @@ var Nationalities = {
 @onready var Nose: TextureRect
 #Emails
 @onready var Emails: VBoxContainer
-var PossibleEmailNames = {
-	1: ["Hi","Hello"],
-	2: ["Bye", "Die"],
-	}
-var PossibleEmailBodies = {
-	1: [],
+
+var PossibleEmails = {
+	#FORMAT: Key: ["Sender","Name","Body"]
+	1: ["Welcome to Burea-a-Corp!", "Watchers",
+	"Welcome to your new position at Burea-a-Corp! You will be tasked with ensuring
+	that the United States of America runs at peak efficiency and safety
+	in the age of our new rulers! These task may consist of:
+	Management of military and civilian logistics, prisoner sorting, and many more!
+	And always remember… They are always Watching…"],
+	
 	2: [],
+	3: [],
+	4: [],
+	5: [],
 	}
-var PossibleEmailSenders = {
-	1: ["Vallka Sash", "Kila Harha"],
-	2: ["Watchers", "Hark Bokca"]
-	}
+
+var EmailAmount = len(PossibleEmails)
+
 #On Ready
 func _ready() -> void:
 	if App == 1:
@@ -215,13 +221,8 @@ func _ready() -> void:
 		ChangePrisonerInfo()
 	elif App == 4:
 		Emails = %Emails
-		for I in range(0,5):
-			var sender = randi_range(1,100)
-			if sender <= 70:
-				sender = 2
-			elif sender > 70:
-				sender = 1
-			MakeEmail(sender)
+		for I in range(1,2):
+			MakeEmail(I)
 
 func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
 		#Getting File Instance
@@ -342,15 +343,21 @@ func ChangePrisonerInfo():
 		POR = "Yes"
 	PORChange.text = "}: " + POR
 
-func MakeEmail(sender: int):
+func MakeEmail(EmailID: int):
 	var Instance = EMAILTEMPLATE.instantiate()
 	
 	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
 	var EmailDate = Instance.get_child(0).get_child(0).get_child(3)
 	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
-	EmailName.text = PossibleEmailNames[sender].pick_random()
-	EmailDate.text = ""
-	EmailFrom.text = PossibleEmailSenders[sender].pick_random()
+	var Items: MenuButton = Instance.get_child(0)
+	
+	EmailName.text = PossibleEmails[EmailID][0]
+	EmailDate.text = "6/5/2060"
+	EmailFrom.text = PossibleEmails[EmailID][1]
+	
+	Items.get_popup().add_item(PossibleEmails[EmailID][0], 0)
+	Items.get_popup().add_item(PossibleEmails[EmailID][2], 1)
+	Items.get_popup().add_item(PossibleEmails[EmailID][1], 2)
 	
 	Emails.add_child(Instance)
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d

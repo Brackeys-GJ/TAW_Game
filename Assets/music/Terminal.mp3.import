@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Terminal.mp3-2e20243645f39072fa2aa7227d696af8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

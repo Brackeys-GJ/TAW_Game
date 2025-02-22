@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c54hkskdjinny"]
+[gd_scene load_steps=8 format=3 uid="uid://c54hkskdjinny"]
 
 [ext_resource type="Texture2D" uid="uid://c6ex48rnqm4gu" path="res://Assets/images/icons/arrow_icon.png" id="1_5q3m5"]
 [ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_038ex"]
 [ext_resource type="Texture2D" uid="uid://cml02865mhc55" path="res://Assets/images/icons/person_icon.png" id="1_kxa6d"]
 [ext_resource type="Texture2D" uid="uid://b1ttjsb552q6t" path="res://Assets/images/icons/inbox_icon.png" id="4_v0n1m"]
-[ext_resource type="Texture2D" uid="uid://bss530gufox1w" path="res://Assets/images/icons/sent_icon.png" id="5_xo2i8"]
-[ext_resource type="Texture2D" uid="uid://dbhoky7pcmkua" path="res://Assets/images/icons/paper_icon.png" id="6_yxd1b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uotsq"]
 bg_color = Color(0.370364, 0.370365, 0.370364, 1)
@@ -159,7 +157,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="ColorRect4" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(2, 0)
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(0, 0, 0, 0)
@@ -170,7 +168,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
@@ -202,39 +200,6 @@ color = Color(0, 0, 0, 0)
 custom_minimum_size = Vector2(0, 485)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_v0n1m")
-stretch_mode = 0
-
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("5_xo2i8")
-stretch_mode = 0
-
-[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("6_yxd1b")
-stretch_mode = 0
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(3, 0)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
 [node name="Emails" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -244,7 +209,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer3" to="." method="_on_h_box_container_3_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_email_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_email_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_btn_close_email_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_button_3_pressed"]

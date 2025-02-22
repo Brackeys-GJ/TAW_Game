@@ -1,4 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt5wjs2qnk6gt"]
+[gd_scene load_steps=4 format=3 uid="uid://dt5wjs2qnk6gt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76dei"]
+bg_color = Color(0.103455, 0.476076, 0.557498, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0yiu"]
+bg_color = Color(0.0196065, 0.179944, 0.215916, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6j1a"]
 bg_color = Color(0.16851, 0.665208, 0.777078, 1)
@@ -19,49 +44,59 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="MenuButton" type="MenuButton" parent="."]
 custom_minimum_size = Vector2(500, 25)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 4.0
+offset_bottom = 8.0
 grow_horizontal = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_76dei")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e0yiu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6j1a")
+flat = false
+switch_on_hover = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Button"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Button/HBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="MenuButton/HBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Button/HBoxContainer"]
+[node name="Name" type="Label" parent="MenuButton/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "Name"
 
-[node name="ColorRect2" type="ColorRect" parent="Button/HBoxContainer"]
+[node name="ColorRect2" type="ColorRect" parent="MenuButton/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 0)
 
-[node name="Date" type="Label" parent="Button/HBoxContainer"]
+[node name="Date" type="Label" parent="MenuButton/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "00/00/0000"
 
-[node name="ColorRect3" type="ColorRect" parent="Button/HBoxContainer"]
+[node name="ColorRect3" type="ColorRect" parent="MenuButton/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 0)
 
-[node name="From" type="Label" parent="Button/HBoxContainer"]
+[node name="From" type="Label" parent="MenuButton/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 text = "Blank"
+horizontal_alignment = 2
+
+[node name="ColorRect4" type="ColorRect" parent="MenuButton/HBoxContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b686m2t0cc7d5"
+path="res://.godot/imported/Ending 1 Captured.wav-daf5320bbc344ea8c07f71a950001986.sample"
+
+[deps]
+
+source_file="res://Assets/music/Ending 1 Captured.wav"
+dest_files=["res://.godot/imported/Ending 1 Captured.wav-daf5320bbc344ea8c07f71a950001986.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
