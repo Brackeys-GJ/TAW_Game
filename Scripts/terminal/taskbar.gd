@@ -75,3 +75,7 @@ func _on_date_timeout() -> void:
 		Hour = 1
 		date.text = str(month) + "/" + str(day) + "/" + str(year)
 	#StartClock()
+
+
+func _on_start_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scences/terminal/terminal.tscn")

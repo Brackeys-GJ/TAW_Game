@@ -66,3 +66,5 @@ size_flags_horizontal = 10
 [node name="ClockLavel" type="Label" parent="HBoxContainer/SystemTray"]
 layout_mode = 2
 text = "12:00"
+
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
