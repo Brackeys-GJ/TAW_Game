@@ -540,7 +540,7 @@ theme_override_constants/separation = 30
 unique_name_in_owner = true
 visible = false
 z_index = 1
-custom_minimum_size = Vector2(400, 250)
+custom_minimum_size = Vector2(400, 150)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -590,18 +590,24 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PopUpMenu/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 145)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Receiver:"
 
-[node name="OptionButton" type="OptionButton" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -622,7 +628,12 @@ text = "SUBMIT"
 [node name="ColorRect2" type="ColorRect" parent="PopUpMenu/HBoxContainer"]
 layout_mode = 2
 
+[node name="UpdateDelay" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClose" to="." method="_on_btn_close_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2/Submit" to="." method="_on_submit_pressed"]
+[connection signal="timeout" from="UpdateDelay" to="." method="_on_update_delay_timeout"]

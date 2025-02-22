@@ -6,8 +6,9 @@ const EMAILTEMPLATE = preload("res://Scences/terminal/emailapp/email_template.ts
 
 @onready var FileBox: VBoxContainer
 @onready var FolderBox: VBoxContainer
-@onready var PopUpMenu: Panel = %PopUpMenu
-@onready var Filepath: Label = %Filepath
+@onready var PopUpMenu: Panel
+@onready var Filepath: Label
+@onready var UpdateDelay: Timer
 
 @export var app_icon: Texture2D
 
@@ -18,11 +19,9 @@ var FileTypes = {
 	}
 
 var StartingFiles = {
-	#FORMAT: Key: ["Name", "Date", Filetype, Folder(If none set: 0)],
-	1: ["📁  Files","01/03/2059",3, 1],
-	2: ["📄  Work Notes","11/18/2062",1, 3],
-	3: ["📄  Passwords","03/18/2059",1, 3],
-	4: ["💿  Command Prompt","01/03/2059",1, 1],
+	#FORMAT: Key: ["Name", Filetype, Folder(If none set: 0)],
+	1: ["📁  Files", 3, 1],
+	2: ["💿  Command Prompt", 3, 1],
 	}
 
 var StartingFilesAmount = len(StartingFiles)
@@ -225,10 +224,16 @@ func _ready() -> void:
 		EditButton = %EditButton
 		SendButton = %SendButton
 		TrashButton = %TrashButton
+		PopUpMenu = %PopUpMenu
+		Filepath = %Filepath
+		UpdateDelay = $UpdateDelay
+		UpdateDelay.start()
 		for I in range(1,5):
 			MakeFolder(StartingFolders[I])
-		for I in range(1,StartingFilesAmount + 1):
-			MakeFile(StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2], StartingFiles[I][3])
+		for I in range(1,2 + 1):
+			GameManager.Files[I] = []
+			print(GameManager.Files[I])
+			MakeFile(I, StartingFiles[I][0], StartingFiles[I][1], StartingFiles[I][2])
 	elif App == 2:
 		text_edit = $VBoxContainer/TextEdit
 		line_edit = $VBoxContainer/LineEdit
@@ -257,11 +262,21 @@ func _ready() -> void:
 		ChangePrisonerInfo()
 	elif App == 4:
 		Emails = %Emails
-		for I in range(1,len(GameManager.Emails) + 1):
+		for I in range(1,2 + 1):
 			GameManager.Emails[I] = PossibleEmails[I]
+			print(GameManager.Emails)
 			MakeEmail(I)
 
-func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
+func _on_update_delay_timeout() -> void:
+	print("hello")
+	UpdateDelay.start()
+	for I in range(1,len(GameManager.FilesNeedAdded)+1):
+		print(GameManager.FilesNeedAdded)
+		FileBox.add_child(GameManager.FilesNeedAdded[I])
+		GameManager.FilesNeedAdded.erase(I)
+		print(GameManager.FilesNeedAdded)
+
+func MakeFile(Filepath: int, FileName: String, Filetype: int, Folder: int):
 		#Getting File Instance
 		var Instance = FILESTEMPLATE.instantiate()
 		#Getting File Info As Vars
@@ -272,14 +287,20 @@ func MakeFile(FileName: String, FileDate: String, Filetype: int, Folder: int):
 		var FileButton: Button = Instance.get_child(0)
 		#Setting File Info
 		FileNameLabel.text = FileName
-		FileDateLabel.text = FileDate
+		FileDateLabel.text = ClockTimer.CurrentDate
 		FiletypeLabel.text = FileTypes[Filetype]
 		Instance.name = FileName
 		
-		FileButton.pressed.connect(Callable(_file_toggled).bind(Instance.name, StartingFolders[Folder]))
+		if Folder:
+			FileButton.pressed.connect(Callable(_file_toggled).bind(Instance.name, StartingFolders[Folder]))
+		else:
+			FileButton.pressed.connect(Callable(_file_toggled).bind(Instance.name, ""))
 		
-		#Adding As child of FileBox
-		FileBox.add_child(Instance)
+		GameManager.Files[Filepath] = [FileName, Filetype, Folder]
+		print("Files" + str(GameManager.Files))
+		
+		GameManager.FilesNeedAdded[Filepath] = Instance
+		print("FilesNeedAdded" + str(GameManager.FilesNeedAdded))
 
 func MakeFolder(FolderName: String):
 	#Getting Folder Instance
@@ -410,6 +431,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	if new_text == "#6512595-A":
 		text_edit.text = text_edit.text + "\n" + "> Success"
 		text_edit.text = text_edit.text + "\n" + "> Downloading..."
+		MakeFile(len(GameManager.Files) + 1, "Classified", 1, 0)
 	elif new_text == "Spoffy":
 		text_edit.text = text_edit.text + "\n" + "> :)"
 	elif new_text == "Creeper":
@@ -509,3 +531,8 @@ var FilepathFile = ""
 func _on_send_button_pressed() -> void:
 	PopUpMenu.visible = true
 	Filepath.text = "https://" + FilepathFolder + FilepathFile
+
+func _on_submit_pressed() -> void:
+	PopUpMenu.visible = false
+	SendButton.disabled = true
+	SendButton.modulate = Color(0.65, 0.65, 0.65)
