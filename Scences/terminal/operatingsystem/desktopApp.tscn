@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/icons/Prisoner_App.webp" id="2_gwk53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmwgq"]
-size = Vector2(84, 102)
+size = Vector2(84, 103.333)
 
 [node name="DesktopApp" type="Node2D"]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_tjhhh")
 
 [node name="ImgApp" type="TextureRect" parent="."]
@@ -43,7 +44,7 @@ tab_size = 0
 [node name="AreaApp" type="Area2D" parent="."]
 
 [node name="ClsnApp" type="CollisionShape2D" parent="AreaApp"]
-position = Vector2(-1, 22)
+position = Vector2(-1, 13.3333)
 shape = SubResource("RectangleShape2D_bmwgq")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
