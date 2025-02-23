@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://mbfbh6kqkdq5" path="res://Assets/images/backgrounds/invasion.jpg" id="1_wun3r"]
 [ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_6s0aa"]
 [ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="2_yik8y"]
-[ext_resource type="AudioStream" uid="uid://b686m2t0cc7d5" path="res://Assets/music/Ending 1 Captured.wav" id="4_eu3m0"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="4_si1ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt6i"]
 bg_color = Color(0.0392157, 0.0352941, 0.027451, 0.905882)
@@ -67,6 +67,13 @@ next_scene_path = "res://Scences/cinematics/tutorial.tscn"
 stream = ExtResource("4_eu3m0")
 volume_db = -10.0
 autoplay = true
+[node name="BtnMenu" parent="Camera2D" instance=ExtResource("4_si1ai")]
+offset_left = 969.0
+offset_top = 58.0
+offset_right = 1119.0
+offset_bottom = 88.0
+btn_text = "Skip"
+to_scene = "res://Scences/cinematics/tutorial.tscn"
 
 [connection signal="gui_input" from="." to="Camera2D/RichTextLabel" method="_on_history_gui_input"]
 [connection signal="gui_input" from="Camera2D/RichTextLabel" to="Camera2D/RichTextLabel" method="_on_gui_input"]

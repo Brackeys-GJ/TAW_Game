@@ -32,10 +32,10 @@ func _update_health_ui(new_health):
 func _on_game_over():
 	FailedDays += 1
 	#show_game_over_screen()
-	reset_day()
-
-func reset_day():
-	HealthManager.reset_health()
+	#reset_day()
+#
+#func reset_day():
+	#HealthManager.reset_health()
 
 func MakeEmail(EmailID: int, PossibleEmails: Dictionary):
 	var Instance = EMAILTEMPLATE.instantiate()
