@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7nmstq8ccgov"]
+
+[ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_2h10u"]
+[ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="3_fh3ue"]
+[ext_resource type="Texture2D" uid="uid://b87p4q5sllcnu" path="res://Assets/images/backgrounds/Captured 1.png" id="3_g6n0o"]
+[ext_resource type="Texture2D" uid="uid://dmcjt1db6qma3" path="res://Assets/images/backgrounds/Captured 2.png" id="4_rxfk7"]
+[ext_resource type="Texture2D" uid="uid://gox75yc6bkwq" path="res://Assets/images/backgrounds/Captured 3.png" id="5_87j7w"]
+[ext_resource type="AudioStream" uid="uid://b686m2t0cc7d5" path="res://Assets/music/Ending 1 Captured.wav" id="6_dtmb2"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="7_ytn05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt6i"]
+bg_color = Color(0.0392157, 0.0352941, 0.027451, 0.905882)
+
+[node name="History" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -581.0
+offset_top = -329.0
+offset_right = 587.0
+offset_bottom = 334.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_2h10u")
+scroll_speed = 150.0
+max_y_position = 0.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
+offset_left = 75.0
+offset_top = 58.0
+offset_right = 480.0
+offset_bottom = 198.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7nt6i")
+text = "hgfhdfhdhd"
+script = ExtResource("3_fh3ue")
+input = "When you thought everything was under control and nothing could go wrong... They caught you. You've reach... The end of your day's as a human - Bad Ending (Got caught)"
+typing_speed = 0.04
+next_scene_path = "res://Scences/cinematics/tutorial.tscn"
+
+[node name="Captured1" type="Sprite2D" parent="."]
+position = Vector2(-278, -163)
+scale = Vector2(0.156719, 0.156719)
+texture = ExtResource("3_g6n0o")
+
+[node name="Captured2" type="Sprite2D" parent="."]
+position = Vector2(236, -156)
+scale = Vector2(0.153789, 0.153789)
+texture = ExtResource("4_rxfk7")
+
+[node name="Captured3" type="Sprite2D" parent="."]
+position = Vector2(-273, 152)
+scale = Vector2(0.158438, 0.158438)
+texture = ExtResource("5_87j7w")
+
+[node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dtmb2")
+volume_db = -21.334
+autoplay = true
+bus = &"music"
+
+[node name="BtnMenu" parent="." instance=ExtResource("7_ytn05")]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 220.0
+offset_right = 239.0
+offset_bottom = 250.0
+btn_text = "Retry"
+to_scene = "res://Scences/terminal/terminal.tscn"
+
+[node name="BtnMenu2" parent="." instance=ExtResource("7_ytn05")]
+offset_left = 314.0
+offset_top = 226.0
+offset_right = 464.0
+offset_bottom = 256.0
+btn_text = "Main Menu"
+to_scene = "res://Scences/ui/mainMenu.tscn"
+
+[connection signal="gui_input" from="." to="Camera2D/RichTextLabel" method="_on_history_gui_input"]
+[connection signal="gui_input" from="Camera2D/RichTextLabel" to="Camera2D/RichTextLabel" method="_on_gui_input"]

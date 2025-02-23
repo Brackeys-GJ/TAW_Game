@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/global/GameManager.gd"
 ClockTimer="*res://Scences/terminal/clock_timer.tscn"
 EyeManager="*res://Scripts/global/eyeManager.gd"
+HealthManager="*res://Scripts/global/health_manager.gd"
 
 [dotnet]
 

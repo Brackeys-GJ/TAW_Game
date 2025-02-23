@@ -99,11 +99,10 @@ func check_player_input():
 	last_input_time = current_time
 
 func apply_health_penalty():
-	health = max(0, health - HEALTH_PENALTY)
-	health_changed.emit(health)
-	if health <= 0:
-		game_over()
+	HealthManager.current_health -= HEALTH_PENALTY
 
 func game_over():
 	print("Game Over!")
-	get_tree().quit()
+	HealthManager.emit_signal("game_over")  # Delegate to HealthManager
+	get_tree().change_scene_to_file("res://Scences/cinematics/GameOver.tscn")
+	#get_tree().quit()

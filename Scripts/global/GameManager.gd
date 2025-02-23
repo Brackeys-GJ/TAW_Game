@@ -20,6 +20,22 @@ var FilesNeedAdded = []
 
 var EmailBox = null
 
+func _ready():
+	HealthManager.health_changed.connect(_update_health_ui)
+	HealthManager.game_over.connect(_on_game_over)
+
+func _update_health_ui(new_health):
+	# UI elements
+	pass
+
+func _on_game_over():
+	FailedDays += 1
+	#show_game_over_screen()
+	reset_day()
+
+func reset_day():
+	HealthManager.reset_health()
+
 func MakeEmail(EmailID: int, PossibleEmails: Dictionary):
 	var Instance = EMAILTEMPLATE.instantiate()
 	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
@@ -42,19 +58,3 @@ func MakeEmail(EmailID: int, PossibleEmails: Dictionary):
 	Emails[EmailID] = PossibleEmails[EmailID]
 	
 	EmailBox.add_child(Instance)
-
-#func _ready():
-	#var eye = $EyeStateMachine
-	#eye.state_changed.connect(_on_eye_state_changed)
-	#eye.blink_requested.connect(_on_eye_blink)
-	#eye.health_changed.connect(_update_health_ui)
-#
-#func _on_eye_state_changed(new_state):
-	#match new_state:
-		#EyeStateMachine.States.MAD:
-			#show_warning("Don't move!")
-		#EyeStateMachine.States.IDLE:
-			#hide_warning()
-#
-#func _update_health_ui(new_health):
-	#$HealthDisplay.value = new_health
