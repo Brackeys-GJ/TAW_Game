@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bch5khlg21h5s"]
+[gd_scene load_steps=7 format=3 uid="uid://bch5khlg21h5s"]
 
 [ext_resource type="Texture2D" uid="uid://mbfbh6kqkdq5" path="res://Assets/images/backgrounds/invasion.jpg" id="1_wun3r"]
 [ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_6s0aa"]
 [ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="2_yik8y"]
+[ext_resource type="AudioStream" uid="uid://b686m2t0cc7d5" path="res://Assets/music/Ending 1 Captured.wav" id="4_eu3m0"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="4_si1ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt6i"]
@@ -63,10 +64,6 @@ input = "One day... An alien race known as, \"The Watchers\" enslaved humanity a
 typing_speed = 0.04
 next_scene_path = "res://Scences/cinematics/tutorial.tscn"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_eu3m0")
-volume_db = -10.0
-autoplay = true
 [node name="BtnMenu" parent="Camera2D" instance=ExtResource("4_si1ai")]
 offset_left = 969.0
 offset_top = 58.0
@@ -74,6 +71,11 @@ offset_right = 1119.0
 offset_bottom = 88.0
 btn_text = "Skip"
 to_scene = "res://Scences/cinematics/tutorial.tscn"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eu3m0")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="gui_input" from="." to="Camera2D/RichTextLabel" method="_on_history_gui_input"]
 [connection signal="gui_input" from="Camera2D/RichTextLabel" to="Camera2D/RichTextLabel" method="_on_gui_input"]
