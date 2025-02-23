@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1pejeqmqqwri"]
+
+[ext_resource type="Script" path="res://Scripts/dialog/nextscene.gd" id="1_6dnky"]
+[ext_resource type="Texture2D" uid="uid://b7p3p4eugo4cl" path="res://Assets/images/eye/gaze_loop_0002.png" id="2_k6nkr"]
+[ext_resource type="Texture2D" uid="uid://cxmk8x1xhl4oe" path="res://Assets/images/eye/blink_002.png" id="3_lnv5t"]
+[ext_resource type="Texture2D" uid="uid://b0e5xs1lifbp4" path="res://Assets/images/eye/Eye.png" id="4_5ohdl"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6dnky")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GazeLoop0002" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77
+anchor_top = 1.0
+anchor_right = 0.77
+anchor_bottom = 1.0
+offset_left = -103.04
+offset_top = -309.0
+offset_right = 196.96
+offset_bottom = -9.0
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("2_k6nkr")
+
+[node name="Blink002" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.248
+anchor_top = 1.0
+anchor_right = 0.248
+anchor_bottom = 1.0
+offset_left = -93.696
+offset_top = -296.0
+offset_right = 206.304
+offset_bottom = 4.0
+scale = Vector2(0.623333, 0.623333)
+texture = ExtResource("3_lnv5t")
+
+[node name="Eye" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52
+anchor_top = 1.0
+anchor_right = 0.52
+anchor_bottom = 1.0
+offset_left = -77.04
+offset_top = -276.0
+offset_right = 27.96
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.46429, 1.46429)
+texture = ExtResource("4_5ohdl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -284.0
+offset_top = 95.0
+offset_right = 276.0
+offset_bottom = 118.0
+grow_horizontal = 2
+text = "The eye will have 3 states, you can send files to humans when it's closed (1), but if it's mad (3)
+you will stay still, if it catches you, and his patience it's all done, you die,
+if on stage 2, you should do your work but not any human related."
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -307.0
+offset_top = 302.0
+offset_right = -274.0
+offset_bottom = 334.0
+grow_horizontal = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 307.0
+offset_top = 307.0
+offset_right = 340.0
+offset_bottom = 339.0
+grow_horizontal = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3.0
+offset_top = 313.0
+offset_right = 36.0
+offset_bottom = 345.0
+grow_horizontal = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

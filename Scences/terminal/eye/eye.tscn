@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://6at40f5y36oh"]
+[gd_scene load_steps=11 format=3 uid="uid://6at40f5y36oh"]
 
 [ext_resource type="Texture2D" uid="uid://bfffe80fl4m3t" path="res://Assets/images/eye/blink_000.png" id="1_0j32b"]
 [ext_resource type="Texture2D" uid="uid://gi4am2yb1ebu" path="res://Assets/images/eye/blink_006.png" id="2_5o6mf"]
 [ext_resource type="Texture2D" uid="uid://di4dp74ux26pb" path="res://Assets/images/eye/blink_004.png" id="3_p0x6i"]
 [ext_resource type="Texture2D" uid="uid://cxmk8x1xhl4oe" path="res://Assets/images/eye/blink_002.png" id="4_yy1kt"]
+[ext_resource type="Texture2D" uid="uid://dfpngc3qrak14" path="res://Assets/images/eye/gaze_0002.png" id="5_hnhnj"]
 [ext_resource type="Script" path="res://Scripts/terminal/eye.gd" id="5_lu3td"]
+[ext_resource type="Texture2D" uid="uid://13gcuq6l6qqy" path="res://Assets/images/eye/gaze_0004.png" id="6_fc0td"]
+[ext_resource type="Texture2D" uid="uid://bckank0ujmx8w" path="res://Assets/images/eye/gaze_loop_0000.png" id="7_rhh4g"]
+[ext_resource type="Texture2D" uid="uid://b7p3p4eugo4cl" path="res://Assets/images/eye/gaze_loop_0002.png" id="8_dh2al"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0gybs"]
 animations = [{
@@ -40,8 +44,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_0j32b")
+"duration": 0.6,
+"texture": ExtResource("5_hnhnj")
+}, {
+"duration": 0.6,
+"texture": ExtResource("6_fc0td")
+}, {
+"duration": 0.6,
+"texture": ExtResource("7_rhh4g")
+}, {
+"duration": 0.6,
+"texture": ExtResource("8_dh2al")
+}, {
+"duration": 0.6,
+"texture": ExtResource("7_rhh4g")
+}, {
+"duration": 0.6,
+"texture": ExtResource("6_fc0td")
 }],
 "loop": true,
 "name": &"mad",
@@ -58,7 +77,8 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0gybs")
-animation = &"idle"
+animation = &"mad"
+frame_progress = 0.819786
 script = ExtResource("5_lu3td")
 
 [node name="StateTimer" type="Timer" parent="."]

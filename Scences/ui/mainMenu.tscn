@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm8bhrand4ms5"]
+[gd_scene load_steps=7 format=3 uid="uid://dm8bhrand4ms5"]
 
 [ext_resource type="Texture2D" uid="uid://mbfbh6kqkdq5" path="res://Assets/images/backgrounds/invasion.jpg" id="1_aq8s7"]
 [ext_resource type="PackedScene" uid="uid://gs6m1287pssm" path="res://Scences/ui/mainOptions.tscn" id="1_m0brc"]
 [ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="2_ughuv"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="4_vch0q"]
 [ext_resource type="AudioStream" uid="uid://bnv3k8wh6j7sg" path="res://Assets/music/Title_Caught.wav" id="5_4evuh"]
+[ext_resource type="PackedScene" uid="uid://ch8oyn4ytqi5h" path="res://Scences/ui/mainCredits.tscn" id="5_gjlx7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -96,7 +97,7 @@ custom_minimum_size = Vector2(0, 53.34)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
-text = "[shake rate=8.5 level=10 connected=1]Group Name[/shake]"
+text = "[shake rate=8.5 level=10 connected=1]StraGeo Studios[/shake]"
 scroll_active = false
 tab_size = 1
 
@@ -119,7 +120,7 @@ theme_override_constants/margin_bottom = 70
 layout_mode = 2
 
 [node name="BtnPlay" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/MainOptions" index="0"]
-to_scene = "res://Scences/terminal/terminal.tscn"
+to_scene = "res://Scences/cinematics/History.tscn"
 
 [node name="Settings" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("2_ughuv")]
 visible = false
@@ -127,6 +128,10 @@ layout_mode = 2
 
 [node name="SndSfx" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons/Settings" index="4"]
 stream = ExtResource("4_vch0q")
+
+[node name="Credits" parent="PanComputer/MarginContainer/PanScreen/SplitContainer/Buttons/MrgButtons" instance=ExtResource("5_gjlx7")]
+visible = false
+layout_mode = 2
 
 [node name="Menu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_4evuh")

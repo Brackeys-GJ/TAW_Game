@@ -15,7 +15,9 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	snd_click.play()
-	if to_scene != "path://":
+	if btn_text == "Exit":
+		get_tree().quit()
+	elif to_scene != "path://":
 		get_tree().change_scene_to_file(to_scene)
 		ClockTimer.start()
 

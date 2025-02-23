@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch8oyn4ytqi5h"]
+
+[ext_resource type="Script" path="res://Scripts/ui/mainSettings.gd" id="1_lofvl"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="3_je6gy"]
+[ext_resource type="AudioStream" uid="uid://druxclw4seqoc" path="res://Assets/sfx/ph_hover.wav" id="4_eg1td"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 306.0
+offset_bottom = 324.0
+theme_override_constants/separation = 35
+script = ExtResource("1_lofvl")
+
+[node name="SplitContainer" type="SplitContainer" parent="."]
+custom_minimum_size = Vector2(436.615, 314.18)
+layout_mode = 2
+split_offset = 270
+dragger_visibility = 2
+vertical = true
+
+[node name="Panel" type="Panel" parent="SplitContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="LbGameDesign" parent="SplitContainer/Panel" instance=ExtResource("3_je6gy")]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 23.0
+offset_right = 164.0
+offset_bottom = 53.0
+btn_text = "Team members:"
+
+[node name="LbGameDesign1" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 32.0
+offset_right = 279.0
+offset_bottom = 62.0
+btn_text = "- Nick (Game designer)"
+
+[node name="LbProgrammer1" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 60.0
+offset_right = 278.0
+offset_bottom = 90.0
+btn_text = "- Sspoffy (Programmer)"
+
+[node name="LbProgrammer2" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 88.0
+offset_right = 377.0
+offset_bottom = 118.0
+btn_text = "- zSlyv (Programmer / UI Design)"
+
+[node name="LbGameDesign2" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 114.0
+offset_right = 264.0
+offset_bottom = 144.0
+btn_text = "- MinHD (Art)"
+
+[node name="LbGameDesign3" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 141.0
+offset_right = 294.0
+offset_bottom = 171.0
+btn_text = "- Joephis (Art / Sfx)"
+
+[node name="LbGameDesign4" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+offset_left = 36.0
+offset_top = 167.0
+offset_right = 294.0
+offset_bottom = 197.0
+btn_text = "- MobileScarf (Music)"
+
+[node name="LbGameDesign5" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+offset_left = 34.0
+offset_top = 194.0
+offset_right = 292.0
+offset_bottom = 224.0
+btn_text = "- Taz (Quality Assurance)"
+
+[node name="Panel2" type="Panel" parent="SplitContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="BtnExit" parent="SplitContainer/Panel2" instance=ExtResource("3_je6gy")]
+layout_mode = 2
+offset_right = 306.0
+btn_text = "Back"
+
+[node name="SndSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eg1td")
+bus = &"sfx"
+
+[connection signal="pressed" from="SplitContainer/Panel2/BtnExit" to="." method="_on_btn_exit_pressed"]

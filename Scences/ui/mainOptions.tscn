@@ -31,3 +31,5 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../BtnCredits")
 focus_neighbor_bottom = NodePath("../BtnPlay")
 btn_text = "Exit"
+
+[connection signal="pressed" from="BtnCredits" to="." method="_on_btn_credits_pressed"]
