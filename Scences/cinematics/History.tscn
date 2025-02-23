@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bch5khlg21h5s"]
+[gd_scene load_steps=6 format=3 uid="uid://bch5khlg21h5s"]
 
 [ext_resource type="Texture2D" uid="uid://mbfbh6kqkdq5" path="res://Assets/images/backgrounds/invasion.jpg" id="1_wun3r"]
 [ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_6s0aa"]
 [ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="2_yik8y"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="4_si1ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt6i"]
 bg_color = Color(0.0392157, 0.0352941, 0.027451, 0.905882)
@@ -62,6 +63,14 @@ script = ExtResource("2_yik8y")
 input = "One day... An alien race known as, \"The Watchers\" enslaved humanity after a long war. | They have created puppet states and corporations all across the world and you work for one of the puppet corporations. | No longer wanting to be a slave of the Watchers you are risking your life and the fate of humanity by helping the human freedom fighters to free yourself and save humanity in the process. | But remember...  NO MATTER WHERE YOU ARE, THEY ARE WATCHING..."
 typing_speed = 0.04
 next_scene_path = "res://Scences/cinematics/tutorial.tscn"
+
+[node name="BtnMenu" parent="Camera2D" instance=ExtResource("4_si1ai")]
+offset_left = 969.0
+offset_top = 58.0
+offset_right = 1119.0
+offset_bottom = 88.0
+btn_text = "Skip"
+to_scene = "res://Scences/cinematics/tutorial.tscn"
 
 [connection signal="gui_input" from="." to="Camera2D/RichTextLabel" method="_on_history_gui_input"]
 [connection signal="gui_input" from="Camera2D/RichTextLabel" to="Camera2D/RichTextLabel" method="_on_gui_input"]
