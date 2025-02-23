@@ -42,3 +42,19 @@ func MakeEmail(EmailID: int, PossibleEmails: Dictionary):
 	Emails[EmailID] = PossibleEmails[EmailID]
 	
 	EmailBox.add_child(Instance)
+
+#func _ready():
+	#var eye = $EyeStateMachine
+	#eye.state_changed.connect(_on_eye_state_changed)
+	#eye.blink_requested.connect(_on_eye_blink)
+	#eye.health_changed.connect(_update_health_ui)
+#
+#func _on_eye_state_changed(new_state):
+	#match new_state:
+		#EyeStateMachine.States.MAD:
+			#show_warning("Don't move!")
+		#EyeStateMachine.States.IDLE:
+			#hide_warning()
+#
+#func _update_health_ui(new_health):
+	#$HealthDisplay.value = new_health
