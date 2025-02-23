@@ -445,6 +445,9 @@ func _on_button_pressed(BtnFunc: int) -> void:
 		if FacilityDropdown.selected == Accusations[AccusationsNum][1] - 1:
 			if IDEdit.text == IDChange.text:
 				if AdultCheck == Adult:
+					if int(PrisonTermEdit.text) <= int(FacesChange.text) / 2 and PORChange.text == "Yes":
+						GameManager.Points = GameManager.Points + GameManager.PointGains[2][1]
+						print(GameManager.Points)
 					ChangePrisonerInfo()
 					FacilityDropdown.select(-1)
 					PrisonTermEdit.text = "}: "
