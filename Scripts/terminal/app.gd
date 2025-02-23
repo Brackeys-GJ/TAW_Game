@@ -437,15 +437,25 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 3:
 		emit_signal("close_requested")
 	elif BtnFunc == 4:
+		var Adult = false
+		if int(AgeChange.text) >= 18:
+			Adult = true
+		else:
+			Adult = false
 		if FacilityDropdown.selected == Accusations[AccusationsNum][1] - 1:
-			ChangePrisonerInfo()
-			FacilityDropdown.select(-1)
-			PrisonTermEdit.text = "}: "
-			IDEdit.text = "}: "
-			AdultCheck.toggle_mode = false
-			JuvieCheck.toggle_mode = false
-			AdultCheck.toggle_mode = true
-			JuvieCheck.toggle_mode = true
+			if IDEdit.text == IDChange.text:
+				if AdultCheck == Adult:
+					if int(PrisonTermEdit.text) <= int(FacesChange.text) / 2 and PORChange.text == "Yes":
+						GameManager.Points = GameManager.Points + GameManager.PointGains[2][1]
+						print(GameManager.Points)
+					ChangePrisonerInfo()
+					FacilityDropdown.select(-1)
+					PrisonTermEdit.text = "}: "
+					IDEdit.text = "}: "
+					AdultCheck.toggle_mode = false
+					JuvieCheck.toggle_mode = false
+					AdultCheck.toggle_mode = true
+					JuvieCheck.toggle_mode = true
 
 # Dragging window
 func _on_h_box_container_gui_input(event: InputEvent) -> void:
