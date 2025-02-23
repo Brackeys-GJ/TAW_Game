@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7nmstq8ccgov"]
+[gd_scene load_steps=9 format=3 uid="uid://b5wi8xg3jowhf"]
 
 [ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_2h10u"]
 [ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="3_fh3ue"]
@@ -71,6 +71,7 @@ btn_text = "Retry"
 to_scene = "res://Scences/terminal/terminal.tscn"
 
 [node name="BtnMenu2" parent="." instance=ExtResource("7_ytn05")]
+layout_mode = 0
 offset_left = 314.0
 offset_top = 226.0
 offset_right = 464.0

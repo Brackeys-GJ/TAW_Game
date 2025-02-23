@@ -7,3 +7,5 @@ func _process(delta: float) -> void:
 	# Move the camera down slowly, but only if it hasn't reached the max position
 	if position.y < max_y_position:
 		position.y += scroll_speed * delta
+	else:
+		get_tree().change_scene_to_file("res://Scences/cinematics/tutorial.tscn")

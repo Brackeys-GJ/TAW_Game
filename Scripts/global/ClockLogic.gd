@@ -53,8 +53,8 @@ var PossibleEmails = {
 	"They were always Watching…"],
 	}
 
-var Hour = 23
-var Min = 50
+var Hour = 9
+var Min = 00
 
 var month = 4
 var day = 5
@@ -71,11 +71,11 @@ func StartClock():
 	ClockTimer.start()
 
 func _on_timer_timeout() -> void:
-	if Min == 59:
+	if Min == 60:
 		Hour = Hour + 1
 		Min = 0
 	else:
-		Min = Min + 1
+		Min = Min + 10
 	if Hour == 24:
 		day = day + 1
 		GameManager.CompletedDays = GameManager.CompletedDays + 1
@@ -106,4 +106,9 @@ func _on_timer_timeout() -> void:
 		CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
 		Min = 0
 		Hour = 1
+	if GameManager.CompletedDays == 5:
+		if GameManager.SuccusfulDays >= 3:
+			get_tree().change_scene_to_file("res://Scences/cinematics/win.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scences/cinematics/GameOver.tscn")
 	StartClock()

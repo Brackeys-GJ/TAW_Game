@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqxpqwliies1c"]
+
+[ext_resource type="Texture2D" uid="uid://cmk4uqxsmqp8i" path="res://Assets/images/backgrounds/Screen_win_1.webp" id="1_8qrbp"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8qrbp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.0
+offset_right = 154.0
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "Thanks to you our misson was a success.
+Go take a break, you earned it"
+horizontal_alignment = 1
