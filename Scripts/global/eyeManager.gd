@@ -105,4 +105,3 @@ func game_over():
 	print("Game Over!")
 	HealthManager.emit_signal("game_over")  # Delegate to HealthManager
 	get_tree().change_scene_to_file("res://Scences/cinematics/GameOver.tscn")
-	#get_tree().quit()
