@@ -521,7 +521,6 @@ alignment = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2/HBoxContainer2"]
@@ -607,7 +606,8 @@ text = "Receiver:"
 [node name="HBoxContainer" type="HBoxContainer" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="Receiver" type="OptionButton" parent="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -629,7 +629,6 @@ text = "SUBMIT"
 layout_mode = 2
 
 [node name="UpdateDelay" type="Timer" parent="."]
-wait_time = 5.0
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]

@@ -2,13 +2,13 @@ extends Control
 #Preloading Templates
 const FILESTEMPLATE = preload("res://Scences/terminal/filesapp/filestemplate.tscn")
 const FOLDERTEMPLATE = preload("res://Scences/terminal/filesapp/foldertemplate.tscn")
-const EMAILTEMPLATE = preload("res://Scences/terminal/emailapp/email_template.tscn")
 
 @onready var FileBox: VBoxContainer
 @onready var FolderBox: VBoxContainer
 @onready var PopUpMenu: Panel
 @onready var Filepath: Label
 @onready var UpdateDelay: Timer
+@onready var Receiver: OptionButton
 
 @export var app_icon: Texture2D
 
@@ -88,26 +88,26 @@ var Surnames = [
 	]
 @onready var DOBChange: Label
 @onready var AccusationChange: Label
-var Accusations = [
-	"Subversive speech",
-	"Unauthorized assembly",
-	"Aiding foreign agents",
-	"Anti-Watcher sentiment",
-	"Undermining state moral",
-	"Sabotage",
-	"Theft",
-	"Bribery/Corruption",
-	"Counterfeiting ration tickets",
-	"Counterfeiting papers",
-	"Indecent behavior",
-	"Disrupting public order",
-	"Murder",
-	"Disobedience to orders",
-	"Dereliction of duty",
-	"Lack of discipline",
-	"Prohibited use of resources",
-	"Desertion",
-	]
+var Accusations = {
+	1: ["Subversive speech", 4],
+	2: ["Unauthorized assembly", 1],
+	3: ["Aiding foreign agents", 5],
+	4: ["Anti-Watcher sentiment", 4],
+	5: ["Undermining state moral", 1],
+	6: ["Sabotage", 2],
+	7: ["Theft", 1],
+	8: ["Bribery/Corruption", 1],
+	9: ["Counterfeiting ration tickets", 4],
+	10: ["Counterfeiting papers", 5],
+	11: ["Indecent behavior", 4],
+	12: ["Disrupting public order", 4],
+	13: ["Murder", 2],
+	14: ["Disobedience to orders", 2],
+	15: ["Dereliction of duty", 2],
+	16: ["Lack of discipline", 4],
+	17: ["Prohibited use of resources", 1],
+	18: ["Desertion", 2],
+	}
 @onready var IDChange: Label
 @onready var NationalityChange: Label
 var Nationalities = {
@@ -175,38 +175,38 @@ var PossibleEmails = {
 	"The Watchers have noticed some discrepancies in your sorting. For your sake lets ensure that this doesn’t happen with this batch."],
 	5: ["Mistake email", "Watchers", "#6512595-A"],
 	#Above Goal Emails
-	6: ["Unica Spes", "Cipher",
+	6: ["Day 1", "Cipher",
 	"The intel you sent saved a lot of lives. Thank you. We are still far from our goal, but just everyday we get closer to freedom"],
-	7: ["Unica Spes", "Cipher",
+	7: ["Day 2", "Cipher",
 	"We are starting to coordinate our moves against the watchers. You have freed many of us and caused some major blows to the",
 	"Watchers logistics. Remember to stay low, they are bound to get on to the fact that they have a rat on the inside."],
-	8: ["Unica Spes", "Cipher",
+	8: ["Day 3", "Cipher",
 	"I used to not think about it, but I am starting to remember life before the Watchers. Our offensive is starting to",
 	"take shape, and I can’t help thinking about the world as it was. This is all thanks to you",
 	"and your efforts. You are bound to be in the history books my friend"],
-	9: ["Unica Spes", "Cipher",
+	9: ["Day 4", "Cipher",
 	"The offensive is all planned out, we just need to rest of the resources and personnel to make it happen.",
 	"It is up to you today. Your place is our first stop. We are gonna break",
 	"you out along with of those the Watchers have enslaved"],
-	10: ["Unica Spes", "Cipher",
+	10: ["Day 5", "Cipher",
 	"You might as well pack up the desk, you won’t be doing much work today. Just make sure once you hear a few",
 	"bangs just duck down for us and we will take care of the rest. You will be debriefed once we secure the",
 	"building. You did some great work back there; you deserve some rest once this is all over"],
 	#Below Goal Emails
-	11: ["Unica Spes", "Cipher",
+	11: ["Day 1", "Cipher",
 	"Yesterday didn’t go as planned. We still have 4 days but everyday counts. Lets make today a good one"],
-	12: ["Unica Spes", "Cipher",
+	12: ["Day 2", "Cipher",
 	"There is a growing fear that the Watchers may be zeroing in on us. We are not nearly as strong as we",
 	"would like to be. Humanity needs you to really pull through these next few days. Don’t let us down"],
-	13: ["Unica Spes", "Cipher",
+	13: ["Day 3", "Cipher",
 	"Things are not looking good here. Our raids on Watcher positions have ended in disaster, it is like they are predicting our every",
 	"move. Look, I now risking your life doesn’t sound like the greatest thing to do, but when humanity is on the brink of permanent",
 	"enslavement. All I am saying is lets think a bit more about the big picture here"],
-	14: ["Unica Spes", "Anders Coleman",
+	14: ["Day 4", "Anders Coleman",
 	"This is General Anders Coleman of the North American Resistance. Cipher is dead. The Watchers know where we are. It is only a",
 	"matter of time before they strike. It would take a miracle to save us. Today I need you to be a soldier. Many of my men have",
 	"died over the past week, maker sure it isn’t for nothing"],
-	15: ["Unica Spes", "Anders Coleman",
+	15: ["Day 5", "Anders Coleman",
 	"They have breached the west wall. They are even in the tunnels. The courtyard is has been overrun and all exits are cut off.",
 	"We cannot get out.",
 	"They were always Watching…"],
@@ -227,6 +227,7 @@ func _ready() -> void:
 		PopUpMenu = %PopUpMenu
 		Filepath = %Filepath
 		UpdateDelay = $UpdateDelay
+		Receiver = %Receiver
 		UpdateDelay.start()
 		for I in range(1,5):
 			MakeFolder(StartingFolders[I])
@@ -262,19 +263,15 @@ func _ready() -> void:
 		ChangePrisonerInfo()
 	elif App == 4:
 		Emails = %Emails
-		for I in range(1,2 + 1):
+		GameManager.EmailBox = Emails
+		for I in range(1, len(PossibleEmails) + 1):
 			GameManager.Emails[I] = PossibleEmails[I]
-			print(GameManager.Emails)
-			MakeEmail(I)
+		for I in range(1,3):
+			GameManager.MakeEmail(I, PossibleEmails)
 
 func _on_update_delay_timeout() -> void:
-	print("hello")
-	UpdateDelay.start()
-	for I in range(1,len(GameManager.FilesNeedAdded)+1):
-		print(GameManager.FilesNeedAdded)
-		FileBox.add_child(GameManager.FilesNeedAdded[I])
-		GameManager.FilesNeedAdded.erase(I)
-		print(GameManager.FilesNeedAdded)
+	for I in range(1, len(GameManager.FilesNeedAdded)+1):
+		AddFiles(GameManager.FilesNeedAdded[0])
 
 func MakeFile(Filepath: int, FileName: String, Filetype: int, Folder: int):
 		#Getting File Instance
@@ -284,23 +281,23 @@ func MakeFile(Filepath: int, FileName: String, Filetype: int, Folder: int):
 		var FileDateLabel = Instance.get_child(0).get_child(0).get_child(1)
 		var FiletypeLabel = Instance.get_child(0).get_child(0).get_child(2)
 		
-		var FileButton: Button = Instance.get_child(0)
 		#Setting File Info
 		FileNameLabel.text = FileName
 		FileDateLabel.text = ClockTimer.CurrentDate
 		FiletypeLabel.text = FileTypes[Filetype]
 		Instance.name = FileName
 		
-		if Folder:
-			FileButton.pressed.connect(Callable(_file_toggled).bind(Instance.name, StartingFolders[Folder]))
-		else:
-			FileButton.pressed.connect(Callable(_file_toggled).bind(Instance.name, ""))
-		
 		GameManager.Files[Filepath] = [FileName, Filetype, Folder]
 		print("Files" + str(GameManager.Files))
 		
-		GameManager.FilesNeedAdded[Filepath] = Instance
+		GameManager.FilesNeedAdded.append(Instance)
 		print("FilesNeedAdded" + str(GameManager.FilesNeedAdded))
+
+func AddFiles(File):
+	FileBox.add_child(File)
+	var FileButton: Button = File.get_child(0)
+	FileButton.pressed.connect(Callable(_file_toggled).bind(File.name))
+	GameManager.FilesNeedAdded.erase(File)
 
 func MakeFolder(FolderName: String):
 	#Getting Folder Instance
@@ -312,7 +309,8 @@ func MakeFolder(FolderName: String):
 	Instance.name = FolderName
 	#Adding As child of FolderBox
 	FolderBox.add_child(Instance)
-	#Adding Folder to Folder Arrey
+
+var AccusationsNum = 0
 
 func ChangePrisonerInfo():
 	#Prisoner Image
@@ -363,7 +361,8 @@ func ChangePrisonerInfo():
 	
 	DOBChange.text = "}: " + date
 	#Accusation
-	AccusationChange.text = "}: " + Accusations.pick_random()
+	AccusationsNum = randi_range(1,18)
+	AccusationChange.text = "}: " + Accusations[AccusationsNum][0]
 	#ID
 	var ID = ""
 	
@@ -398,32 +397,6 @@ func ChangePrisonerInfo():
 		POR = "Yes"
 	PORChange.text = "}: " + POR
 
-func MakeEmail(EmailID: int):
-	print(GameManager.Emails)
-	var Instance = EMAILTEMPLATE.instantiate()
-	
-	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
-	var EmailDate = Instance.get_child(0).get_child(0).get_child(3)
-	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
-	var Items: MenuButton = Instance.get_child(0)
-	
-	var EmailItems = GameManager.Emails
-	
-	EmailName.text = EmailItems[EmailID][0]
-	EmailDate.text = ClockTimer.CurrentDate
-	EmailFrom.text = EmailItems[EmailID][1]
-	
-	Items.get_popup().add_item(EmailItems[EmailID][0], 0)
-	Items.get_popup().add_item("    " + EmailItems[EmailID][2], 1)
-	if len(EmailItems[EmailID]) == 5:
-		Items.get_popup().add_item("    " + EmailItems[EmailID][3], 2)
-		Items.get_popup().add_item("    " + EmailItems[EmailID][4], 3)
-	elif len(EmailItems[EmailID]) == 4:
-		Items.get_popup().add_item("    " + EmailItems[EmailID][3], 2)
-		
-	GameManager.Emails[EmailID] = PossibleEmails[EmailID]
-	
-	Emails.add_child(Instance)
 #>>>>>>> 523d901d5df7e195e31dfd8b088a078c02fb941d
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
@@ -432,6 +405,8 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		text_edit.text = text_edit.text + "\n" + "> Success"
 		text_edit.text = text_edit.text + "\n" + "> Downloading..."
 		MakeFile(len(GameManager.Files) + 1, "Classified", 1, 0)
+	elif new_text == "Facility":
+		text_edit.text = text_edit.text + "\n" + "> Success"
 	elif new_text == "Spoffy":
 		text_edit.text = text_edit.text + "\n" + "> :)"
 	elif new_text == "Creeper":
@@ -462,14 +437,15 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 3:
 		emit_signal("close_requested")
 	elif BtnFunc == 4:
-		ChangePrisonerInfo()
-		FacilityDropdown.select(-1)
-		PrisonTermEdit.text = "}: "
-		IDEdit.text = "}: "
-		AdultCheck.toggle_mode = false
-		JuvieCheck.toggle_mode = false
-		AdultCheck.toggle_mode = true
-		JuvieCheck.toggle_mode = true
+		if FacilityDropdown.selected == Accusations[AccusationsNum][1] - 1:
+			ChangePrisonerInfo()
+			FacilityDropdown.select(-1)
+			PrisonTermEdit.text = "}: "
+			IDEdit.text = "}: "
+			AdultCheck.toggle_mode = false
+			JuvieCheck.toggle_mode = false
+			AdultCheck.toggle_mode = true
+			JuvieCheck.toggle_mode = true
 
 # Dragging window
 func _on_h_box_container_gui_input(event: InputEvent) -> void:
@@ -514,25 +490,32 @@ func _on_h_box_container_3_gui_input(event: InputEvent) -> void:
 
 var FileToggleOn = false
 
-func _file_toggled(Name, Folder):
+func _file_toggled(Name):
 	FileToggleOn =! FileToggleOn
-	FilepathFolder = Folder
 	FilepathFile = Name
-	if FileToggleOn:
+	if FileToggleOn and SendButton:
 		SendButton.modulate = Color(1,1,1)
 		SendButton.disabled = false
-	else:
+	elif SendButton:
 		SendButton.modulate = Color(0.65, 0.65, 0.65)
 		SendButton.disabled = true
 
-var FilepathFolder = ""
 var FilepathFile = ""
+
+var PointFiles = {
+	1: "https://Classified"
+}
 
 func _on_send_button_pressed() -> void:
 	PopUpMenu.visible = true
-	Filepath.text = "https://" + FilepathFolder + FilepathFile
+	Filepath.text = "https://" + FilepathFile
 
 func _on_submit_pressed() -> void:
 	PopUpMenu.visible = false
 	SendButton.disabled = true
 	SendButton.modulate = Color(0.65, 0.65, 0.65)
+	if Receiver.selected == 1:
+		if Filepath.text == PointFiles[1] and GameManager.PointGains[1][0] == PointFiles[1]:
+			GameManager.Points = GameManager.Points + GameManager.PointGains[1][1]
+			GameManager.PointGains.erase(1)
+			print(GameManager.Points)

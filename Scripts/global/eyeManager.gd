@@ -52,6 +52,7 @@ func _update_state():
 				4.0 if current_state == States.MAD else 8.0
 			))
 		States.MAD:
+			mad_minigame()
 			var chance = rng.randf()
 			if chance < 0.4:
 				previous_state = current_state
@@ -62,3 +63,10 @@ func _update_state():
 				current_state = States.IDLE
 				state_changed.emit(current_state)
 				_state_timer.start(rng.randf_range(4.0, 8.0))
+
+func mad_minigame():
+	var Num = randi_range(1,2)
+	if Num == 1:
+		States.BLINK
+	else:
+		get_tree().quit()
