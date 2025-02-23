@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cf711ppkcpicc" path="res://Scences/ui/mainSettings.tscn" id="2_ughuv"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="4_vch0q"]
 [ext_resource type="AudioStream" uid="uid://bnv3k8wh6j7sg" path="res://Assets/music/Title_Caught.wav" id="5_4evuh"]
-[ext_resource type="PackedScene" uid="uid://ch8oyn4ytqi5h" path="res://Scences/ui/mainCredits.tscn" id="5_gjlx7"]
+[ext_resource type="PackedScene" path="res://Scences/ui/mainCredits.tscn" id="5_gjlx7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
