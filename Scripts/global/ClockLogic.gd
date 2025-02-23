@@ -81,9 +81,28 @@ func _on_timer_timeout() -> void:
 		GameManager.CompletedDays = GameManager.CompletedDays + 1
 		if GameManager.DayPoints >= 30:
 			GameManager.SuccusfulDays = GameManager.SuccusfulDays + 1
-			GameManager.MakeEmail(6, PossibleEmails)
+			if GameManager.SuccusfulDays == 1:
+				GameManager.MakeEmail(6, PossibleEmails)
+			elif GameManager.SuccusfulDays == 2:
+				GameManager.MakeEmail(7, PossibleEmails)
+			elif GameManager.SuccusfulDays == 3:
+				GameManager.MakeEmail(8, PossibleEmails)
+			elif GameManager.SuccusfulDays == 4:
+				GameManager.MakeEmail(9, PossibleEmails)
+			elif GameManager.SuccusfulDays == 5:
+				GameManager.MakeEmail(10, PossibleEmails)
 		elif GameManager.DayPoints < 30:
 			GameManager.FailedDays = GameManager.FailedDays + 1
+			if GameManager.FailedDays == 1:
+				GameManager.MakeEmail(6, PossibleEmails)
+			elif GameManager.FailedDays == 2:
+				GameManager.MakeEmail(7, PossibleEmails)
+			elif GameManager.FailedDays == 3:
+				GameManager.MakeEmail(8, PossibleEmails)
+			elif GameManager.FailedDays == 4:
+				GameManager.MakeEmail(9, PossibleEmails)
+			elif GameManager.FailedDays == 5:
+				GameManager.MakeEmail(10, PossibleEmails)
 		CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
 		Min = 0
 		Hour = 1

@@ -2,8 +2,9 @@ extends Node
 
 const EMAILTEMPLATE = preload("res://Scences/terminal/emailapp/email_template.tscn")
 
-var PointGainDayPointss = {
-	1: ["https://Classified", 25]
+var PointGains = {
+	1: ["https://Classified", 25],
+	2: ["SavingPrisoners", 10],
 }
 
 var DayPoints = 0
