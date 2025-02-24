@@ -38,24 +38,25 @@ func _on_game_over():
 	#HealthManager.reset_health()
 
 func MakeEmail(EmailID: int, PossibleEmails: Dictionary):
-	var Instance = EMAILTEMPLATE.instantiate()
-	var EmailName = Instance.get_child(0).get_child(0).get_child(1)
-	var EmailDate = Instance.get_child(0).get_child(0).get_child(3)
-	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
-	var Items: MenuButton = Instance.get_child(0)
-	
-	EmailName.text = PossibleEmails[EmailID][0]
-	EmailDate.text = ClockTimer.CurrentDate
-	EmailFrom.text = PossibleEmails[EmailID][1]
-	
-	Items.get_popup().add_item(PossibleEmails[EmailID][0], 0)
-	Items.get_popup().add_item("    " + PossibleEmails[EmailID][2], 1)
-	if len(PossibleEmails[EmailID]) == 5:
-		Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 2)
-		Items.get_popup().add_item("    " + PossibleEmails[EmailID][4], 3)
-	elif len(PossibleEmails[EmailID]) == 4:
-		Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 2)
+	if not EmailID in Emails:
+		var Instance = EMAILTEMPLATE.instantiate()
+		var EmailName = Instance.get_child(0).get_child(0).get_child(1)
+		var EmailDate = Instance.get_child(0).get_child(0).get_child(3)
+		var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
+		var Items: MenuButton = Instance.get_child(0)
 		
-	Emails[len(Emails) + 1] = PossibleEmails[EmailID]
-	
-	EmailBox.add_child(Instance)
+		EmailName.text = PossibleEmails[EmailID][0]
+		EmailDate.text = ClockTimer.CurrentDate
+		EmailFrom.text = PossibleEmails[EmailID][1]
+		
+		Items.get_popup().add_item(PossibleEmails[EmailID][0], 0)
+		Items.get_popup().add_item("    " + PossibleEmails[EmailID][2], 1)
+		if len(PossibleEmails[EmailID]) == 5:
+			Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 2)
+			Items.get_popup().add_item("    " + PossibleEmails[EmailID][4], 3)
+		elif len(PossibleEmails[EmailID]) == 4:
+			Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 2)
+		
+		Emails[len(Emails) + 1] = PossibleEmails[EmailID]
+		
+		EmailBox.add_child(Instance)

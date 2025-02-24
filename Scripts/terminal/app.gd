@@ -169,10 +169,6 @@ var PossibleEmails = {
 	"This is Cipher. I will be your contact from now on. You are insane for even considering doing this.",
 	"You have five days to send us as much intel as possible and disrupt Watcher logistics.",
 	"Hell if you can send some of the goods to us. Do whatever you can. Just don’t get yourself killed"],
-	3: ["Prisoner Duty","Watchers",
-	"The Oculus has round up some new prisoners. See that they are sorted properly."],
-	4: ["Prisoner Duty","Watchers",
-	"The Watchers have noticed some discrepancies in your sorting. For your sake lets ensure that this doesn’t happen with this batch."],
 	5: ["Mistake email", "Watchers", "#6512595-A"],
 	#Above Goal Emails
 	6: ["Day 1", "Cipher",
@@ -264,9 +260,7 @@ func _ready() -> void:
 	elif App == 4:
 		Emails = %Emails
 		GameManager.EmailBox = Emails
-		for I in range(1, len(PossibleEmails) + 1):
-			GameManager.Emails[I] = PossibleEmails[I]
-		for I in range(1,3):
+		for I in range(1,len(GameManager.Emails) + 1):
 			GameManager.MakeEmail(I, PossibleEmails)
 
 func _on_update_delay_timeout() -> void:
