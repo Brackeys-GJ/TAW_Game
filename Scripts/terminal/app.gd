@@ -89,18 +89,18 @@ var Surnames = [
 @onready var DOBChange: Label
 @onready var AccusationChange: Label
 var Accusations = {
-	1: ["Subversive speech", 4],
+	1: ["Subversive speech", 3],
 	2: ["Unauthorized assembly", 1],
-	3: ["Aiding foreign agents", 5],
-	4: ["Anti-Watcher sentiment", 4],
+	3: ["Aiding foreign agents", 4],
+	4: ["Anti-Watcher sentiment", 3],
 	5: ["Undermining state moral", 1],
 	6: ["Sabotage", 2],
 	7: ["Theft", 1],
 	8: ["Bribery/Corruption", 1],
-	9: ["Counterfeiting ration tickets", 4],
-	10: ["Counterfeiting papers", 5],
-	11: ["Indecent behavior", 4],
-	12: ["Disrupting public order", 4],
+	9: ["Counterfeiting ration tickets", 3],
+	10: ["Counterfeiting papers", 4],
+	11: ["Indecent behavior", 3],
+	12: ["Disrupting public order", 3],
 	13: ["Murder", 2],
 	14: ["Disobedience to orders", 2],
 	15: ["Dereliction of duty", 2],
@@ -407,6 +407,24 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		MakeFile(len(GameManager.Files) + 1, "Classified", 1, 0)
 	elif new_text == "Facility":
 		text_edit.text = text_edit.text + "\n" + "> Success"
+		text_edit.text = text_edit.text + "\n" + "> Facilities:"
+		text_edit.text = text_edit.text + "\n" + "   - ADX Florence - Work camp"
+		text_edit.text = text_edit.text + "\n" + "   - Manzanar - Liquidation Center"
+		text_edit.text = text_edit.text + "\n" + "   - USP Atlanta - Work camp"
+		text_edit.text = text_edit.text + "\n" + "   - Sing Sing - Rehabilitation center"
+		text_edit.text = text_edit.text + "\n" + "   - Camp X-Ray - Forced collaboration center"
+	elif new_text == "Crimes":
+		text_edit.text = text_edit.text + "\n" + "> Success"
+		text_edit.text = text_edit.text + "\n" + "> Crimes:"
+		text_edit.text = text_edit.text + "\n" + "> Work Camp:" + "\n" + "   - Unauthorized assembly" + "\n" + "   - Undermining state moral" + "\n" + "   - Theft" + "\n" + "   - Bribery/Corruption" + "\n" + "   - Prohibited use of resources"
+		text_edit.text = text_edit.text + "\n" + "> Liquidation:" + "\n" + "   - Sabotage" + "\n" + "   - Murder" + "\n" + "   - Disobedience to orders" + "\n" + "   - Dereliction of duty" + "\n" + "   - Desertion"
+		text_edit.text = text_edit.text + "\n" + "> Rehabilitation:" + "\n" + "   - Subversive speech" + "\n" + "   - Anti-Watcher sentiment" + "\n" + "   - Counterfeiting ration tickets" + "\n" + "   - Indecent behavior" + "\n" + "   - Disrupting public order"
+		text_edit.text = text_edit.text + "\n" + "> Forced collaboration:"  + "\n" + "   - Aiding foreign agents"  + "\n" + "   - Counterfeiting papers"  + "\n" + "   - Lack of discipline"
+	elif new_text == "Help":
+		text_edit.text = text_edit.text + "\n" + "> Success"
+		text_edit.text = text_edit.text + "\n" + "> Commands:"
+		text_edit.text = text_edit.text + "\n" + "   - Facility"
+		text_edit.text = text_edit.text + "\n" + "   - Crimes"
 	elif new_text == "Spoffy":
 		text_edit.text = text_edit.text + "\n" + "> :)"
 	elif new_text == "????":
@@ -414,6 +432,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		$"AudioFile#1".play()
 	else:
 		text_edit.text = text_edit.text + "\n" + "> ERROR"
+		text_edit.text = text_edit.text + "\n" + "> If you need a list of comnmands type 'Help'"
 	line_edit.clear()
 
 var Fullscreen = false

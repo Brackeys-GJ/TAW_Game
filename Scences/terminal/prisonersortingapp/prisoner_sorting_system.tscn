@@ -394,16 +394,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1qj8s")
-item_count = 5
+item_count = 4
 popup/item_0/text = "}: ADX Florence"
 popup/item_1/text = "}: Manzanar"
 popup/item_1/id = 1
-popup/item_2/text = "}: USP Atlanta"
+popup/item_2/text = "}: Sing Sing"
 popup/item_2/id = 2
-popup/item_3/text = "}: Sing Sing"
+popup/item_3/text = "}: Camp X-Ray"
 popup/item_3/id = 3
-popup/item_4/text = "}: Camp X-Ray"
-popup/item_4/id = 4
 
 [node name="AdultCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
 unique_name_in_owner = true
@@ -732,11 +730,11 @@ text = "}: Yes
 "
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pris_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pris_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_btn_close_pris_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_btn_close_pris_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer2/Submit" to="." method="_on_button_pressed" binds= [4]]
