@@ -70,6 +70,7 @@ offset_bottom = 171.0
 btn_text = "- Joephis (Art / Sfx)"
 
 [node name="LbGameDesign4" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 167.0
 offset_right = 294.0
@@ -77,6 +78,7 @@ offset_bottom = 197.0
 btn_text = "- MobileScarf (Music)"
 
 [node name="LbGameDesign5" parent="SplitContainer/Panel/LbGameDesign" instance=ExtResource("3_je6gy")]
+layout_mode = 0
 offset_left = 34.0
 offset_top = 194.0
 offset_right = 292.0

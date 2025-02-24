@@ -1,14 +1,183 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqxpqwliies1c"]
+[gd_scene load_steps=12 format=3 uid="uid://dqxpqwliies1c"]
 
 [ext_resource type="Texture2D" uid="uid://cmk4uqxsmqp8i" path="res://Assets/images/backgrounds/Screen_win_1.webp" id="1_8qrbp"]
+[ext_resource type="Script" path="res://Scripts/dialog/CinematicLogic.gd" id="1_nsrsa"]
+[ext_resource type="PackedScene" uid="uid://bi8vn4nb4q11x" path="res://Scences/cinematics/Credits.tscn" id="2_okpe3"]
+[ext_resource type="AudioStream" uid="uid://do1rh6y51w5tf" path="res://Assets/music/Credits.wav" id="4_fu6m1"]
+[ext_resource type="AudioStream" uid="uid://cbbt0aln222kc" path="res://Assets/music/Ending 2 Resistance Destroyed.wav" id="4_hqqi7"]
+[ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="5_0t4io"]
+[ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="6_ikr2l"]
 
-[node name="Win" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot1xf"]
+bg_color = Color(0.0392157, 0.0352941, 0.027451, 0.905882)
+
+[sub_resource type="Animation" id="Animation_rht6a"]
+resource_name = "CinematicPlay"
+length = 6.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EndingMusic:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-5.0, -5.0, -80.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CreditsMusic:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -80.0, -20.0]
+}
+
+[sub_resource type="Animation" id="Animation_qlj65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EndingMusic:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CreditsMusic:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtr8k"]
+_data = {
+"CinematicPlay": SubResource("Animation_rht6a"),
+"RESET": SubResource("Animation_qlj65")
+}
+
+[node name="Win" type="Control" node_paths=PackedStringArray("CinPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nsrsa")
+CinPlayer = NodePath("AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -19,15 +188,62 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_8qrbp")
 
-[node name="Label" type="Label" parent="."]
+[node name="Credits" parent="." instance=ExtResource("2_okpe3")]
+visible = false
+layout_mode = 1
+
+[node name="EndingMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hqqi7")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+
+[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fu6m1")
+volume_db = -80.0
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -154.0
-offset_right = 154.0
-offset_bottom = 49.0
+offset_left = -367.5
+offset_right = 367.5
+offset_bottom = 140.0
 grow_horizontal = 2
-text = "Thanks to you our misson was a success.
-Go take a break, you earned it"
-horizontal_alignment = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_ot1xf")
+text = "hgfhdfhdhd"
+script = ExtResource("5_0t4io")
+input = "Thanks to you our misson was a success. Go take a break, you earned it."
+typing_speed = 0.04
+next_scene_path = "res://Scences/cinematics/tutorial.tscn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 304.0
+grow_vertical = 0
+
+[node name="Retry" parent="HBoxContainer" instance=ExtResource("6_ikr2l")]
+layout_mode = 2
+btn_text = "Retry"
+to_scene = "res://Scences/terminal/terminal.tscn"
+
+[node name="Main Menu" parent="HBoxContainer" instance=ExtResource("6_ikr2l")]
+layout_mode = 2
+btn_text = "Main Menu"
+to_scene = "res://Scences/ui/mainMenu.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xtr8k")
+}
+
+[connection signal="gui_input" from="RichTextLabel" to="RichTextLabel" method="_on_gui_input"]

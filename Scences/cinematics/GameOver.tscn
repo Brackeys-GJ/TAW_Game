@@ -1,83 +1,350 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5wi8xg3jowhf"]
+[gd_scene load_steps=14 format=3 uid="uid://b5wi8xg3jowhf"]
 
-[ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_2h10u"]
+[ext_resource type="Script" path="res://Scripts/dialog/CinematicLogic.gd" id="1_qyw4h"]
 [ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="3_fh3ue"]
 [ext_resource type="Texture2D" uid="uid://b87p4q5sllcnu" path="res://Assets/images/backgrounds/Captured 1.png" id="3_g6n0o"]
 [ext_resource type="Texture2D" uid="uid://dmcjt1db6qma3" path="res://Assets/images/backgrounds/Captured 2.png" id="4_rxfk7"]
 [ext_resource type="Texture2D" uid="uid://gox75yc6bkwq" path="res://Assets/images/backgrounds/Captured 3.png" id="5_87j7w"]
+[ext_resource type="PackedScene" uid="uid://bi8vn4nb4q11x" path="res://Scences/cinematics/Credits.tscn" id="5_x4ps1"]
 [ext_resource type="AudioStream" uid="uid://b686m2t0cc7d5" path="res://Assets/music/Ending 1 Captured.wav" id="6_dtmb2"]
+[ext_resource type="AudioStream" uid="uid://do1rh6y51w5tf" path="res://Assets/music/Credits.wav" id="7_d6dma"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="7_ytn05"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt6i"]
 bg_color = Color(0.0392157, 0.0352941, 0.027451, 0.905882)
 
-[node name="History" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[sub_resource type="Animation" id="Animation_wq7qy"]
+resource_name = "CinematicPlay"
+length = 15.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Retry:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Main Menu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 14.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RichTextLabel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 14.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EndingMusic:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8, 17.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-20.0, -20.0, -80.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CreditsMusic:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -80.0, -20.0]
+}
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -581.0
-offset_top = -329.0
-offset_right = 587.0
-offset_bottom = 334.0
-color = Color(0, 0, 0, 1)
+[sub_resource type="Animation" id="Animation_lo46w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Retry:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Main Menu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RichTextLabel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EndingMusic:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CreditsMusic:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6kocw"]
+_data = {
+"CinematicPlay": SubResource("Animation_wq7qy"),
+"RESET": SubResource("Animation_lo46w")
+}
+
+[node name="GameOver" type="Control" node_paths=PackedStringArray("CinPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qyw4h")
+CinPlayer = NodePath("AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("2_2h10u")
-scroll_speed = 150.0
-max_y_position = 0.0
+anchor_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
-offset_left = 75.0
-offset_top = 58.0
-offset_right = 480.0
-offset_bottom = 198.0
-theme_override_styles/background = SubResource("StyleBoxFlat_7nt6i")
-text = "hgfhdfhdhd"
-script = ExtResource("3_fh3ue")
-input = "When you thought everything was under control and nothing could go wrong... They caught you. You've reach... The end of your day's as a human - Bad Ending (Got caught)"
-typing_speed = 0.04
-next_scene_path = "res://Scences/cinematics/tutorial.tscn"
-
-[node name="Captured1" type="Sprite2D" parent="."]
-position = Vector2(-278, -163)
-scale = Vector2(0.156719, 0.156719)
+[node name="Cinematic1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_g6n0o")
+expand_mode = 1
 
-[node name="Captured2" type="Sprite2D" parent="."]
-position = Vector2(236, -156)
-scale = Vector2(0.153789, 0.153789)
+[node name="Cinematic2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_rxfk7")
+expand_mode = 1
 
-[node name="Captured3" type="Sprite2D" parent="."]
-position = Vector2(-273, 152)
-scale = Vector2(0.158438, 0.158438)
+[node name="Cinematic3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_87j7w")
+expand_mode = 1
 
-[node name="SndMenuMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="Credits" parent="." instance=ExtResource("5_x4ps1")]
+visible = false
+layout_mode = 1
+
+[node name="EndingMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dtmb2")
-volume_db = -21.334
+volume_db = -20.0
 autoplay = true
 bus = &"music"
 
-[node name="BtnMenu" parent="." instance=ExtResource("7_ytn05")]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 220.0
-offset_right = 239.0
-offset_bottom = 250.0
+[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_d6dma")
+volume_db = -80.0
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -367.5
+offset_right = 367.5
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_7nt6i")
+text = "hgfhdfhdhd"
+script = ExtResource("3_fh3ue")
+input = "When you thought everything was under control and nothing could go wrong... They caught you. You've reached... The end of your time as a human - Bad Ending (Got caught)"
+typing_speed = 0.04
+next_scene_path = "res://Scences/cinematics/tutorial.tscn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Retry" parent="HBoxContainer" instance=ExtResource("7_ytn05")]
+layout_mode = 2
 btn_text = "Retry"
 to_scene = "res://Scences/terminal/terminal.tscn"
 
-[node name="BtnMenu2" parent="." instance=ExtResource("7_ytn05")]
-layout_mode = 0
-offset_left = 314.0
-offset_top = 226.0
-offset_right = 464.0
-offset_bottom = 256.0
+[node name="Main Menu" parent="HBoxContainer" instance=ExtResource("7_ytn05")]
+layout_mode = 2
 btn_text = "Main Menu"
 to_scene = "res://Scences/ui/mainMenu.tscn"
 
-[connection signal="gui_input" from="." to="Camera2D/RichTextLabel" method="_on_history_gui_input"]
-[connection signal="gui_input" from="Camera2D/RichTextLabel" to="Camera2D/RichTextLabel" method="_on_gui_input"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6kocw")
+}
+
+[connection signal="gui_input" from="RichTextLabel" to="RichTextLabel" method="_on_gui_input"]
