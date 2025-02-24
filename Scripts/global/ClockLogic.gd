@@ -63,6 +63,8 @@ var year = 2060
 var ClockLevel = ""
 var CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
 
+var CodeEmailSent = false
+
 func StartClock():
 	if Min < 10:
 		ClockLevel = str(Hour) + ":0" + str(Min)
@@ -71,11 +73,14 @@ func StartClock():
 	ClockTimer.start()
 
 func _on_timer_timeout() -> void:
-	if Min == 60:
+	if Min == 50:
 		Hour = Hour + 1
 		Min = 0
 	else:
 		Min = Min + 10
+		if randi_range(1,100) > 95 and not CodeEmailSent:
+			CodeEmailSent = true
+			GameManager.MakeEmail(5, PossibleEmails)
 	if Hour == 24:
 		day = day + 1
 		GameManager.CompletedDays = GameManager.CompletedDays + 1

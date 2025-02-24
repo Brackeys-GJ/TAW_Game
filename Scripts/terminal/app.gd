@@ -410,16 +410,15 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		text_edit.text = text_edit.text + "\n" + "> Facilities:"
 		text_edit.text = text_edit.text + "\n" + "   - ADX Florence - Work camp"
 		text_edit.text = text_edit.text + "\n" + "   - Manzanar - Liquidation Center"
-		text_edit.text = text_edit.text + "\n" + "   - USP Atlanta - Work camp"
 		text_edit.text = text_edit.text + "\n" + "   - Sing Sing - Rehabilitation center"
 		text_edit.text = text_edit.text + "\n" + "   - Camp X-Ray - Forced collaboration center"
 	elif new_text == "Crimes":
 		text_edit.text = text_edit.text + "\n" + "> Success"
 		text_edit.text = text_edit.text + "\n" + "> Crimes:"
-		text_edit.text = text_edit.text + "\n" + "> Work Camp:" + "\n" + "   - Unauthorized assembly" + "\n" + "   - Undermining state moral" + "\n" + "   - Theft" + "\n" + "   - Bribery/Corruption" + "\n" + "   - Prohibited use of resources"
-		text_edit.text = text_edit.text + "\n" + "> Liquidation:" + "\n" + "   - Sabotage" + "\n" + "   - Murder" + "\n" + "   - Disobedience to orders" + "\n" + "   - Dereliction of duty" + "\n" + "   - Desertion"
-		text_edit.text = text_edit.text + "\n" + "> Rehabilitation:" + "\n" + "   - Subversive speech" + "\n" + "   - Anti-Watcher sentiment" + "\n" + "   - Counterfeiting ration tickets" + "\n" + "   - Indecent behavior" + "\n" + "   - Disrupting public order"
-		text_edit.text = text_edit.text + "\n" + "> Forced collaboration:"  + "\n" + "   - Aiding foreign agents"  + "\n" + "   - Counterfeiting papers"  + "\n" + "   - Lack of discipline"
+		text_edit.text = text_edit.text + "\n" + "   - Work Camp:" + "\n" + "      - Unauthorized assembly" + "\n" + "      - Undermining state moral" + "\n" + "      - Theft" + "\n" + "      - Bribery/Corruption" + "\n" + "      - Prohibited use of resources"
+		text_edit.text = text_edit.text + "\n" + "   - Liquidation:" + "\n" + "      - Sabotage" + "\n" + "      - Murder" + "\n" + "      - Disobedience to orders" + "\n" + "      - Dereliction of duty" + "\n" + "      - Desertion"
+		text_edit.text = text_edit.text + "\n" + "   - Rehabilitation:" + "\n" + "      - Subversive speech" + "\n" + "      - Anti-Watcher sentiment" + "\n" + "      - Counterfeiting ration tickets" + "\n" + "      - Indecent behavior" + "\n" + "      - Disrupting public order"
+		text_edit.text = text_edit.text + "\n" + "   - Forced collaboration:"  + "\n" + "      - Aiding foreign agents"  + "\n" + "      - ounterfeiting papers"  + "\n" + "      - Lack of discipline"
 	elif new_text == "Help":
 		text_edit.text = text_edit.text + "\n" + "> Success"
 		text_edit.text = text_edit.text + "\n" + "> Commands:"
@@ -445,6 +444,7 @@ func _on_button_pressed(BtnFunc: int) -> void:
 	elif BtnFunc == 3:
 		emit_signal("close_requested")
 	elif BtnFunc == 4:
+		print(Accusations[AccusationsNum][1])
 		var Adult = false
 		if int(AgeChange.text) >= 18:
 			Adult = true
@@ -452,7 +452,7 @@ func _on_button_pressed(BtnFunc: int) -> void:
 			Adult = false
 		if FacilityDropdown.selected == Accusations[AccusationsNum][1] - 1:
 			if IDEdit.text == IDChange.text:
-				if AdultCheck == Adult:
+				if AdultCheck.button_pressed == Adult:
 					if int(PrisonTermEdit.text) <= int(FacesChange.text) / 2 and PORChange.text == "Yes":
 						GameManager.Points = GameManager.Points + GameManager.PointGains[2][1]
 						print(GameManager.Points)
