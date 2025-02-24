@@ -21,6 +21,9 @@ script/source = "extends Control
 
 @onready var snd_click: AudioStreamPlayer2D = $SndClick
 
+func _ready() -> void:
+	EyeManager.start()
+
 func _on_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		print(\"Toggled on\")

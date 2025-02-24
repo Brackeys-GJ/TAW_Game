@@ -454,8 +454,8 @@ func _on_button_pressed(BtnFunc: int) -> void:
 			if IDEdit.text == IDChange.text:
 				if AdultCheck.button_pressed == Adult:
 					if int(PrisonTermEdit.text) <= int(FacesChange.text) / 2 and PORChange.text == "Yes":
-						GameManager.Points = GameManager.Points + GameManager.PointGains[2][1]
-						print(GameManager.Points)
+						GameManager.DayPoints = GameManager.DayPoints + GameManager.PointGains[2][1]
+						print(GameManager.DayPoints)
 					ChangePrisonerInfo()
 					FacilityDropdown.select(-1)
 					PrisonTermEdit.text = "}: "
@@ -534,6 +534,6 @@ func _on_submit_pressed() -> void:
 	SendButton.modulate = Color(0.65, 0.65, 0.65)
 	if Receiver.selected == 1:
 		if Filepath.text == PointFiles[1] and GameManager.PointGains[1][0] == PointFiles[1]:
-			GameManager.Points = GameManager.Points + GameManager.PointGains[1][1]
+			GameManager.DayPoints = GameManager.DayPoints + GameManager.PointGains[1][1]
 			GameManager.PointGains.erase(1)
-			print(GameManager.Points)
+			print(GameManager.DayPoints)

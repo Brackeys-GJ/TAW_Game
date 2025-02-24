@@ -10,18 +10,24 @@ var previous_state: States
 var rng = RandomNumberGenerator.new()
 
 var _state_timer: Timer
+var _check_delay: Timer
 var health: int = 3
 var last_mouse_position: Vector2
 var last_input_time: float
 
 const MAD_DURATION = 5.0
-const INPUT_CHECK_INTERVAL = 0.5
+const INPUT_CHECK_INTERVAL = .5
 const HEALTH_PENALTY = 1
 
-func _ready():
+var Delayed = false
+
+func start():
 	rng.randomize()
 	_state_timer = Timer.new()
+	_check_delay = Timer.new()
 	add_child(_state_timer)
+	add_child(_check_delay)
+	_check_delay.wait_time = INPUT_CHECK_INTERVAL
 	_state_timer.autostart = true
 	_state_timer.timeout.connect(_update_state)
 	start_state_cycle()
@@ -89,14 +95,21 @@ func check_player_input():
 	var current_time = Time.get_ticks_msec()
 	# Check mouse movement
 	var current_mouse_pos = get_viewport().get_mouse_position()
-	if current_mouse_pos != last_mouse_position:
+	if current_mouse_pos != last_mouse_position and not Delayed:
 		apply_health_penalty()
 		last_mouse_position = current_mouse_pos
+		Delayed = true
+		_check_delay.start()
 	# Check keyboard input
-	if Input.is_anything_pressed():
+	if Input.is_anything_pressed() and not Delayed:
 		apply_health_penalty()
+		Delayed = true
+		_check_delay.start()
 	# Update last check time
 	last_input_time = current_time
+
+func _check_delay_timeout():
+	Delayed = false
 
 func apply_health_penalty():
 	HealthManager.current_health -= HEALTH_PENALTY

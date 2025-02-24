@@ -44,18 +44,18 @@ func MakeEmail(EmailID: int, PossibleEmails: Dictionary):
 	var EmailFrom = Instance.get_child(0).get_child(0).get_child(5)
 	var Items: MenuButton = Instance.get_child(0)
 	
-	EmailName.text = Emails[EmailID][0]
+	EmailName.text = PossibleEmails[EmailID][0]
 	EmailDate.text = ClockTimer.CurrentDate
-	EmailFrom.text = Emails[EmailID][1]
+	EmailFrom.text = PossibleEmails[EmailID][1]
 	
-	Items.get_popup().add_item(Emails[EmailID][0], 0)
-	Items.get_popup().add_item("    " + Emails[EmailID][2], 1)
-	if len(Emails[EmailID]) == 5:
-		Items.get_popup().add_item("    " + Emails[EmailID][3], 2)
-		Items.get_popup().add_item("    " + Emails[EmailID][4], 3)
-	elif len(Emails[EmailID]) == 4:
-		Items.get_popup().add_item("    " + Emails[EmailID][3], 2)
+	Items.get_popup().add_item(PossibleEmails[EmailID][0], 0)
+	Items.get_popup().add_item("    " + PossibleEmails[EmailID][2], 1)
+	if len(PossibleEmails[EmailID]) == 5:
+		Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 2)
+		Items.get_popup().add_item("    " + PossibleEmails[EmailID][4], 3)
+	elif len(PossibleEmails[EmailID]) == 4:
+		Items.get_popup().add_item("    " + PossibleEmails[EmailID][3], 2)
 		
-	Emails[EmailID] = PossibleEmails[EmailID]
+	Emails[len(Emails) + 1] = PossibleEmails[EmailID]
 	
 	EmailBox.add_child(Instance)

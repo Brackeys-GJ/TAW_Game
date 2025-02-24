@@ -214,7 +214,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer3" to="." method="_on_h_box_container_3_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_email_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_btn_close_email_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnMinEmail" to="." method="_on_btn_min_email_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/BtnCloseEmail" to="." method="_on_btn_close_email_pressed"]
