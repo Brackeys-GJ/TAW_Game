@@ -212,18 +212,14 @@ func _ready() -> void:
 	elif App == 4:
 		Emails = %Emails
 		GameManager.EmailBox = Emails
-		if len(GameManager.CurrentEmails) == 0:
-			for I in range(1,3):
-				GameManager.MakeEmail(I)
-		else:
-			for I in range(1, len(GameManager.CurrentEmails) + 1):
-				GameManager.MakeEmail(I)
+		GameManager.EmailsNeedAdded.append(1)
+		GameManager.EmailsNeedAdded.append(2)
 
 func _on_update_delay_timeout() -> void:
 	for I in range(1, len(GameManager.FilesNeedAdded)+1):
 		AddFiles(GameManager.FilesNeedAdded[0])
 	for I in range(1, len(GameManager.EmailsNeedAdded) + 1):
-			GameManager.MakeEmail(I)
+			GameManager.MakeEmail(GameManager.EmailsNeedAdded[-1])
 
 func MakeFile(Filepath: int, FileName: String, Filetype: int, Folder: int):
 		#Getting File Instance

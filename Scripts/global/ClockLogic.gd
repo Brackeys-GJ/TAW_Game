@@ -53,8 +53,8 @@ var PossibleEmails = {
 	"They were always Watching…"],
 	}
 
-var Hour = 9
-var Min = 0
+var Hour = 23
+var Min = 40
 
 var month = 4
 var day = 5
@@ -114,6 +114,9 @@ func _on_timer_timeout() -> void:
 	if GameManager.CompletedDays == 5:
 		if GameManager.SuccusfulDays >= 3:
 			get_tree().change_scene_to_file("res://Scences/cinematics/win.tscn")
+			ClockTimer.stop()
 		else:
 			get_tree().change_scene_to_file("res://Scences/cinematics/GameOver.tscn")
-	StartClock()
+			ClockTimer.stop()
+	else:
+		StartClock()

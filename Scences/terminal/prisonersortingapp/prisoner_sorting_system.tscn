@@ -373,12 +373,56 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Facility"
 vertical_alignment = 1
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "ⓘ"
+switch_on_hover = true
+item_count = 5
+popup/item_0/text = "Enter which Facility the Prisoner needs to go to."
+popup/item_1/text = "   You can find this out by looking at their Accusation"
+popup/item_1/id = 1
+popup/item_2/text = "   and linking that to the crime and then the crime"
+popup/item_2/id = 2
+popup/item_3/text = "   to the Facility. You do this with the Facility/Crimes"
+popup/item_3/id = 3
+popup/item_4/text = "   Commands in the Command Prompt"
+popup/item_4/id = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="MenuButton2" type="MenuButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer4"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "ⓘ"
+switch_on_hover = true
+item_count = 4
+popup/item_0/text = "Select if the Prisoner is a Adult or a Juvenile"
+popup/item_1/text = "   You can find this out by looking at their age."
+popup/item_1/id = 1
+popup/item_2/text = "   Anything below 18 is a Juvenile. While anything"
+popup/item_2/id = 2
+popup/item_3/text = "   else is an Adult."
+popup/item_3/id = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
@@ -432,10 +476,9 @@ text = "Juvie"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
-custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -443,14 +486,48 @@ text = "Prison Term
 "
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
-custom_minimum_size = Vector2(80, 0)
+[node name="MenuButton2" type="MenuButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "ⓘ"
+switch_on_hover = true
+item_count = 5
+popup/item_0/text = "Enter how long the Prisoner will be staying."
+popup/item_1/text = "   You can find this out by looking at the Term."
+popup/item_1/id = 1
+popup/item_2/text = "   Be sure to look at the Resistance as well"
+popup/item_2/id = 2
+popup/item_3/text = "   because if they're part of it you may want"
+popup/item_3/id = 3
+popup/item_4/text = "   to lower their time."
+popup/item_4/id = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "ID
 "
 vertical_alignment = 1
+
+[node name="MenuButton3" type="MenuButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "ⓘ"
+alignment = 0
+switch_on_hover = true
+item_count = 2
+popup/item_0/text = "Enter the Prisoners ID number."
+popup/item_1/text = "   You can find this out by looking at the ID."
+popup/item_1/id = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
@@ -698,7 +775,7 @@ custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Faces"
+text = "Term"
 
 [node name="FacesChange" type="Label" parent="VBoxContainer/VBoxContainer/UnchangableInfo2/Faces"]
 unique_name_in_owner = true
@@ -730,11 +807,11 @@ text = "}: Yes
 "
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pris_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pris_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_btn_close_pris_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClosePris" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer2/Submit" to="." method="_on_button_pressed" binds= [4]]

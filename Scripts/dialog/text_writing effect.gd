@@ -28,7 +28,7 @@ func start_typing():
 		current_word_index += 1
 		return
 	
-	var tagged_word = "[shake rate=8.5 level=10 connected=1]%s[/shake]" % current_word
+	var tagged_word = "[shake rate=8.5 level=10 connected=1]%s[/shake]]" % current_word
 	
 	if current_word_index > 0:
 		append_text(" ")
