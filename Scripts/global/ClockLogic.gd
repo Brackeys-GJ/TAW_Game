@@ -80,34 +80,34 @@ func _on_timer_timeout() -> void:
 		Min = Min + 10
 		if randi_range(1,100) > 95 and not CodeEmailSent:
 			CodeEmailSent = true
-			GameManager.MakeEmail(5, PossibleEmails)
+			GameManager.EmailsNeedAdded.append(3)
 	if Hour == 24:
 		day = day + 1
 		GameManager.CompletedDays = GameManager.CompletedDays + 1
 		if GameManager.DayPoints >= 30:
 			GameManager.SuccusfulDays = GameManager.SuccusfulDays + 1
 			if GameManager.SuccusfulDays == 1:
-				GameManager.MakeEmail(6, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(4)
 			elif GameManager.SuccusfulDays == 2:
-				GameManager.MakeEmail(7, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(5)
 			elif GameManager.SuccusfulDays == 3:
-				GameManager.MakeEmail(8, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(6)
 			elif GameManager.SuccusfulDays == 4:
-				GameManager.MakeEmail(9, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(7)
 			elif GameManager.SuccusfulDays == 5:
-				GameManager.MakeEmail(10, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(8)
 		elif GameManager.DayPoints < 30:
 			GameManager.FailedDays = GameManager.FailedDays + 1
 			if GameManager.FailedDays == 1:
-				GameManager.MakeEmail(6, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(9)
 			elif GameManager.FailedDays == 2:
-				GameManager.MakeEmail(7, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(10)
 			elif GameManager.FailedDays == 3:
-				GameManager.MakeEmail(8, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(11)
 			elif GameManager.FailedDays == 4:
-				GameManager.MakeEmail(9, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(12)
 			elif GameManager.FailedDays == 5:
-				GameManager.MakeEmail(10, PossibleEmails)
+				GameManager.EmailsNeedAdded.append(13)
 		CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
 		Min = 0
 		Hour = 1

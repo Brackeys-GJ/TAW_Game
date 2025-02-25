@@ -628,11 +628,8 @@ text = "SUBMIT"
 [node name="ColorRect2" type="ColorRect" parent="PopUpMenu/HBoxContainer"]
 layout_mode = 2
 
-[node name="UpdateDelay" type="Timer" parent="."]
-
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnMin" to="." method="_on_btn_min_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnClose" to="." method="_on_btn_close_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/SendButton" to="." method="_on_send_button_pressed"]
 [connection signal="pressed" from="PopUpMenu/HBoxContainer/VBoxContainer/VBoxContainer2/Submit" to="." method="_on_submit_pressed"]
-[connection signal="timeout" from="UpdateDelay" to="." method="_on_update_delay_timeout"]

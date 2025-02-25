@@ -40,13 +40,24 @@ color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "The eye will have 3 states, you can send files to humans when it's closed (1), but if it's mad (3)
-you will stay still, if it catches you, and his patience it's all done, you die,
-if on stage 2, you should do your work but not any human related."
+text = "The eye will have 3 states:
+1) Closed
+2) Open
+3) Mad
+If the eye is in state 1 or 2 you will be able to do your job as normal, 
+though if in state 2 it’d be best to watch the eye as it may soon change to state 3.
+If on state 3 be sure to NOT do anything as it will damage you. If you reach 0 HP then you will die and lose.
+
+You aim to avoid being caught by the eye and help the resistance. 
+You can do this by making the prison term of prisoners shorter 
+and by sending files to them. Each day you will be informed if you succeeded or failed via email. 
+You have five days good luck
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 size_flags_vertical = 6
 color = Color(1, 1, 1, 0)
@@ -54,50 +65,77 @@ color = Color(1, 1, 1, 0)
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Blink002" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+[node name="Blink002" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_lnv5t")
 expand_mode = 1
 
-[node name="GazeLoop0002" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GazeLoop0002" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_k6nkr")
 expand_mode = 1
 
-[node name="Eye" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Eye" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer3"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_65a0p")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Click to Continue"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
