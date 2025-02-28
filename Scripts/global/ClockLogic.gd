@@ -53,8 +53,8 @@ var PossibleEmails = {
 	"They were always Watching…"],
 	}
 
-var Hour = 23
-var Min = 40
+var Hour = 9
+var Min = 0
 
 var month = 4
 var day = 5
@@ -66,6 +66,11 @@ var CurrentDate = str(month) + "/" + str(day) + "/" + str(year)
 var CodeEmailSent = false
 
 func StartClock():
+	Hour = 9
+	Min = 0
+	month = 4
+	day = 5
+	year = 2060
 	if Min < 10:
 		ClockLevel = str(Hour) + ":0" + str(Min)
 	else:
