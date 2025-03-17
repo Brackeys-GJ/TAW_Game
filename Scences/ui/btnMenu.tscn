@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://crhbyl47lm06"]
 
-[ext_resource type="Script" path="res://Scripts/ui/BtnLogic.gd" id="1_b54ys"]
+[ext_resource type="Script" uid="uid://gfsxg36hd3j0" path="res://Scripts/ui/BtnLogic.gd" id="1_b54ys"]
 [ext_resource type="AudioStream" uid="uid://b6nnvgasf4ao" path="res://Assets/sfx/os/mouse_click.wav" id="2_ydv8g"]
 
 [sub_resource type="Curve" id="Curve_esc37"]

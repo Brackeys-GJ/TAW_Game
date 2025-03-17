@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dr8ft8t5e34hc"]
 
-[ext_resource type="Script" path="res://Scripts/terminal/label_life.gd" id="2_1r177"]
+[ext_resource type="Script" uid="uid://ba2mhlu3rnnkr" path="res://Scripts/terminal/label_life.gd" id="2_1r177"]
 [ext_resource type="PackedScene" uid="uid://822k37mdjjuh" path="res://Scences/terminal/terminal_ui.tscn" id="4_pvwub"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_h73sb"]

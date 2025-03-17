@@ -7,6 +7,7 @@ var open_windows = []
 signal open_windows_updated
 
 func _ready() -> void:
+	ClockTimer.StartClock()
 	for child in get_children():
 		if child is Node2D and child.has_signal("app_double_clicked"):
 			child.app_double_clicked.connect(_on_app_double_clicked)

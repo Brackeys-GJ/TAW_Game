@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://gs6m1287pssm"]
 
-[ext_resource type="Script" path="res://Scripts/ui/menuControl.gd" id="1_mingl"]
+[ext_resource type="Script" uid="uid://qmyysfex582c" path="res://Scripts/ui/menuControl.gd" id="1_mingl"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="1_wr43e"]
 
 [node name="VBoxContainer" type="VBoxContainer"]

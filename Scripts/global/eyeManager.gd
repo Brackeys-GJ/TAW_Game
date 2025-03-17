@@ -10,7 +10,6 @@ var previous_state: States
 var rng = RandomNumberGenerator.new()
 
 var _state_timer: Timer
-var _check_delay: Timer
 var health: int = 3
 var last_mouse_position: Vector2
 var last_input_time: float
@@ -93,7 +92,6 @@ func check_player_input():
 	if current_mouse_pos != last_mouse_position:
 		apply_health_penalty()
 		last_mouse_position = current_mouse_pos
-		_check_delay.start()
 	# Check keyboard input
 	if Input.is_anything_pressed():
 		apply_health_penalty()

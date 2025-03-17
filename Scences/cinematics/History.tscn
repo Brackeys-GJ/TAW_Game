@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bch5khlg21h5s"]
 
 [ext_resource type="Texture2D" uid="uid://mbfbh6kqkdq5" path="res://Assets/images/backgrounds/invasion.jpg" id="1_wun3r"]
-[ext_resource type="Script" path="res://Scripts/dialog/move_camera.gd" id="2_6s0aa"]
-[ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="2_yik8y"]
+[ext_resource type="Script" uid="uid://cb17y0kbdxxw3" path="res://Scripts/dialog/move_camera.gd" id="2_6s0aa"]
+[ext_resource type="Script" uid="uid://dx4nmu3bo2lpv" path="res://Scripts/dialog/text_writing effect.gd" id="2_yik8y"]
 [ext_resource type="AudioStream" uid="uid://b686m2t0cc7d5" path="res://Assets/music/Ending 1 Captured.wav" id="4_eu3m0"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="4_si1ai"]
 

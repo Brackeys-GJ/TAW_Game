@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://3ukbw0mrh3o0"]
 
-[ext_resource type="Script" path="res://Scripts/terminal/app.gd" id="1_8ydbw"]
+[ext_resource type="Script" uid="uid://b61yfq38c4fgc" path="res://Scripts/terminal/app.gd" id="1_8ydbw"]
 [ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/icons/Prisoner_App.webp" id="2_856dp"]
 [ext_resource type="Texture2D" uid="uid://b8noi2je5vwqv" path="res://Assets/images/prisoners/Picture Background.png" id="2_mf8lc"]
 [ext_resource type="Texture2D" uid="uid://ci1cuj8gl1udo" path="res://Assets/images/prisoners/Face Parts/Picture Body.png" id="3_pggdi"]

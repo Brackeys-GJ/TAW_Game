@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf711ppkcpicc"]
 
-[ext_resource type="Script" path="res://Scripts/ui/mainSettings.gd" id="1_0p1k5"]
+[ext_resource type="Script" uid="uid://cwuj8c7gn26n3" path="res://Scripts/ui/mainSettings.gd" id="1_0p1k5"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="2_wj17a"]
-[ext_resource type="Script" path="res://Scripts/ui/sndLogic.gd" id="3_5doip"]
+[ext_resource type="Script" uid="uid://dldb3rhjn6lum" path="res://Scripts/ui/sndLogic.gd" id="3_5doip"]
 [ext_resource type="AudioStream" uid="uid://druxclw4seqoc" path="res://Assets/sfx/ph_hover.wav" id="4_iuygn"]
 
 [node name="VBoxContainer" type="HBoxContainer"]

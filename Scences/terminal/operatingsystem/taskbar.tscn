@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ca3aw8fjwri11"]
 
-[ext_resource type="Script" path="res://Scripts/terminal/taskbar.gd" id="1_rawuu"]
+[ext_resource type="Script" uid="uid://bk22eyyjcgjsc" path="res://Scripts/terminal/taskbar.gd" id="1_rawuu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsnyn"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch8oyn4ytqi5h"]
 
-[ext_resource type="Script" path="res://Scripts/ui/mainSettings.gd" id="1_lofvl"]
+[ext_resource type="Script" uid="uid://cwuj8c7gn26n3" path="res://Scripts/ui/mainSettings.gd" id="1_lofvl"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="3_je6gy"]
 [ext_resource type="AudioStream" uid="uid://druxclw4seqoc" path="res://Assets/sfx/ph_hover.wav" id="4_eg1td"]
 

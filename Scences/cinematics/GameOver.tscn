@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b5wi8xg3jowhf"]
 
-[ext_resource type="Script" path="res://Scripts/dialog/CinematicLogic.gd" id="1_qyw4h"]
-[ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="3_fh3ue"]
+[ext_resource type="Script" uid="uid://csig4ftsi0v23" path="res://Scripts/dialog/CinematicLogic.gd" id="1_qyw4h"]
+[ext_resource type="Script" uid="uid://dx4nmu3bo2lpv" path="res://Scripts/dialog/text_writing effect.gd" id="3_fh3ue"]
 [ext_resource type="Texture2D" uid="uid://b87p4q5sllcnu" path="res://Assets/images/backgrounds/Captured 1.png" id="3_g6n0o"]
 [ext_resource type="Texture2D" uid="uid://dmcjt1db6qma3" path="res://Assets/images/backgrounds/Captured 2.png" id="4_rxfk7"]
 [ext_resource type="Texture2D" uid="uid://gox75yc6bkwq" path="res://Assets/images/backgrounds/Captured 3.png" id="5_87j7w"]
@@ -239,8 +239,8 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6kocw"]
 _data = {
-"CinematicPlay": SubResource("Animation_wq7qy"),
-"RESET": SubResource("Animation_lo46w")
+&"CinematicPlay": SubResource("Animation_wq7qy"),
+&"RESET": SubResource("Animation_lo46w")
 }
 
 [node name="GameOver" type="Control" node_paths=PackedStringArray("CinPlayer")]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://dqxpqwliies1c"]
 
 [ext_resource type="Texture2D" uid="uid://cmk4uqxsmqp8i" path="res://Assets/images/backgrounds/Screen_win_1.webp" id="1_8qrbp"]
-[ext_resource type="Script" path="res://Scripts/dialog/CinematicLogic.gd" id="1_nsrsa"]
+[ext_resource type="Script" uid="uid://csig4ftsi0v23" path="res://Scripts/dialog/CinematicLogic.gd" id="1_nsrsa"]
 [ext_resource type="PackedScene" uid="uid://bi8vn4nb4q11x" path="res://Scences/cinematics/Credits.tscn" id="2_okpe3"]
 [ext_resource type="AudioStream" uid="uid://do1rh6y51w5tf" path="res://Assets/music/Credits.wav" id="4_fu6m1"]
 [ext_resource type="AudioStream" uid="uid://cbbt0aln222kc" path="res://Assets/music/Ending 2 Resistance Destroyed.wav" id="4_hqqi7"]
-[ext_resource type="Script" path="res://Scripts/dialog/text_writing effect.gd" id="5_0t4io"]
+[ext_resource type="Script" uid="uid://dx4nmu3bo2lpv" path="res://Scripts/dialog/text_writing effect.gd" id="5_0t4io"]
 [ext_resource type="PackedScene" uid="uid://crhbyl47lm06" path="res://Scences/ui/btnMenu.tscn" id="6_ikr2l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot1xf"]
@@ -165,8 +165,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xtr8k"]
 _data = {
-"CinematicPlay": SubResource("Animation_rht6a"),
-"RESET": SubResource("Animation_qlj65")
+&"CinematicPlay": SubResource("Animation_rht6a"),
+&"RESET": SubResource("Animation_qlj65")
 }
 
 [node name="Win" type="Control" node_paths=PackedStringArray("CinPlayer")]

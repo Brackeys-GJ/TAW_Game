@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1dsodwr7s688" path="res://Assets/images/terminal/Pin Board.PNG" id="6_q5mhk"]
 [ext_resource type="Texture2D" uid="uid://bbmppenmy5ws0" path="res://Assets/images/terminal/Knobs Panel.PNG" id="7_k4q42"]
 [ext_resource type="Texture2D" uid="uid://kpfhm7w0h8rk" path="res://Assets/images/terminal/Keyboard.PNG" id="8_yxidh"]
-[ext_resource type="VideoStream" path="res://Assets/images/terminal/alb_tvn0411_1080p.ogv" id="9_itpl4"]
+[ext_resource type="VideoStream" uid="uid://xy7ju08644av" path="res://Assets/images/terminal/alb_tvn0411_1080p.ogv" id="9_itpl4"]
 [ext_resource type="AudioStream" uid="uid://n1adtd8rilhp" path="res://Assets/sfx/terminal/switch_off.wav" id="11_lb172"]
 [ext_resource type="AudioStream" uid="uid://bpnm013ujvgmm" path="res://Assets/sfx/terminal/switch_on.wav" id="12_7bkut"]
 [ext_resource type="Texture2D" uid="uid://c1unsts1g83il" path="res://Assets/images/eye/Water_Filter.png" id="15_x4lhm"]
@@ -59,8 +59,8 @@ length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jhycb"]
 _data = {
-"EyeFloating": SubResource("Animation_ib28q"),
-"RESET": SubResource("Animation_wof6q")
+&"EyeFloating": SubResource("Animation_ib28q"),
+&"RESET": SubResource("Animation_wof6q")
 }
 
 [node name="TerminalUI" type="Control"]

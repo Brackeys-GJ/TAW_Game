@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1pejeqmqqwri"]
 
-[ext_resource type="Script" path="res://Scripts/dialog/nextscene.gd" id="1_6dnky"]
+[ext_resource type="Script" uid="uid://c8ousat7nah4b" path="res://Scripts/dialog/nextscene.gd" id="1_6dnky"]
 [ext_resource type="Texture2D" uid="uid://b7p3p4eugo4cl" path="res://Assets/images/eye/gaze_loop_0002.png" id="2_k6nkr"]
 [ext_resource type="Texture2D" uid="uid://cxmk8x1xhl4oe" path="res://Assets/images/eye/blink_002.png" id="3_lnv5t"]
 [ext_resource type="Texture2D" uid="uid://bfffe80fl4m3t" path="res://Assets/images/eye/blink_000.png" id="4_65a0p"]

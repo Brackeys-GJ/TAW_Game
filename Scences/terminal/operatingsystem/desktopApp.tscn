@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://r5iujlj2lgob"]
 
-[ext_resource type="Script" path="res://Scripts/desktopApp.gd" id="1_tjhhh"]
+[ext_resource type="Script" uid="uid://ckj3q2swlqh6l" path="res://Scripts/desktopApp.gd" id="1_tjhhh"]
 [ext_resource type="Texture2D" uid="uid://ddjvrtr6ual7p" path="res://Assets/images/icons/Prisoner_App.webp" id="2_gwk53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmwgq"]
