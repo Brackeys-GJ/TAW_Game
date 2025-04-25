@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
 [ext_resource type="Texture2D" uid="uid://bddvto7n7xe8m" path="res://Assets/images/terminal/Sliders.PNG" id="4_rbbrg"]
 [ext_resource type="Texture2D" uid="uid://gnaf7gouxk0y" path="res://Assets/images/terminal/Screen.PNG" id="5_7b3cr"]
+[ext_resource type="Texture2D" uid="uid://dhmhcjvf8xa33" path="res://Assets/images/terminal/SwitchOff_2.png" id="5_rdpu7"]
+[ext_resource type="Texture2D" uid="uid://bnlvgplnpqo7n" path="res://Assets/images/terminal/SwitchOn_2.png" id="6_0xd85"]
 [ext_resource type="Texture2D" uid="uid://c1dsodwr7s688" path="res://Assets/images/terminal/Pin Board.PNG" id="6_q5mhk"]
 [ext_resource type="Texture2D" uid="uid://bbmppenmy5ws0" path="res://Assets/images/terminal/Knobs Panel.PNG" id="7_k4q42"]
 [ext_resource type="Texture2D" uid="uid://kpfhm7w0h8rk" path="res://Assets/images/terminal/Keyboard.PNG" id="8_yxidh"]
@@ -44,12 +46,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sikb7"]
 size = Vector2(299, 248)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ejcbb"]
-load_path = "res://.godot/imported/SwitchOff_2.png-b1fbbc0449b9cc54638211f864d71e0f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_son3u"]
-load_path = "res://.godot/imported/SwitchOn_2.png-e96a1b790e7c1234002e7766dc83b686.ctex"
 
 [sub_resource type="Animation" id="Animation_ib28q"]
 resource_name = "EyeFloating"
@@ -168,47 +164,42 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Switch1" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Switch1" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = SubResource("CompressedTexture2D_ejcbb")
-texture_pressed = SubResource("CompressedTexture2D_son3u")
+texture_normal = ExtResource("5_rdpu7")
+texture_pressed = ExtResource("6_0xd85")
 
-[node name="Switch2" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Switch2" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = SubResource("CompressedTexture2D_ejcbb")
-texture_pressed = SubResource("CompressedTexture2D_son3u")
+texture_normal = ExtResource("5_rdpu7")
+texture_pressed = ExtResource("6_0xd85")
 
-[node name="Switch3" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Switch3" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = SubResource("CompressedTexture2D_ejcbb")
-texture_pressed = SubResource("CompressedTexture2D_son3u")
+texture_normal = ExtResource("5_rdpu7")
+texture_pressed = ExtResource("6_0xd85")
 
-[node name="Switch4" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Switch4" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = SubResource("CompressedTexture2D_ejcbb")
-texture_pressed = SubResource("CompressedTexture2D_son3u")
+texture_normal = ExtResource("5_rdpu7")
+texture_pressed = ExtResource("6_0xd85")
 
-[node name="Switch5" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Switch5" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = SubResource("CompressedTexture2D_ejcbb")
-texture_pressed = SubResource("CompressedTexture2D_son3u")
+texture_normal = ExtResource("5_rdpu7")
+texture_pressed = ExtResource("6_0xd85")
 
 [node name="Keyboard" type="TextureRect" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -226,7 +217,7 @@ stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jhycb")
+&"": SubResource("AnimationLibrary_jhycb")
 }
 
 [node name="SfxSwitchOff" type="AudioStreamPlayer2D" parent="."]
@@ -305,6 +296,8 @@ stretch_mode = 3
 [node name="Eye" parent="TextureRect/HBoxContainer/WaterTank/MarginContainer" instance=ExtResource("16_35bgt")]
 position = Vector2(1.00001, -3.00002)
 scale = Vector2(0.451667, 0.451667)
+frame = 2
+frame_progress = 0.291644
 
 [node name="SndClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_1cryn")
@@ -323,9 +316,9 @@ autoplay = true
 bus = &"music"
 
 [connection signal="input_event" from="VBoxContainer/HBoxContainer/Screen/areaScreen" to="." method="_on_area_2d_input_event"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch1" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch2" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch3" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch4" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Switch5" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch1" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch2" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch3" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch4" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch5" to="." method="_on_button_toggled"]
 [connection signal="ready" from="TextureRect" to="." method="_on_texture_rect_ready"]

@@ -30,7 +30,7 @@ func _on_state_changed(new_state):
 			play("open")
 		EyeManager.States.MAD:
 			play("mad")
-			modulate = Color(1, 0.2, 0.2)
+			#modulate = Color(1, 0.2, 0.2)
 
 func _on_blink_requested():
 	play("blink")
