@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr8ft8t5e34hc"]
+[gd_scene load_steps=3 format=3 uid="uid://dr8ft8t5e34hc"]
 
 [ext_resource type="Script" uid="uid://ba2mhlu3rnnkr" path="res://Scripts/terminal/label_life.gd" id="2_1r177"]
 [ext_resource type="PackedScene" uid="uid://822k37mdjjuh" path="res://Scences/terminal/terminal_ui.tscn" id="4_pvwub"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_h73sb"]
-allow_unpress = true
 
 [node name="Terminal" type="Node2D"]
 
@@ -12,21 +9,6 @@ allow_unpress = true
 layer = -1
 
 [node name="TerminalUI" parent="CanvasLayer" instance=ExtResource("4_pvwub")]
-
-[node name="Switch1" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="0"]
-button_group = SubResource("ButtonGroup_h73sb")
-
-[node name="Switch2" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="1"]
-button_group = SubResource("ButtonGroup_h73sb")
-
-[node name="Switch3" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="2"]
-button_group = SubResource("ButtonGroup_h73sb")
-
-[node name="Switch4" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="3"]
-button_group = SubResource("ButtonGroup_h73sb")
-
-[node name="Switch5" parent="CanvasLayer/TerminalUI/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" index="4"]
-button_group = SubResource("ButtonGroup_h73sb")
 
 [node name="WaterFilter" parent="CanvasLayer/TerminalUI/TextureRect/HBoxContainer/WaterTank/MarginContainer" index="0"]
 self_modulate = Color(1, 1, 1, 0.556863)

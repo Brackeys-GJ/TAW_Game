@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://822k37mdjjuh"]
+[gd_scene load_steps=22 format=3 uid="uid://822k37mdjjuh"]
 
 [ext_resource type="Texture2D" uid="uid://urrydl7d5hb5" path="res://Assets/images/terminal/Table.PNG" id="2_fo5ya"]
 [ext_resource type="Texture2D" uid="uid://bddvto7n7xe8m" path="res://Assets/images/terminal/Sliders.PNG" id="4_rbbrg"]
@@ -26,26 +26,27 @@ script/source = "extends Control
 func _ready() -> void:
 	EyeManager.start()
 
-func _on_button_toggled(toggled_on: bool) -> void:
+var buttons_on = {
+	1: false,
+	2: false,
+	3: false,
+	4: false,
+	5: false}
+
+func _on_button_toggled(toggled_on: bool, button_num: int) -> void:
 	if toggled_on:
+		buttons_on[button_num] = true
 		print(\"Toggled on\")
+		print(buttons_on)
 		$SfxSwitchOn.play()
+		if buttons_on[1] and buttons_on[2] and buttons_on[3] and buttons_on[4] and buttons_on[5]:
+			get_tree().change_scene_to_file(\"res://Scences/terminal/operatingsystem/operatingsystem.tscn\")
 	else:
+		buttons_on[button_num] = false
 		print(\"Toggled off\")
+		print(buttons_on)
 		$SfxSwitchOff.play()
-
-
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			# Open desktop
-			if event.pressed:
-				snd_click.play()
-				get_tree().change_scene_to_file(\"res://Scences/terminal/operatingsystem/operatingsystem.tscn\")
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sikb7"]
-size = Vector2(299, 248)
 
 [sub_resource type="Animation" id="Animation_ib28q"]
 resource_name = "EyeFloating"
@@ -126,13 +127,6 @@ stream = ExtResource("9_itpl4")
 autoplay = true
 expand = true
 loop = true
-
-[node name="areaScreen" type="Area2D" parent="VBoxContainer/HBoxContainer/Screen"]
-position = Vector2(-253, -60)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/HBoxContainer/Screen/areaScreen"]
-position = Vector2(440.5, 208)
-shape = SubResource("RectangleShape2D_sikb7")
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(15, 300)
@@ -315,10 +309,9 @@ volume_db = -15.0
 autoplay = true
 bus = &"music"
 
-[connection signal="input_event" from="VBoxContainer/HBoxContainer/Screen/areaScreen" to="." method="_on_area_2d_input_event"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch1" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch2" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch3" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch4" to="." method="_on_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch5" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch1" to="." method="_on_button_toggled" binds= [1]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch2" to="." method="_on_button_toggled" binds= [2]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch3" to="." method="_on_button_toggled" binds= [3]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch4" to="." method="_on_button_toggled" binds= [4]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Switch5" to="." method="_on_button_toggled" binds= [5]]
 [connection signal="ready" from="TextureRect" to="." method="_on_texture_rect_ready"]
