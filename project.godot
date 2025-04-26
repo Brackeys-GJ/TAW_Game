@@ -26,6 +26,15 @@ HealthManager="*res://Scripts/global/health_manager.gd"
 
 project/assembly_name="Brackeys GJ Game"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Scences/": "red",
+"res://Scripts/": "blue",
+"res://Shaders/": "yellow"
+}
+
 [input]
 
 move_left={
