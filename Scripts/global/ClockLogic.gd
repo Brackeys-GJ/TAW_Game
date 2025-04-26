@@ -1,5 +1,7 @@
 extends Node
 
+var DailyRequiredPoints = 15
+
 var PossibleEmails = {
 	#FORMAT: Key: ["Name","Sender","Body1","Body2","Body3"]
 	1: ["Welcome to Burea-a-Corp!", "Watchers",
@@ -77,14 +79,14 @@ func _on_timer_timeout() -> void:
 		Hour = Hour + 1
 		Min = 0
 	else:
-		Min = Min + 10
-		if randi_range(1,100) > 95 and not CodeEmailSent:
+		Min = Min + 5
+		if randi_range(1, 100) > 95 and not CodeEmailSent:
 			CodeEmailSent = true
 			GameManager.EmailsNeedAdded.append(3)
 	if Hour == 24:
 		day = day + 1
 		GameManager.CompletedDays = GameManager.CompletedDays + 1
-		if GameManager.DayPoints >= 30:
+		if GameManager.DayPoints >= DailyRequiredPoints:
 			GameManager.SuccusfulDays = GameManager.SuccusfulDays + 1
 			if GameManager.SuccusfulDays == 1:
 				GameManager.EmailsNeedAdded.append(4)
@@ -96,7 +98,7 @@ func _on_timer_timeout() -> void:
 				GameManager.EmailsNeedAdded.append(7)
 			elif GameManager.SuccusfulDays == 5:
 				GameManager.EmailsNeedAdded.append(8)
-		elif GameManager.DayPoints < 30:
+		elif GameManager.DayPoints < DailyRequiredPoints:
 			GameManager.FailedDays = GameManager.FailedDays + 1
 			if GameManager.FailedDays == 1:
 				GameManager.EmailsNeedAdded.append(9)
