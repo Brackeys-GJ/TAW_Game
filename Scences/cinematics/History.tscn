@@ -38,7 +38,7 @@ texture = ExtResource("1_wun3r")
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("Text")]
 anchor_mode = 0
 script = ExtResource("2_6s0aa")
-scroll_speed = 50.0
+scroll_speed = 75.0
 max_y_position = 650.0
 Text = NodePath("../Control")
 

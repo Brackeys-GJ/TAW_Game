@@ -401,7 +401,7 @@ popup/item_1/text = "   You can find this out by looking at their Accusation"
 popup/item_1/id = 1
 popup/item_2/text = "   and linking that to the crime and then the crime"
 popup/item_2/id = 2
-popup/item_3/text = "   to the Facility. You do this with the Facility/Crimes"
+popup/item_3/text = "   to the Facility. You do this with the Facility or Crimes"
 popup/item_3/id = 3
 popup/item_4/text = "   Commands in the Command Prompt"
 popup/item_4/id = 4
@@ -810,11 +810,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_esh1u")
 text = "}: Yes"
 
 [connection signal="gui_input" from="VBoxContainer3/HBoxContainer" to="." method="_on_h_box_container_gui_input"]
-[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnMinPris" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pressed"]
 [connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pris_pressed"]
+[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnMinPris" to="." method="_on_btn_min_pressed"]
+[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnMinPris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/HBoxContainer/Button2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnClosePris" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnClosePris" to="." method="_on_btn_close_pris_pressed"]
 [connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnClosePris" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnClosePris" to="." method="_on_btn_close_pris_pressed"]
+[connection signal="pressed" from="VBoxContainer3/HBoxContainer/BtnClosePris" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/HBoxContainer2/VBoxContainer2/Submit" to="." method="_on_button_pressed" binds= [4]]

@@ -103,8 +103,7 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/Panel/HBoxContainer/Panel/HBoxContainer"]
 layout_mode = 2
-text = "Command Prompt
-"
+text = "Command Prompt"
 vertical_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Panel/HBoxContainer"]
